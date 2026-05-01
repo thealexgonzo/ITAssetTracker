@@ -2,7 +2,7 @@ using ITAssetTracker.MVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace ITAssetTracker.MVC.Controllers
+namespace ITAssetTracker.MVC.Controllers.MVC
 {
     public class HomeController : Controller
     {
