@@ -1,7 +1,16 @@
+using ITAssetTracker.DataAccess;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Get the connection string
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+
+// Add the connection string this way? 
+builder.Services.AddDbContext<ITAssetTrackerContext>(options => options.UseSqlite(connectionString));
 
 var app = builder.Build();
 
@@ -24,6 +33,5 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
-
 
 app.Run();

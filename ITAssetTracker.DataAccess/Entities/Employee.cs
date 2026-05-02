@@ -11,7 +11,7 @@ public class Employee
     public string Email { get; set; } = string.Empty;
     public string Phone { get; set; } = string.Empty;
     public DateTime HireDate { get; set; }
-    public DateTime TerminationDate { get; set; }
+    public DateTime? TerminationDate { get; set; }
 
     public User User { get; set; } = null!;
     public List<AssetAssignment> AssetAssignments { get; set; } = new();
