@@ -1,8 +1,8 @@
-﻿namespace ITAssetTracker.DataAccess.Entities;
+﻿namespace ITAssetTracker.Infrastructure.Entities;
 
-public class Resolution
+public class Status
 {
-    public int ResolutionId { get; set; }
+    public int StatusId { get; set; }
     public string Name { get; set; } = string.Empty;
 
     public List<SupportTicket> SupporTickets { get; set; } = new();

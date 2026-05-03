@@ -1,4 +1,5 @@
-using ITAssetTracker.DataAccess;
+using ITAssetTracker.Infrastructure;
+using ITAssetTracker.MVC.Extensions;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,10 +8,16 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 // Get the connection string
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+string connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
-// Add the connection string this way? 
+// Add the connection string this way? In ASP.NET this is how it's done
 builder.Services.AddDbContext<ITAssetTrackerContext>(options => options.UseSqlite(connectionString));
+
+//builder.Services.AddScoped<ISupportTicketService, SupportTicketService>();
+//builder.Services.AddScoped<ISupportTicketRepository, EFSupportTicketRepository>();
+//builder.Services.AddScoped(provider => new SupportTicketService(new EFSupportTicketRepository()));
+
+builder.AddSupportTicketRepositories();
 
 var app = builder.Build();
 

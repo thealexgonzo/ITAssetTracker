@@ -1,0 +1,44 @@
+﻿@using ITAssetTracker.MVC.Models.SupportTicket;
+@model SupportTicketList
+@{
+	ViewData["Title"] = "Support Tickets";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@if (Model.SupportTickets != null)
+{
+	<table>
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Asset Assignment Id</th>
+				<th>Status</th>
+				<th>Priority</th>
+				<th>Resolution</th>
+				<th>Title</th>
+				<th>Description</th>
+				<th>Comments</th>
+				<th>User Id</th>
+				<th>Closed Date</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach(var s in Model.SupportTickets)
+			{
+				<tr>
+					<td>@s.SupportTicketId</td>
+					<td>@s.AssetAssignmentId</td>
+					<td>@s.StatusId</td>
+					<td>@s.PriorityId</td>
+					<td>@s.ResolutionId</td>
+					<td>@s.Title</td>
+					<td>@s.Description</td>
+					<td>@s.Comments</td>
+					<td>@s.UserId</td>
+					<td>@s.CloseDate</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+}

@@ -1,13 +1,26 @@
-﻿using ITAssetTracker.DataAccess.Entities;
+﻿using ITAssetTracker.Infrastructure.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace ITAssetTracker.DataAccess;
+namespace ITAssetTracker.Infrastructure;
 
 public class ITAssetTrackerContext: DbContext
 {
+    //private string _connectionString;
     public ITAssetTrackerContext(DbContextOptions options) : base(options)
     {
     }
+
+    //private string _connectionString;
+
+    public ITAssetTrackerContext()
+    {
+        
+    }
+
+    //public ITAssetTrackerContext(string connectionString)
+    //{
+    //    _connectionString = connectionString;
+    //}
 
     public DbSet<Asset> Assets { get; set; }
     public DbSet<AssetType> AssetTypes { get; set; }
@@ -21,6 +34,11 @@ public class ITAssetTrackerContext: DbContext
     public DbSet<SupportTicket> SupportTickets { get; set; }
     public DbSet<User> Users { get; set; }
     public DbSet<Role> Roles { get; set; }
+
+    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    //{
+    //    optionsBuilder.UseSqlite(_connectionString);
+    //}
 
     /// <summary>
     /// Set up models by adding constraints, foreign keys, etc

@@ -22,8 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ITAssetTracker.BusinessLogic\ITAssetTracker.BusinessLogic.csproj" />
-    <ProjectReference Include="..\ITAssetTracker.DataAccess\ITAssetTracker.DataAccess.csproj" />
+    <ProjectReference Include="..\ITAssetTracker.Application\ITAssetTracker.Application.csproj" />
   </ItemGroup>
 
 </Project>

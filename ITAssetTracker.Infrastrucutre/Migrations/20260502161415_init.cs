@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace ITAssetTracker.DataAccess.Migrations
+namespace ITAssetTracker.Infrastructure.Migrations
 {
     /// <inheritdoc />
     public partial class init : Migration
@@ -353,204 +353,204 @@ namespace ITAssetTracker.DataAccess.Migrations
                 column: "RoleId");
 
             migrationBuilder.InsertData(
-    table: "Categories",
-    columns: new[] { "CategoryId", "Name" },
-    values: new object[,]
-    {
-        {1, "Hardware"},
-        {2, "Software"},
-        {3, "Networking"},
-        {4, "Peripherals"},
-        {5, "Mobile Devices"},
-        {6, "Infrastructure"}
-    });
+                table: "Categories",
+                columns: new[] { "CategoryId", "Name" },
+                values: new object[,]
+                {
+                    {1, "Hardware"},
+                    {2, "Software"},
+                    {3, "Networking"},
+                    {4, "Peripherals"},
+                    {5, "Mobile Devices"},
+                    {6, "Infrastructure"}
+            });
 
             migrationBuilder.InsertData(
-    table: "AssetTypes",
-    columns: new[] { "AssetTypeId", "Name", "CategoryId" },
-    values: new object[,]
-    {
-        {1, "Laptop", 1},
-        {2, "Desktop", 1},
-        {3, "Server", 1},
-        {4, "Operating System", 2},
-        {5, "Application Software", 2},
-        {6, "Router", 3},
-        {7, "Switch", 3},
-        {8, "Firewall", 3},
-        {9, "Monitor", 4},
-        {10, "Keyboard", 4},
-        {11, "Mouse", 4},
-        {12, "Printer", 4},
-        {13, "Smartphone", 5},
-        {14, "Tablet", 5},
-        {15, "Rack", 6},
-        {16, "Power Supply Unit", 6}
-    });
+                table: "AssetTypes",
+                columns: new[] { "AssetTypeId", "Name", "CategoryId" },
+                values: new object[,]
+                {
+                    {1, "Laptop", 1},
+                    {2, "Desktop", 1},
+                    {3, "Server", 1},
+                    {4, "Operating System", 2},
+                    {5, "Application Software", 2},
+                    {6, "Router", 3},
+                    {7, "Switch", 3},
+                    {8, "Firewall", 3},
+                    {9, "Monitor", 4},
+                    {10, "Keyboard", 4},
+                    {11, "Mouse", 4},
+                    {12, "Printer", 4},
+                    {13, "Smartphone", 5},
+                    {14, "Tablet", 5},
+                    {15, "Rack", 6},
+                    {16, "Power Supply Unit", 6}
+            });
 
             migrationBuilder.InsertData(
-        table: "Manufacturers",
-        columns: new[] { "ManufacturerId", "Name" },
-        values: new object[,]
-        {
-        {1, "Dell"},
-        {2, "HP"},
-        {3, "Lenovo"},
-        {4, "Apple"},
-        {5, "Microsoft"},
-        {6, "Cisco"},
-        {7, "Asus"},
-        {8, "Acer"},
-        {9, "Samsung"}
-        });
+                table: "Manufacturers",
+                columns: new[] { "ManufacturerId", "Name" },
+                values: new object[,]
+                {
+                {1, "Dell"},
+                {2, "HP"},
+                {3, "Lenovo"},
+                {4, "Apple"},
+                {5, "Microsoft"},
+                {6, "Cisco"},
+                {7, "Asus"},
+                {8, "Acer"},
+                {9, "Samsung"}
+            });
 
             migrationBuilder.InsertData(
-    table: "Roles",
-    columns: new[] { "RoleId", "Name" },
-    values: new object[,]
-    {
-        {1, "Admin"},
-        {2, "IT Support"},
-        {3, "Manager"},
-        {4, "Employee"},
-        {5, "External"}
-    });
+                table: "Roles",
+                columns: new[] { "RoleId", "Name" },
+                values: new object[,]
+                {
+                    {1, "Admin"},
+                    {2, "IT Support"},
+                    {3, "Manager"},
+                    {4, "Employee"},
+                    {5, "External"}
+            });
 
             migrationBuilder.InsertData(
-    table: "Statuses",
-    columns: new[] { "StatusId", "Name" },
-    values: new object[,]
-    {
-        {1, "Open"},
-        {2, "In Progress"},
-        {3, "Pending"},
-        {4, "Resolved"},
-        {5, "Closed"}
-    });
+                table: "Statuses",
+                columns: new[] { "StatusId", "Name" },
+                values: new object[,]
+                {
+                    {1, "Open"},
+                    {2, "In Progress"},
+                    {3, "Pending"},
+                    {4, "Resolved"},
+                    {5, "Closed"}
+            });
 
             migrationBuilder.InsertData(
-    table: "Priorities",
-    columns: new[] { "PriorityId", "Name" },
-    values: new object[,]
-    {
-        {1, "Low"},
-        {2, "Medium"},
-        {3, "High"},
-        {4, "Critical"}
-    });
+                table: "Priorities",
+                columns: new[] { "PriorityId", "Name" },
+                values: new object[,]
+                {
+                    {1, "Low"},
+                    {2, "Medium"},
+                    {3, "High"},
+                    {4, "Critical"}
+            });
 
             migrationBuilder.InsertData(
-    table: "Resolutions",
-    columns: new[] { "ResolutionId", "Name" },
-    values: new object[,]
-    {
-        {1, "Resolved"},
-        {2, "Replaced"},
-        {3, "Repaired"},
-        {4, "Configuration Changed"},
-        {5, "Software Updated"},
-        {6, "User Error"},
-        {7, "No Fault Found"},
-        {8, "Workaround Provided"}
-    });
+                table: "Resolutions",
+                columns: new[] { "ResolutionId", "Name" },
+                values: new object[,]
+                {
+                    {1, "Resolved"},
+                    {2, "Replaced"},
+                    {3, "Repaired"},
+                    {4, "Configuration Changed"},
+                    {5, "Software Updated"},
+                    {6, "User Error"},
+                    {7, "No Fault Found"},
+                    {8, "Workaround Provided"}
+            });
 
             migrationBuilder.InsertData(
-    table: "Users",
-    columns: new[] { "UserId", "UserName", "PasswordHash", "RoleId" },
-    values: new object[,]
-    {
-        {1, "admin", "hash_admin_123", 1},
-        {2, "itsupport1", "hash_support_123", 2},
-        {3, "manager1", "hash_manager_123", 3},
-        {4, "employee1", "hash_employee_123", 4},
-        {5, "employee2", "hash_employee_456", 4},
-        {6, "external_user1", "hash_external_123", 5},
-        {7, "employee3", "hash_employee_789", 4},
-        {8, "employee4", "hash_employee_101", 4},
-        {9, "employee5", "hash_employee_202", 4}
-    });
+                table: "Users",
+                columns: new[] { "UserId", "UserName", "PasswordHash", "RoleId" },
+                values: new object[,]
+                {
+                    {1, "admin", "hash_admin_123", 1},
+                    {2, "itsupport1", "hash_support_123", 2},
+                    {3, "manager1", "hash_manager_123", 3},
+                    {4, "employee1", "hash_employee_123", 4},
+                    {5, "employee2", "hash_employee_456", 4},
+                    {6, "external_user1", "hash_external_123", 5},
+                    {7, "employee3", "hash_employee_789", 4},
+                    {8, "employee4", "hash_employee_101", 4},
+                    {9, "employee5", "hash_employee_202", 4}
+            });
 
             migrationBuilder.InsertData(
-    table: "Employees",
-    columns: new[] { "EmployeeId", "UserId", "JobTitle", "FirstName", "LastName", "DoB", "Email", "Phone", "HireDate", "TerminationDate" },
-    values: new object[,]
-    {
-        {1, 1, "Systems Administrator", "Alex", "Admin", "1987-04-18", "alex.admin@company.com", "07111111111", "2017-02-01", null},
-        {2, 2, "IT Support Technician", "Michael", "Davis", "1992-08-30", "michael.davis@company.com", "07222222222", "2021-06-10", null},
-        {3, 3, "Department Manager", "Emily", "Brown", "1985-02-10", "emily.brown@company.com", "07333333333", "2018-01-20", null},
-        {4, 4, "Software Engineer", "John", "Smith", "1990-05-12", "john.smith@company.com", "07444444444", "2020-03-15", null},
-        {5, 5, "Accountant", "Sarah", "Johnson", "1988-11-23", "sarah.johnson@company.com", "07555555555", "2019-07-01", null},
-        {6, 7, "HR Coordinator", "Laura", "Wilson", "1994-01-09", "laura.wilson@company.com", "07666666666", "2022-09-05", null},
-        {7, 8, "Operations Analyst", "Daniel", "Taylor", "1991-12-03", "daniel.taylor@company.com", "07777777777", "2020-11-12", null},
-        {8, 9, "Finance Assistant", "Rebecca", "Moore", "1996-07-21", "rebecca.moore@company.com", "07888888888", "2023-04-17", "2024-12-20"}
-    });
+                table: "Employees",
+                columns: new[] { "EmployeeId", "UserId", "JobTitle", "FirstName", "LastName", "DoB", "Email", "Phone", "HireDate", "TerminationDate" },
+                values: new object[,]
+                {
+                    {1, 1, "Systems Administrator", "Alex", "Admin", "1987-04-18", "alex.admin@company.com", "07111111111", "2017-02-01", null},
+                    {2, 2, "IT Support Technician", "Michael", "Davis", "1992-08-30", "michael.davis@company.com", "07222222222", "2021-06-10", null},
+                    {3, 3, "Department Manager", "Emily", "Brown", "1985-02-10", "emily.brown@company.com", "07333333333", "2018-01-20", null},
+                    {4, 4, "Software Engineer", "John", "Smith", "1990-05-12", "john.smith@company.com", "07444444444", "2020-03-15", null},
+                    {5, 5, "Accountant", "Sarah", "Johnson", "1988-11-23", "sarah.johnson@company.com", "07555555555", "2019-07-01", null},
+                    {6, 7, "HR Coordinator", "Laura", "Wilson", "1994-01-09", "laura.wilson@company.com", "07666666666", "2022-09-05", null},
+                    {7, 8, "Operations Analyst", "Daniel", "Taylor", "1991-12-03", "daniel.taylor@company.com", "07777777777", "2020-11-12", null},
+                    {8, 9, "Finance Assistant", "Rebecca", "Moore", "1996-07-21", "rebecca.moore@company.com", "07888888888", "2023-04-17", "2024-12-20"}
+            });
 
             migrationBuilder.InsertData(
-    table: "Models",
-    columns: new[] { "ModelId", "Name", "ManufacturerId", "AssetTypeId" },
-    values: new object[,]
-    {
-        {1, "Latitude 5420", 1, 1},
-        {2, "ThinkPad X1 Carbon", 3, 1},
-        {3, "MacBook Pro", 4, 1},
-        {4, "EliteDesk 800", 2, 2},
-        {5, "Inspiron Desktop", 1, 2},
-        {6, "Windows 11 Pro", 5, 4},
-        {7, "Microsoft Office 365", 5, 5},
-        {8, "Cisco Catalyst 9300", 6, 7},
-        {9, "Cisco ISR 4000", 6, 6},
-        {10, "UltraSharp Monitor", 1, 9},
-        {11, "Magic Keyboard", 4, 10},
-        {12, "Galaxy Tab S8", 9, 14}
-    });
+                table: "Models",
+                columns: new[] { "ModelId", "Name", "ManufacturerId", "AssetTypeId" },
+                values: new object[,]
+                {
+                    {1, "Latitude 5420", 1, 1},
+                    {2, "ThinkPad X1 Carbon", 3, 1},
+                    {3, "MacBook Pro", 4, 1},
+                    {4, "EliteDesk 800", 2, 2},
+                    {5, "Inspiron Desktop", 1, 2},
+                    {6, "Windows 11 Pro", 5, 4},
+                    {7, "Microsoft Office 365", 5, 5},
+                    {8, "Cisco Catalyst 9300", 6, 7},
+                    {9, "Cisco ISR 4000", 6, 6},
+                    {10, "UltraSharp Monitor", 1, 9},
+                    {11, "Magic Keyboard", 4, 10},
+                    {12, "Galaxy Tab S8", 9, 14}
+            });
 
             migrationBuilder.InsertData(
-    table: "Assets",
-    columns: new[] { "AssetId", "Tag", "Name", "ModelId", "Description" },
-    values: new object[,]
-    {
-        {1, 10001, "Dell Latitude Laptop - John", 1, "Assigned laptop"},
-        {2, 10002, "Lenovo ThinkPad Laptop - Sarah", 2, "Finance laptop"},
-        {3, 10003, "MacBook Pro - Manager", 3, "Executive device"},
-        {4, 10004, "HP EliteDesk Desktop", 4, "Office workstation"},
-        {5, 10005, "Dell Inspiron Desktop", 5, "General use"},
-        {6, 10006, "Windows 11 License", 6, "OS license"},
-        {7, 10007, "Office 365 License", 7, "Software"},
-        {8, 10008, "Cisco Switch", 8, "Network switch"},
-        {9, 10009, "Cisco Router", 9, "Branch router"},
-        {10, 10010, "Dell Monitor", 10, "24 inch"},
-        {11, 10011, "Apple Keyboard", 11, "Wireless"},
-        {12, 10012, "Samsung Tablet", 12, "Mobile device"}
-    });
+                table: "Assets",
+                columns: new[] { "AssetId", "Tag", "Name", "ModelId", "Description" },
+                values: new object[,]
+                {
+                    {1, 10001, "Dell Latitude Laptop - John", 1, "Assigned laptop"},
+                    {2, 10002, "Lenovo ThinkPad Laptop - Sarah", 2, "Finance laptop"},
+                    {3, 10003, "MacBook Pro - Manager", 3, "Executive device"},
+                    {4, 10004, "HP EliteDesk Desktop", 4, "Office workstation"},
+                    {5, 10005, "Dell Inspiron Desktop", 5, "General use"},
+                    {6, 10006, "Windows 11 License", 6, "OS license"},
+                    {7, 10007, "Office 365 License", 7, "Software"},
+                    {8, 10008, "Cisco Switch", 8, "Network switch"},
+                    {9, 10009, "Cisco Router", 9, "Branch router"},
+                    {10, 10010, "Dell Monitor", 10, "24 inch"},
+                    {11, 10011, "Apple Keyboard", 11, "Wireless"},
+                    {12, 10012, "Samsung Tablet", 12, "Mobile device"}
+            });
 
             migrationBuilder.InsertData(
-    table: "AssetAssignment",
-    columns: new[] { "AssetAssignmentId", "AssetId", "EmployeeId", "AssignmentDate", "ReturnDate" },
-    values: new object[,]
-    {
-        {1, 1, 4, "2023-01-10", null},
-        {2, 2, 5, "2023-02-15", null},
-        {3, 3, 3, "2023-03-01", null},
-        {4, 4, 1, "2022-06-20", null},
-        {5, 5, 2, "2022-08-10", null},
-        {6, 10, 4, "2023-01-10", null},
-        {7, 11, 4, "2023-01-10", null},
-        {8, 12, 6, "2023-05-12", null},
-        {9, 1, 2, "2022-01-01", "2022-12-31"},
-        {10, 8, 2, "2021-04-01", "2023-01-01"}
-    });
+                table: "AssetAssignment",
+                columns: new[] { "AssetAssignmentId", "AssetId", "EmployeeId", "AssignmentDate", "ReturnDate" },
+                values: new object[,]
+                {
+                    {1, 1, 4, "2023-01-10", null},
+                    {2, 2, 5, "2023-02-15", null},
+                    {3, 3, 3, "2023-03-01", null},
+                    {4, 4, 1, "2022-06-20", null},
+                    {5, 5, 2, "2022-08-10", null},
+                    {6, 10, 4, "2023-01-10", null},
+                    {7, 11, 4, "2023-01-10", null},
+                    {8, 12, 6, "2023-05-12", null},
+                    {9, 1, 2, "2022-01-01", "2022-12-31"},
+                    {10, 8, 2, "2021-04-01", "2023-01-01"}
+            });
 
             migrationBuilder.InsertData(
-    table: "SupportTickets",
-    columns: new[] { "SupportTicketId", "AssetAssignmentId", "StatusId", "PriorityId", "ResolutionId", "Title", "Description", "Comments", "UserId", "CreationDate", "CloseDate" },
-    values: new object[,]
-    {
-        {1, 1, 2, 3, 1, "Laptop overheating", "Gets hot", null, 4, "2024-01-10", null},
-        {2, 2, 4, 2, 3, "Keyboard issue", "Keys fail", "Replaced", 5, "2024-01-05", "2024-01-08"},
-        {3, 3, 5, 1, 1, "Software install", null, "Completed", 3, "2024-01-02", "2024-01-03"},
-        {4, 4, 3, 2, 2, "Slow PC", "Performance issue", "Pending upgrade", 1, "2024-01-12", null},
-        {5, 6, 4, 2, 4, "Monitor flicker", "Display issue", "Settings fixed", 4, "2024-01-06", "2024-01-07"}
-    });
+                table: "SupportTickets",
+                columns: new[] { "SupportTicketId", "AssetAssignmentId", "StatusId", "PriorityId", "ResolutionId", "Title", "Description", "Comments", "UserId", "CreationDate", "CloseDate" },
+                values: new object[,]
+                {
+                    {1, 1, 2, 3, 1, "Laptop overheating", "Gets hot", null, 4, "2024-01-10", null},
+                    {2, 2, 4, 2, 3, "Keyboard issue", "Keys fail", "Replaced", 5, "2024-01-05", "2024-01-08"},
+                    {3, 3, 5, 1, 1, "Software install", null, "Completed", 3, "2024-01-02", "2024-01-03"},
+                    {4, 4, 3, 2, 2, "Slow PC", "Performance issue", "Pending upgrade", 1, "2024-01-12", null},
+                    {5, 6, 4, 2, 4, "Monitor flicker", "Display issue", "Settings fixed", 4, "2024-01-06", "2024-01-07"}
+            });
         }
 
         /// <inheritdoc />

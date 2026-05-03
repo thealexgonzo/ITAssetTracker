@@ -1,5 +1,5 @@
 <Solution>
-  <Project Path="ITAssetTracker.BusinessLogic/ITAssetTracker.BusinessLogic.csproj" Id="313a9b66-8153-4748-91dd-00f93dfbbc71" />
-  <Project Path="ITAssetTracker.DataAccess/ITAssetTracker.DataAccess.csproj" Id="ea38eaac-651a-4dcd-85b2-e4995c67241f" />
+  <Project Path="ITAssetTracker.Application/ITAssetTracker.Application.csproj" />
+  <Project Path="ITAssetTracker.Infrastrucutre/ITAssetTracker.Infrastructure.csproj" />
   <Project Path="ITAssetTracker.MVC/ITAssetTracker.MVC.csproj" />
 </Solution>

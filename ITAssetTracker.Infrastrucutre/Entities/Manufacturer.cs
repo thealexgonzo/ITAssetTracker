@@ -1,4 +1,4 @@
-﻿namespace ITAssetTracker.DataAccess.Entities;
+﻿namespace ITAssetTracker.Infrastructure.Entities;
 
 public class Manufacturer
 {
