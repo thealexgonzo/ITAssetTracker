@@ -18,6 +18,7 @@ builder.Services.AddDbContext<ITAssetTrackerContext>(options => options.UseSqlit
 //builder.Services.AddScoped(provider => new SupportTicketService(new EFSupportTicketRepository()));
 
 builder.AddSupportTicketRepositories();
+builder.AddAssetRepositories();
 
 var app = builder.Build();
 

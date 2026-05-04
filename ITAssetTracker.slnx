@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="ITAssetTracker.Application/ITAssetTracker.Application.csproj" />
+  <Project Path="ITAssetTracker.Domain/ITAssetTracker.Domain.csproj" Id="7d86e5cd-ad0d-4ec7-ae2c-675081700bc5" />
   <Project Path="ITAssetTracker.Infrastrucutre/ITAssetTracker.Infrastructure.csproj" />
   <Project Path="ITAssetTracker.MVC/ITAssetTracker.MVC.csproj" />
 </Solution>
