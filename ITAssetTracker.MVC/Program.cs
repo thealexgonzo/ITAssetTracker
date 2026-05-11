@@ -19,6 +19,7 @@ builder.Services.AddDbContext<ITAssetTrackerContext>(options => options.UseSqlit
 
 builder.AddSupportTicketRepositories();
 builder.AddAssetRepositories();
+builder.AddModelRepositories();
 
 var app = builder.Build();
 

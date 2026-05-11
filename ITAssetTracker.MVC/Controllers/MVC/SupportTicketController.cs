@@ -7,6 +7,7 @@ namespace ITAssetTracker.MVC.Controllers.MVC;
 public class SupportTicketController : Controller
 {
     private readonly ISupportTicketService _supportTicketService;
+
     public SupportTicketController(ISupportTicketService supportTicketService)
     {
         _supportTicketService = supportTicketService;

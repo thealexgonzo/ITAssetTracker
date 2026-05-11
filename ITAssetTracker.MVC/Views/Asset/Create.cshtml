@@ -1,0 +1,34 @@
+﻿@using ITAssetTracker.MVC.Models.Asset
+@model AssetForm
+@{
+	ViewData["Title"] = "Add New Asset";
+}
+
+<h1>@ViewData["Title"]</h1>
+<form>
+	@Html.AntiForgeryToken()
+	<div class="mb-3">
+		<label for="@Model.Tag" class="form-label">Tag #:</label>
+		<input type="number" class="form-control" id="" placeholder="i.e. 12345" asp-for="@Model.Tag">
+	</div>
+	<div class="mb-3">
+		<label for="@Model.Name" class="form-label">Name:</label>
+		<input type="text" class="form-control" id="" placeholder="" asp-for="@Model.Name">
+	</div>
+	<div class="mb-3">
+		<label for="@Model.ModelId" class="form-label">Model:</label>
+		<select class="form-select" aria-label="Default select example" asp-for="@Model.ModelId">
+			<option selected>Select the asset model</option>
+
+			@foreach(var m in Model.ModelsList)
+				{
+					<option value="@m.ModelId">@m.Name</option>					
+				}
+
+		</select>
+	</div>
+	<div class="mb-3">
+		<label for="@Model.Description" class="form-label">Description:</label>
+		<input type="text" class="form-control" id="" placeholder="" asp-for="@Model.Description">
+	</div>
+</form>

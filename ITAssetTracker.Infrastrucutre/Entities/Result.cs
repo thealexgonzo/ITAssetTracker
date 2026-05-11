@@ -11,7 +11,7 @@ public class Result
     /// <summary>
     /// Gets a value indicating whether the operation completed successfully.
     /// </summary>
-    public bool Status { get; }
+    public bool Ok { get; }
     /// <summary>
     /// Gets the message content associated with this instance if the operation failed.
     /// </summary>
@@ -26,7 +26,7 @@ public class Result
     /// confirmation.</param>
     public Result(bool success, string message)
     {
-        Status = success;
+        Ok = success;
         Message = message;
     }
 }

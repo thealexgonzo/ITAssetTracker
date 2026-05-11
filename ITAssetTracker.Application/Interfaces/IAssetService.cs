@@ -5,9 +5,10 @@ namespace ITAssetTracker.Application.Interfaces
     public interface IAssetService
     {
         Result<List<Asset>> GetAll();
-        Result<Asset> GetById(int id);
-        void Add(Asset asset);
-        void Edit(Asset asset);
-        void Delete(Asset asset);
+        Result<Asset> GetByTag(int tag);
+        Result Add(Asset asset);
+        Result Edit(Asset asset);
+        Result Delete(Asset asset);
+        Result<int> GenerateTag();
     }
 }

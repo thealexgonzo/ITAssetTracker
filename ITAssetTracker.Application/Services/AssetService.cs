@@ -2,47 +2,94 @@
 using ITAssetTracker.Infrastructure.Entities;
 using ITAssetTracker.Infrastructure.Interfaces;
 
-namespace ITAssetTracker.Application.Services
+namespace ITAssetTracker.Application.Services;
+
+public class AssetService : IAssetService
 {
-    public class AssetService : IAssetService
+    private IAssetRepository _assetService;
+
+    public AssetService(IAssetRepository assetService)
     {
-        private IAssetRepository _assetService;
+        _assetService = assetService;
+    }
 
-        public AssetService(IAssetRepository assetService)
+    public Result Add(Asset asset)
+    {
+        try
         {
-            _assetService = assetService;
+            _assetService.Add(asset);
+            return ResultFactory.Success("Asset added successfully.");
         }
-
-        public void Add(Asset asset)
+        catch (Exception ex)
         {
-            throw new NotImplementedException();
+            return ResultFactory.Fail(ex.Message);
         }
+    }
 
-        public void Delete(Asset asset)
+    public Result Delete(Asset asset)
+    {
+        try
         {
-            throw new NotImplementedException();
+            _assetService.Delete(asset);
+            return ResultFactory.Success("Asset deleted successfully");
         }
-
-        public void Edit(Asset asset)
+        catch (Exception ex)
         {
-            throw new NotImplementedException();
+            return ResultFactory.Fail(ex.Message);
         }
+    }
 
-        public Result<List<Asset>> GetAll()
+    public Result Edit(Asset asset)
+    {
+        try
         {
-            try
-            {
-                return ResultFactory.Success<List<Asset>>(_assetService.GetAll());
-            }
-            catch (Exception ex)
-            {
-                return ResultFactory.Fail<List<Asset>>(ex.Message);
-            }
+            _assetService.Edit(asset);
+            return ResultFactory.Success($"Asset with Id {asset.AssetId} updated successfully");
         }
-
-        public Result<Asset> GetById(int id)
+        catch (Exception ex)
         {
-            throw new NotImplementedException();
+            return ResultFactory.Fail(ex.Message);
+        }
+    }
+
+    public Result<List<Asset>> GetAll()
+    {
+        try
+        {
+            return ResultFactory.Success<List<Asset>>(_assetService.GetAll());
+        }
+        catch (Exception ex)
+        {
+            return ResultFactory.Fail<List<Asset>>(ex.Message);
+        }
+    }
+
+    public Result<Asset> GetByTag(int tag)
+    {
+        try
+        {
+            var asset = _assetService.GetByTag(tag);
+
+            return asset is null ?
+            ResultFactory.Fail<Asset>($"Asset with tag number: {tag} not found") :
+            ResultFactory.Success<Asset>(asset);
+            
+        }
+        catch (Exception ex)
+        {
+            return ResultFactory.Fail<Asset>(ex.Message);
+        }
+    }
+
+    public Result<int> GenerateTag()
+    {
+        try
+        {
+            return ResultFactory.Success<int>(_assetService.GenerateTag());
+        }
+        catch (Exception ex)
+        {
+            return ResultFactory.Fail<int>(ex.Message);
         }
     }
 }

@@ -1,0 +1,48 @@
+﻿@using ITAssetTracker.MVC.Models.Asset
+@model AssetList
+@{
+    ViewData["Title"] = "Assets";
+}
+
+<h1 class="mb-3">Asset Search</h1>
+<p class="mb-3">Search for an asset by tag number or leave blank to return all assets.</p>
+@* <p class="mb-3">You may also <a asp-controller="Assets" asp-action="Create">create an asset</a>.</p> *@
+<form asp-controller="Asset" asp-action="Index" method="post" class="mb-3">
+    @Html.AntiForgeryToken()
+    <div class="mb-3 col-md-3">
+        <label asp-for="SearchTag" class="form-label">Enter Tag Number:</label>
+        <input type="text" class="form-control" asp-for="SearchTag">
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+        <button type="submit" class="btn btn-primary" asp-controller="Asset" asp-action="Create">Create New</button>
+    </form>
+    @if (Model.Assets != null)
+    {
+        <table class="table table-striped table-light">
+            <thead>
+                <tr>
+                    <th>Tag</th>
+                    <th>Name</th>
+                    <th>Model</th>
+                    <th>Description</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>            
+            @foreach (var asset in Model.Assets)
+            {
+                <tr>
+                    <td>@asset.Tag</td>
+                    <td>@asset.Name</td>
+                    <td>@asset.Models.Name</td>
+                    <td>@asset.Description</td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" asp-controller="Assets" asp-action="Details" asp-route-id="@asset.AssetId">Details</a>
+                        <a class="btn btn-secondary btn-sm" asp-controller="Assets" asp-action="Edit" asp-route-id="@asset.AssetId">Edit</a>
+                        <a class="btn btn-danger btn-sm" asp-controller="Assets" asp-action="Delete" asp-route-id="@asset.AssetId">Delete</a>
+                    </td>
+                </tr>
+            }                            
+            </tbody>
+        </table>
+    }

@@ -25,6 +25,15 @@ public static class DIRegistrationExtensions
     {
         builder.Services.AddScoped<IAssetService, AssetService>();
         builder.Services.AddScoped<IAssetRepository, EFAssetRepository>();
+
+        return builder;
+    }
+
+    public static WebApplicationBuilder AddModelRepositories(this WebApplicationBuilder builder)
+    {
+        builder.Services.AddScoped<IModelService, ModelService>();
+        builder.Services.AddScoped<IModelRepository, EFModelRepository>();
+
         return builder;
     }
 }
