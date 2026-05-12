@@ -5,7 +5,7 @@ namespace ITAssetTracker.MVC.Models.Asset;
 
 public class AssetForm
 {
-    public int AssetId { get; set; }
+    public int? AssetId { get; set; }
     [Required]    
     public int Tag { get; set; }
     [Required]
@@ -15,8 +15,8 @@ public class AssetForm
     [Required]
     public string Description { get; set; } = string.Empty;
 
-    public Model Models { get; set; } = null!;
-    public List<AssetAssignment> AssetAssignments { get; set; } = new();
+    //public Model Models { get; set; } = null!;
+    //public List<AssetAssignment> AssetAssignments { get; set; } = new();
     public List<Model> ModelsList { get; set; } = new();
 
     public AssetForm()
@@ -31,21 +31,21 @@ public class AssetForm
         Name = entity.Name;
         ModelId = entity.ModelId;
         Description = entity.Description;
-        Models = entity.Models;
-        AssetAssignments = entity.AssetAssignments;
+        //Models = entity.Models;
+        //AssetAssignments = entity.AssetAssignments;
     }
 
     public Infrastructure.Entities.Asset ToEntity()
     {
         return new Infrastructure.Entities.Asset()
         {
-            AssetId = AssetId,
+            AssetId = AssetId ?? 0,
             Tag = Tag,
             Name = Name,
             ModelId = ModelId,
             Description = Description,
-            Models = Models,
-            AssetAssignments = AssetAssignments
+            //Models = Models,
+            //AssetAssignments = AssetAssignments
         };  
     }
 }

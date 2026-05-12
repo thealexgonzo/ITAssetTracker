@@ -18,10 +18,12 @@ public class AssetService : IAssetService
         try
         {
             _assetService.Add(asset);
-            return ResultFactory.Success("Asset added successfully.");
+            //"Asset added successfully."
+            return ResultFactory.Success();
         }
         catch (Exception ex)
         {
+            Console.WriteLine(ex.Message);
             return ResultFactory.Fail(ex.Message);
         }
     }

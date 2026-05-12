@@ -9,11 +9,13 @@ public class AssetController : Controller
 {
     private IAssetService _assetService;
     private IModelService _modelService;
+    private readonly ILogger _logger;
 
-    public AssetController(IAssetService assetService, IModelService modelService)
+    public AssetController(IAssetService assetService, IModelService modelService, ILogger<AssetController> logger)
     {
         _assetService = assetService;
         _modelService = modelService;
+        _logger = logger;
     }
 
     [HttpGet]
@@ -56,21 +58,29 @@ public class AssetController : Controller
         return View(model);
     }
 
+    /// <summary>
+    /// Retrieves a list of available models from the underlying model service.
+    /// </summary>
+    /// <remarks>The returned list will never be null. If the model service fails to retrieve models, an empty
+    /// list is returned instead.</remarks>
+    /// <returns>A list of models if the retrieval operation succeeds; otherwise, an empty list.</returns>
+    private List<Model>? RetrieveModelsList()
+    {
+        var result = _modelService.GetAll();
+
+        if (!result.Ok)
+        {
+            return new List<Model>();            
+        }
+
+        return result.Data;
+    }
+
     [HttpGet]
     public IActionResult Create()
     {
         var model = new AssetForm();
-
-        var result = _modelService.GetAll();
-
-        if (result.Ok)
-        {
-            model.ModelsList = result.Data;
-        }
-        else
-        {
-            TempData["Alert"] = result.Message;
-        }
+        model.ModelsList = RetrieveModelsList();
 
         return View(model);
     }
@@ -81,17 +91,18 @@ public class AssetController : Controller
     {
         if (ModelState.IsValid)
         {
-            var entity = model.ToEntity();
-            var result = _assetService.Add(entity);
+            //model.ModelsList = RetrieveModelsList();
+            Asset entity = model.ToEntity();
+            Result result = _assetService.Add(entity);
 
             if (result.Ok)
             {
-                TempData["Alert"] = result.Message;
+                TempData["Success"] = $"Asset with Tag # {model.Tag} created successfully.";
                 return RedirectToAction("Index");
             }
             else
             {
-                TempData["Alert"] = result.Message;
+                TempData["Error"] = result.Message;
                 return View(model);
             }
         }
@@ -99,4 +110,6 @@ public class AssetController : Controller
         // Failed validation, return model.
         return View(model);
     }
+
+    
 }

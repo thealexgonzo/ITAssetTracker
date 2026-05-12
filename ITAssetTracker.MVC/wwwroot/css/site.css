@@ -29,3 +29,11 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+
+/* Form styling template -- apply to all forms */
+.form-container{
+    padding: 50px;
+    max-width: 650px;
+    margin-top: 100px;
+    border-radius: 9px;    
+}
