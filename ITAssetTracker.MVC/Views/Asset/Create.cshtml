@@ -1,7 +1,7 @@
 ﻿@using ITAssetTracker.MVC.Models.Asset
 @model AssetForm
 @{
-	ViewData["Title"] = "Add New Asset";
+	ViewData["Title"] = "Add Asset";
 
 	if(TempData["Error"] != null)
 	{
@@ -11,40 +11,61 @@
 	}
 }
 
-<div class="form-container container-fluid shadow bg-light.bg-gradient">
-	<h1>@ViewData["Title"]</h1>
+<h1>@ViewData["Title"]</h1>
+<div class="form-container container-fluid border bg-light.bg-gradient">
+	<div class="d-flex gap-2">
+		<i class="bi bi-box"></i>
+		<h5>Asset Information</h5>
+	</div>
+	<p>Enter the details of the new asset.</p>
 
-	<form asp-controller="Asset" asp-action="Create" method="post">
-
+	<form id="TestingFrom" class="row g-3" asp-controller="Asset" asp-action="Create" method="post">
 		@Html.AntiForgeryToken()
-		<div class="mb-3">
-			<label asp-for="Tag" class="form-label">Tag:</label>
-			<input type="text" class="form-control" placeholder="12345" asp-for="Tag">
+		<div class="row g-2">
+			<div class="col">
+				<label asp-for="Tag" class="form-label">Asset Tag / ID</label>
+				<input type="text" class="form-control" placeholder="e.g. 1001" asp-for="Tag" value="">
 			</div>
-			<div class="mb-3">
-				<label asp-for="Name" class="form-label">Name:</label>
-				<input type="text" class="form-control" placeholder="Asset name here..." asp-for="Name">
-				</div>
-				<div class="mb-3">
-					<label asp-for="ModelId" class="form-label">Model:</label>
-					<select class="form-select" aria-label="Default select example" asp-for="ModelId">
-						<option selected>Select the asset model</option>
+			<div class="col">
+				<label asp-for="Name" class="form-label">Asset Name</label>
+				<input type="text" class="form-control" placeholder="e.g. Dell Latitude 5420" asp-for="Name">
+			</div>
+		</div>
+		<div class="row g-2">
+			<div class="col">
+				<label asp-for="ModelId" class="form-label">Model</label>
+				<select class="form-select" aria-label="Default select example" asp-for="ModelId">
+					<option selected>Select model</option>
 
-						@foreach (var m in Model.ModelsList)
-						{
-							<option value="@m.ModelId">@m.Name</option>
-						}
+					@foreach (var m in Model.ModelsList)
+					{
+						<option value="@m.ModelId">@m.Name</option>
+					}
 
-					</select>
-				</div>
-				<div class="mb-3">
-					<label asp-for="Description" class="form-label">Description:</label>
-					<input type="text" class="form-control" id="" placeholder="" asp-for="Description">
-					</div>
-					<div class="d-grid gap-2 d-md-block">
-						<button type="submit" class="btn btn-primary">Save</button>
-						<a asp-controller="Asset" asp-action="Index" class="btn btn-secondary">Cancel</a>
-					</div>
-				</form>
+				</select>
+			</div>
+			<div class="col">
+				@* TODO: Complete Asset Type Assignment *@
+				<label  class="form-label">Asset Type</label>
+				<select class="form-select" aria-label="Default select example">
+					<option selected>Select type</option>
+
+					@foreach (var at in Model.AssetTypeList)
+					{
+						<option value="@at.AssetTypeId">@at.Name</option>
+					}
+
+				</select>
+			</div>
+		</div>
+		<div class="row g-2">
+			<label asp-for="Description" class="form-label">Description:</label>			
+			<textarea class="form-control" id="FormControlTextarea" rows="3" placeholder="Enter any additional notes about the asset..." asp-for="Description"></textarea>
+		</div>
+		<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+			<a asp-controller="Asset" asp-action="Create" class="btn btn-secondary">Cancel</a>
+			<button type="submit" class="btn btn-primary">Save Asset</button>
+		</div>
+	</form>
 </div>
 

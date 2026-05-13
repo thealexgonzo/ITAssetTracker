@@ -1,5 +1,6 @@
 ﻿using ITAssetTracker.Application.Interfaces;
 using ITAssetTracker.Application.Services;
+using ITAssetTracker.Infrastructure.Entities;
 using ITAssetTracker.Infrastructure.Interfaces;
 using ITAssetTracker.Infrastructure.Repositories.EntityFramework;
 
@@ -33,6 +34,14 @@ public static class DIRegistrationExtensions
     {
         builder.Services.AddScoped<IModelService, ModelService>();
         builder.Services.AddScoped<IModelRepository, EFModelRepository>();
+
+        return builder;
+    }
+
+    public static WebApplicationBuilder AddAssetTypeRepository(this WebApplicationBuilder builder)
+    {
+        builder.Services.AddScoped<IAssetTypeService, AssetTypeService>();
+        builder.Services.AddScoped<IAssetTypeRepository, EFAssetTypeRepository>();
 
         return builder;
     }

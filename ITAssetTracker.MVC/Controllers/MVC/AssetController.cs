@@ -9,12 +9,17 @@ public class AssetController : Controller
 {
     private IAssetService _assetService;
     private IModelService _modelService;
+    private IAssetTypeService _assetTypeService;
     private readonly ILogger _logger;
 
-    public AssetController(IAssetService assetService, IModelService modelService, ILogger<AssetController> logger)
+    public AssetController(IAssetService assetService, 
+                           IModelService modelService, 
+                           IAssetTypeService assetTypeService,
+                           ILogger<AssetController> logger)
     {
         _assetService = assetService;
         _modelService = modelService;
+        _assetTypeService = assetTypeService;
         _logger = logger;
     }
 
@@ -76,11 +81,30 @@ public class AssetController : Controller
         return result.Data;
     }
 
+    /// <summary>
+    /// Retrieves a list of available asset types.
+    /// </summary>
+    /// <remarks>The returned list will never be null. If the underlying service call fails, an empty list is
+    /// returned.</remarks>
+    /// <returns>A list of asset types if retrieval is successful; otherwise, an empty list.</returns>
+    private List<AssetType>? RetrieveAssetTypeList()
+    {
+        var result = _assetTypeService.GetAll();
+
+        if (!result.Ok)
+        {
+            return new List<AssetType>();            
+        }
+
+        return result.Data;
+    }
+
     [HttpGet]
     public IActionResult Create()
     {
         var model = new AssetForm();
         model.ModelsList = RetrieveModelsList();
+        model.AssetTypeList = RetrieveAssetTypeList();
 
         return View(model);
     }

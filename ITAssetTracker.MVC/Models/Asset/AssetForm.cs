@@ -18,6 +18,9 @@ public class AssetForm
     //public Model Models { get; set; } = null!;
     //public List<AssetAssignment> AssetAssignments { get; set; } = new();
     public List<Model> ModelsList { get; set; } = new();
+    public List<AssetType> AssetTypeList { get; set; } = new();
+    public List<Category> CategoryList { get; set; } = new();
+    public List<Manufacturer> ManufacturerList { get; set; } = new();
 
     public AssetForm()
     {
