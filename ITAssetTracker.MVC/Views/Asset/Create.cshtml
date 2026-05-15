@@ -3,7 +3,7 @@
 @{
 	ViewData["Title"] = "Add Asset";
 
-	if(TempData["Error"] != null)
+	if (TempData["Error"] != null)
 	{
 		<div>
 			@TempData["Error"];
@@ -11,61 +11,112 @@
 	}
 }
 
-<h1>@ViewData["Title"]</h1>
-<div class="form-container container-fluid border bg-light.bg-gradient">
-	<div class="d-flex gap-2">
-		<i class="bi bi-box"></i>
-		<h5>Asset Information</h5>
-	</div>
-	<p>Enter the details of the new asset.</p>
+<div class="container-fluid">
+	<div class="row min-vh-100">
+		<div class="d-none d-lg-block col-lg-2 border-end">
+			Column
+		</div>
+		<div class="col-12 col-lg-7 p-4">
+			<h1 class="m-0 fs-3">@ViewData["Title"]</h1>
 
-	<form id="TestingFrom" class="row g-3" asp-controller="Asset" asp-action="Create" method="post">
-		@Html.AntiForgeryToken()
-		<div class="row g-2">
-			<div class="col">
-				<label asp-for="Tag" class="form-label">Asset Tag / ID</label>
-				<input type="text" class="form-control" placeholder="e.g. 1001" asp-for="Tag" value="">
-			</div>
-			<div class="col">
-				<label asp-for="Name" class="form-label">Asset Name</label>
-				<input type="text" class="form-control" placeholder="e.g. Dell Latitude 5420" asp-for="Name">
+			<form class="border rounded mt-3" asp-controller="Asset" asp-action="Create" method="post">
+				@* Form Header *@
+				<div class="p-4 border-bottom">
+					<div class="d-flex align-items-center gap-2">
+						<i class="bi bi-box"></i>
+						<h5 class="mb-0">Asset Information</h5>
+					</div>
+					<p class="mb-0 mt-2">Enter the details of the new asset.</p>
+				</div>
+	
+				@* <hr class="solid"> *@
+
+				@Html.AntiForgeryToken()
+
+				@* Form Input Fields *@
+				<div class="p-4">
+					<div class="row g-2">
+						<div class="col">
+							<label asp-for="Tag" class="form-label">Asset Tag / ID</label>
+							<input type="text" class="form-control" placeholder="e.g. 1001" asp-for="Tag" value="">
+							</div>
+							<div class="col">
+								<label asp-for="Name" class="form-label">Asset Name</label>
+								<input type="text" class="form-control" placeholder="e.g. Dell Latitude 5420" asp-for="Name">
+								</div>
+							</div>
+							<div class="row g-2 mt-2">
+								<div class="col">
+									<label asp-for="ModelId" class="form-label">Model</label>
+									<select class="form-select" aria-label="Default select example" asp-for="ModelId">
+										<option selected>Select model</option>
+
+										@foreach (var m in Model.ModelsList)
+										{
+											<option value="@m.ModelId">@m.Name</option>
+										}
+
+									</select>
+								</div>
+								<div class="col">
+									@* TODO: Complete Asset Type Assignment *@
+									<label class="form-label">Asset Type</label>
+									<select class="form-select" aria-label="Default select example">
+										<option selected>Select type</option>
+
+										@foreach (var at in Model.AssetTypeList)
+										{
+											<option value="@at.AssetTypeId">@at.Name</option>
+										}
+
+									</select>
+								</div>
+							</div>
+
+							<div class="row g-2 mt-2">
+								<div class="col">
+									<label asp-for="Tag" class="form-label">Manufacturer</label>
+									<input type="text" class="form-control" placeholder="e.g. Dell" asp-for="Tag" value="">
+								</div>
+								<div class="col">
+									<label asp-for="Name" class="form-label">Category</label>
+									<input type="text" class="form-control" placeholder="e.g. Dell Latitude 5420" asp-for="Name">
+								</div>
+							</div>
+
+							<div class="col mt-3">
+								<label asp-for="Description" class="form-label">Description:</label>
+								<textarea class="form-control" id="FormControlTextArea" placeholder="Enter any additional notes about the asset..." asp-for="Description"></textarea>
+							</div>
+
+							@* Buttons *@
+							<div class="buttons-section  gap-2 d-md-flex justify-content-md-end mt-4">
+								<a asp-controller="Asset" asp-action="Create" class="btn btn-secondary">Cancel</a>
+								<button type="submit" class="btn btn-primary">Save Asset</button>
+							</div>
+						</div>
+					</form>
+				</div>
+
+				@* Info Section *@
+				<div class="col-12 col-lg-3 p-4">
+					<div class="border rounded p-3 mt-lg-5">
+						<div class="d-flex align-items-center gap-2 mb-3">
+							<i class="bi bi-info-circle"></i>
+							<h6 class="mb-0">About Assets</h6>
+						</div>
+						<p>Assets are physical or virtual items that are tracked by the organisation.</p>
+						<p>Examples:</p>
+						<ul>
+							<li>Laptops</li>
+							<li>Desktops</li>
+							<li>Monitors</li>
+							<li>Printers</li>
+							<li>Network Devices</li>
+							<li>Software Licenses</li>
+						</ul>
+					</div>
+				</div>
 			</div>
 		</div>
-		<div class="row g-2">
-			<div class="col">
-				<label asp-for="ModelId" class="form-label">Model</label>
-				<select class="form-select" aria-label="Default select example" asp-for="ModelId">
-					<option selected>Select model</option>
-
-					@foreach (var m in Model.ModelsList)
-					{
-						<option value="@m.ModelId">@m.Name</option>
-					}
-
-				</select>
-			</div>
-			<div class="col">
-				@* TODO: Complete Asset Type Assignment *@
-				<label  class="form-label">Asset Type</label>
-				<select class="form-select" aria-label="Default select example">
-					<option selected>Select type</option>
-
-					@foreach (var at in Model.AssetTypeList)
-					{
-						<option value="@at.AssetTypeId">@at.Name</option>
-					}
-
-				</select>
-			</div>
-		</div>
-		<div class="row g-2">
-			<label asp-for="Description" class="form-label">Description:</label>			
-			<textarea class="form-control" id="FormControlTextarea" rows="3" placeholder="Enter any additional notes about the asset..." asp-for="Description"></textarea>
-		</div>
-		<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-			<a asp-controller="Asset" asp-action="Create" class="btn btn-secondary">Cancel</a>
-			<button type="submit" class="btn btn-primary">Save Asset</button>
-		</div>
-	</form>
-</div>
 
