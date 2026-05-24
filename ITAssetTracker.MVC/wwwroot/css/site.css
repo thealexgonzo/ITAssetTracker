@@ -70,3 +70,7 @@ main{
 #FormControlTextArea {
     max-height: 100px;
 }
+
+.required {
+    color: red;
+}

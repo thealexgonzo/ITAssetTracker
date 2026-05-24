@@ -1,54 +1,79 @@
-﻿using ITAssetTracker.Infrastructure.Entities;
+﻿using ITAssetTracker.Domain.Entities;
+using ITAssetTracker.MVC.Utilities.CustomValidation;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ITAssetTracker.MVC.Models.Asset;
 
 public class AssetForm
 {
     public int? AssetId { get; set; }
-    [Required]    
-    public int Tag { get; set; }
-    [Required]
-    public string Name { get; set; } = string.Empty;
-    [Required]
-    public int ModelId { get; set; }
-    [Required]
-    public string Description { get; set; } = string.Empty;
+    [IsNumber(ErrorMessage = "The value must be numeric only.")]
+    [Required(ErrorMessage = "You must enter a product tag.")]
+    [Range(1, int.MaxValue, ErrorMessage = "Values must be greater than 0")]
+    public int? Tag { get; set; }
+    [Required(ErrorMessage = "You must enter a product name.")]
+    [StringLength(100, ErrorMessage = "Name can't exceed 200 characters.")]
+    public string? Name { get; set; } = string.Empty;
+    [Required(ErrorMessage = "You must select a value.")]
+    public int? AssetProductId { get; set; }
+    [StringLength(200, ErrorMessage = "Descriptionn can't exceed 200 characters.")]
+    public string? Description { get; set; } = string.Empty;
+    [Required(ErrorMessage = "You must select a value.")]
+    public int? AssetStatusId { get; set; }
+    [Required(ErrorMessage = "Price is required.")]
+    [Range(0.01, 999999.99, ErrorMessage = "Price must be between 0.01 and 999,999.99.")]
+    [Column(TypeName = "decimal(18,2)")] // Database precision
+    public decimal? Price { get; set; }
+    [Required(ErrorMessage = "You must enter the asset location.")]
+    public string Location { get; set; }
+    [Required(ErrorMessage = "You must enter the serial number.")]
+    public string SerialNumber { get; set; }
+    [Required(ErrorMessage ="A date value must be provided.")]
+    [DataType(DataType.Date)]
+    public DateTime? PurchaseDate { get; set; }
+    [Required(ErrorMessage = "A date value must be provided.")]
+    [DataType(DataType.Date)]
+    public DateTime? WarrantyExpiryDate { get; set; }
 
-    //public Model Models { get; set; } = null!;
-    //public List<AssetAssignment> AssetAssignments { get; set; } = new();
-    public List<Model> ModelsList { get; set; } = new();
-    public List<AssetType> AssetTypeList { get; set; } = new();
-    public List<Category> CategoryList { get; set; } = new();
-    public List<Manufacturer> ManufacturerList { get; set; } = new();
+    public List<AssetProduct> AssetProductsList { get; set; } = new();
+    public List<AssetStatus> AssetStatusList { get; set; } = new();
 
     public AssetForm()
     {
         
     }
 
-    public AssetForm(Infrastructure.Entities.Asset entity)
+    public AssetForm(Domain.Entities.Asset entity)
     {
         AssetId = entity.AssetId;
         Tag = entity.Tag;
         Name = entity.Name;
-        ModelId = entity.ModelId;
+        AssetProductId = entity.AssetProductId;
+        AssetStatusId = entity.AssetStatusId;
         Description = entity.Description;
-        //Models = entity.Models;
-        //AssetAssignments = entity.AssetAssignments;
+        Price = entity.Price;
+        Location = entity.Location;
+        SerialNumber = entity.SerialNumber;
+        PurchaseDate = entity.PurchaseDate;
+        WarrantyExpiryDate = entity.WarrantyExpiryDate;
     }
 
-    public Infrastructure.Entities.Asset ToEntity()
+    public Domain.Entities.Asset ToEntity()
     {
-        return new Infrastructure.Entities.Asset()
+        return new Domain.Entities.Asset()
         {
             AssetId = AssetId ?? 0,
-            Tag = Tag,
+            Tag = Tag ?? 0,
             Name = Name,
-            ModelId = ModelId,
+            AssetProductId = AssetProductId ?? 0,
+            AssetStatusId = AssetStatusId ?? 0,
             Description = Description,
-            //Models = Models,
-            //AssetAssignments = AssetAssignments
+            Price = Price.HasValue ? (decimal)Price.Value : 0.00M,
+            Location = Location,
+            SerialNumber = SerialNumber,
+            PurchaseDate = PurchaseDate.HasValue ? (DateTime)PurchaseDate : DateTime.Today,
+            WarrantyExpiryDate = WarrantyExpiryDate.HasValue ? (DateTime)WarrantyExpiryDate : DateTime.Today
         };  
     }
 }

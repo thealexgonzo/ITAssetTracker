@@ -1,5 +1,5 @@
-﻿using ITAssetTracker.Infrastructure.Entities;
-using ITAssetTracker.Infrastructure.Interfaces;
+﻿using ITAssetTracker.Domain.Entities;
+using ITAssetTracker.Application.RepositoryInterfaces;
 
 namespace ITAssetTracker.Infrastructure.Repositories.EntityFramework
 {

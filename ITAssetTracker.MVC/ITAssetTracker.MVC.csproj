@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ITAssetTracker.Application\ITAssetTracker.Application.csproj" />
+    <ProjectReference Include="..\ITAssetTracker.Infrastrucutre\ITAssetTracker.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

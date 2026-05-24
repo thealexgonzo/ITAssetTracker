@@ -18,4 +18,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ITAssetTracker.Application\ITAssetTracker.Application.csproj" />
+    <ProjectReference Include="..\ITAssetTracker.Domain\ITAssetTracker.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

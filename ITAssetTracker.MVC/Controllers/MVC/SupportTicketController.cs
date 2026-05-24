@@ -1,4 +1,4 @@
-﻿using ITAssetTracker.Application.Interfaces;
+﻿using ITAssetTracker.Application.ServiceInterfaces;
 using Microsoft.AspNetCore.Mvc;
 using ITAssetTracker.MVC.Models.SupportTicket;
 

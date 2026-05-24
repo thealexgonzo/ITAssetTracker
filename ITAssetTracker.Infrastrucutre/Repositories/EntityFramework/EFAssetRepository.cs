@@ -1,5 +1,5 @@
-﻿using ITAssetTracker.Infrastructure.Entities;
-using ITAssetTracker.Infrastructure.Interfaces;
+﻿using ITAssetTracker.Domain.Entities;
+using ITAssetTracker.Application.RepositoryInterfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace ITAssetTracker.Infrastructure.Repositories.EntityFramework;
@@ -33,12 +33,12 @@ public class EFAssetRepository : IAssetRepository
 
     public List<Asset> GetAll()
     {
-        return _dbContext.Assets.Include(m => m.Models).ToList();
+        return _dbContext.Assets.Include(m => m.AssetProducts).ToList();
     }
 
     public Asset? GetByTag(int tag)
     {
-        return _dbContext.Assets.Include(m => m.Models).FirstOrDefault(a => a.Tag == tag) ?? null;
+        return _dbContext.Assets.Include(m => m.AssetProducts).FirstOrDefault(a => a.Tag == tag) ?? null;
     }
 
     public int GenerateTag()

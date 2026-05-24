@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ITAssetTracker.Infrastrucutre\ITAssetTracker.Infrastructure.csproj" />
+    <ProjectReference Include="..\ITAssetTracker.Domain\ITAssetTracker.Domain.csproj" />
   </ItemGroup>
 
 </Project>

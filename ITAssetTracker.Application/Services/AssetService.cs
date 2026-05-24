@@ -1,6 +1,6 @@
-﻿using ITAssetTracker.Application.Interfaces;
-using ITAssetTracker.Infrastructure.Entities;
-using ITAssetTracker.Infrastructure.Interfaces;
+﻿using ITAssetTracker.Application.ServiceInterfaces;
+using ITAssetTracker.Domain.Entities;
+using ITAssetTracker.Application.RepositoryInterfaces;
 
 namespace ITAssetTracker.Application.Services;
 

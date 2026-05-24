@@ -1,44 +1,30 @@
-﻿using ITAssetTracker.Infrastructure.Entities;
+﻿using ITAssetTracker.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace ITAssetTracker.Infrastructure;
 
 public class ITAssetTrackerContext: DbContext
 {
-    //private string _connectionString;
     public ITAssetTrackerContext(DbContextOptions options) : base(options)
     {
     }
-
-    //private string _connectionString;
-
-    public ITAssetTrackerContext()
-    {
-        
-    }
-
-    //public ITAssetTrackerContext(string connectionString)
-    //{
-    //    _connectionString = connectionString;
-    //}
 
     public DbSet<Asset> Assets { get; set; }
     public DbSet<AssetType> AssetTypes { get; set; }
     public DbSet<Category> Categories { get; set; }
     public DbSet<Employee> Employees { get; set; }
     public DbSet<Manufacturer> Manufacturers { get; set; }
-    public DbSet<Model> Models { get; set; }
+    public DbSet<AssetProduct> AssetProducts { get; set; }
     public DbSet<Priority> Priorities { get; set; }
     public DbSet<Resolution> Resolutions { get; set; }
-    public DbSet<Status> Statuses { get; set; }
+    public DbSet<TicketStatus> TicketStatuses { get; set; }
     public DbSet<SupportTicket> SupportTickets { get; set; }
     public DbSet<User> Users { get; set; }
     public DbSet<Role> Roles { get; set; }
-
-    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    //{
-    //    optionsBuilder.UseSqlite(_connectionString);
-    //}
+    public DbSet<TicketAssignmentHistory> TicketAssignmentHistories { get; set; }
+    public DbSet<AssetStatus> AssetStatuses { get; set; }
+    public DbSet<Department> Departments { get; set; }
+    public DbSet<AssetAssignment> AssetAssignments { get; set; }
 
     /// <summary>
     /// Set up models by adding constraints, foreign keys, etc
@@ -52,10 +38,10 @@ public class ITAssetTrackerContext: DbContext
             entity.HasMany(e => e.Users).WithOne(e => e.Role);
         });
 
-        modelBuilder.Entity<Status>(entity =>
+        modelBuilder.Entity<TicketStatus>(entity =>
         {
             entity.Property(e => e.Name).IsRequired().HasMaxLength(100);
-            entity.HasMany(e => e.SupporTickets).WithOne(e => e.Status);
+            entity.HasMany(e => e.SupporTickets).WithOne(e => e.TicketStatus);
         });
 
         modelBuilder.Entity<Priority>(entity =>
@@ -75,7 +61,6 @@ public class ITAssetTrackerContext: DbContext
             entity.Property(e => e.UserName).IsRequired().HasMaxLength(100);
             entity.Property(e => e.PasswordHash).IsRequired();
             entity.HasOne(e => e.Role).WithMany(e => e.Users).HasForeignKey(e => e.RoleId);
-            entity.HasMany(e => e.SupporTickets).WithOne(e => e.User);
             entity.HasOne(e => e.Employee).WithOne(e => e.User);
         });
 
@@ -88,35 +73,36 @@ public class ITAssetTrackerContext: DbContext
         modelBuilder.Entity<Manufacturer>(entity =>
         {
             entity.Property(e => e.Name).IsRequired().HasMaxLength(100);
-            entity.HasMany(e => e.Models).WithOne(e => e.Manufacturer);
+            entity.HasMany(e => e.AssetProducts).WithOne(e => e.Manufacturer);
         });
 
         modelBuilder.Entity<AssetType>(entity =>
         {
             entity.Property(e => e.Name).IsRequired().HasMaxLength(100);
-            entity.HasMany(e => e.Models).WithOne(e => e.AssetType);
+            entity.HasMany(e => e.AssetProducts).WithOne(e => e.AssetType);
             entity.HasOne(e => e.Category).WithMany(e => e.AssetTypes).HasForeignKey(e => e.CategoryId);                
         });
 
-        modelBuilder.Entity<Model>(entity =>
+        modelBuilder.Entity<AssetProduct>(entity =>
         {
             entity.Property(e => e.Name).IsRequired().HasMaxLength(100);
-            entity.HasOne(e => e.Manufacturer).WithMany(e => e.Models).HasForeignKey(e => e.ManufacturerId);
-            entity.HasOne(e => e.AssetType).WithMany(e => e.Models).HasForeignKey(e => e.AssetTypeId);
+            entity.HasOne(e => e.Manufacturer).WithMany(e => e.AssetProducts).HasForeignKey(e => e.ManufacturerId);
+            entity.HasOne(e => e.AssetType).WithMany(e => e.AssetProducts).HasForeignKey(e => e.AssetTypeId);
         });
 
         modelBuilder.Entity<Asset>(entity =>
         {
             entity.Property(e => e.Tag).IsRequired();
             entity.Property(e => e.Name).IsRequired().HasMaxLength(100);
-            entity.HasOne(e => e.Models).WithMany(e => e.Assets).HasForeignKey(e => e.ModelId);                                                       
+            entity.HasOne(e => e.AssetProducts).WithMany(e => e.Assets).HasForeignKey(e => e.AssetProductId);
+            entity.HasOne(e => e.AssetStatuses).WithMany(e => e.Assets).HasForeignKey(e => e.AssetStatusId);
         });
 
         modelBuilder.Entity<AssetAssignment>(entity =>
         {
             entity.HasOne(e => e.Asset).WithMany(e => e.AssetAssignments).HasForeignKey(e => e.AssetId);
             entity.HasOne(e => e.Employee).WithMany(e => e.AssetAssignments).HasForeignKey(e => e.EmployeeId);
-            entity.Property(e => e.AssignmentDate).IsRequired();
+            entity.Property(e => e.AssignedDate).IsRequired();
         });
 
         modelBuilder.Entity<Employee>(entity =>
@@ -130,7 +116,14 @@ public class ITAssetTrackerContext: DbContext
             entity.Property(e => e.HireDate).IsRequired();
 
             entity.HasOne(e => e.User).WithOne(e => e.Employee).HasForeignKey<Employee>(e => e.UserId);
-            entity.HasMany(e => e.AssetAssignments).WithOne(e => e.Employee);            
+            entity.HasMany(e => e.AssetAssignments).WithOne(e => e.Employee);
+            entity.HasOne(e => e.Department).WithMany(e => e.Employees).HasForeignKey(e => e.DepartmentId);
+        });
+
+        modelBuilder.Entity<Department>(entity =>
+        {
+            entity.Property(e => e.Name).IsRequired().HasMaxLength(100);
+            entity.HasMany(e => e.Employees).WithOne(e => e.Department);
         });
 
         modelBuilder.Entity<SupportTicket>(entity =>
@@ -138,11 +131,15 @@ public class ITAssetTrackerContext: DbContext
             entity.Property(e => e.CreationDate).IsRequired();
             entity.Property(e => e.Title).IsRequired().HasMaxLength(300);
 
-            entity.HasOne(e => e.AssetAssignment).WithMany(e => e.SupporTickets).HasForeignKey(e => e.AssetAssignmentId);
-            entity.HasOne(e => e.User).WithMany(e => e.SupporTickets).HasForeignKey(e => e.UserId);
-            entity.HasOne(e => e.Status).WithMany(e => e.SupporTickets).HasForeignKey(e => e.StatusId);
+            entity.HasOne(e => e.TicketStatus).WithMany(e => e.SupporTickets).HasForeignKey(e => e.TicketStatusId);
             entity.HasOne(e => e.Priority).WithMany(e => e.SupporTickets).HasForeignKey(e => e.PriorityId);
             entity.HasOne(e => e.Resolution).WithMany(e => e.SupporTickets).HasForeignKey(e => e.ResolutionId);
+            entity.HasMany(e => e.TicketAssignmentHistories).WithOne(e => e.SupportTicket);
+        });
+
+        modelBuilder.Entity<TicketAssignmentHistory>(entity =>
+        {
+            entity.HasOne(e => e.SupportTicket).WithMany(e => e.TicketAssignmentHistories).HasForeignKey(e => e.SupportTicketId);
         });
     }
 }

@@ -1,5 +1,5 @@
-﻿using ITAssetTracker.Application.Interfaces;
-using ITAssetTracker.Infrastructure.Entities;
+﻿using ITAssetTracker.Application.ServiceInterfaces;
+using ITAssetTracker.Domain.Entities;
 using ITAssetTracker.MVC.Models.Asset;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,18 +8,18 @@ namespace ITAssetTracker.MVC.Controllers.MVC;
 public class AssetController : Controller
 {
     private IAssetService _assetService;
-    private IModelService _modelService;
-    private IAssetTypeService _assetTypeService;
+    private IAssetProductService _modelService;
+    private IAssetStatusService _assetStatusService;
     private readonly ILogger _logger;
 
     public AssetController(IAssetService assetService, 
-                           IModelService modelService, 
-                           IAssetTypeService assetTypeService,
+                           IAssetProductService modelService, 
+                           IAssetStatusService assetStatusService,
                            ILogger<AssetController> logger)
     {
         _assetService = assetService;
         _modelService = modelService;
-        _assetTypeService = assetTypeService;
+        _assetStatusService = assetStatusService;
         _logger = logger;
     }
 
@@ -37,6 +37,7 @@ public class AssetController : Controller
         if(model.SearchTag is null)
         {
             Result<List<Asset>> result = _assetService.GetAll();
+
             if (result.Ok)
             {
                 model.Assets = result.Data;
@@ -63,48 +64,13 @@ public class AssetController : Controller
         return View(model);
     }
 
-    /// <summary>
-    /// Retrieves a list of available models from the underlying model service.
-    /// </summary>
-    /// <remarks>The returned list will never be null. If the model service fails to retrieve models, an empty
-    /// list is returned instead.</remarks>
-    /// <returns>A list of models if the retrieval operation succeeds; otherwise, an empty list.</returns>
-    private List<Model>? RetrieveModelsList()
-    {
-        var result = _modelService.GetAll();
-
-        if (!result.Ok)
-        {
-            return new List<Model>();            
-        }
-
-        return result.Data;
-    }
-
-    /// <summary>
-    /// Retrieves a list of available asset types.
-    /// </summary>
-    /// <remarks>The returned list will never be null. If the underlying service call fails, an empty list is
-    /// returned.</remarks>
-    /// <returns>A list of asset types if retrieval is successful; otherwise, an empty list.</returns>
-    private List<AssetType>? RetrieveAssetTypeList()
-    {
-        var result = _assetTypeService.GetAll();
-
-        if (!result.Ok)
-        {
-            return new List<AssetType>();            
-        }
-
-        return result.Data;
-    }
 
     [HttpGet]
     public IActionResult Create()
     {
         var model = new AssetForm();
-        model.ModelsList = RetrieveModelsList();
-        model.AssetTypeList = RetrieveAssetTypeList();
+        model.AssetProductsList = RetrieveAssetProductsList();
+        model.AssetStatusList = RetrieveAssetStatusList();
 
         return View(model);
     }
@@ -113,9 +79,10 @@ public class AssetController : Controller
     [ValidateAntiForgeryToken]
     public IActionResult Create(AssetForm model)
     {
+        var wd = model.WarrantyExpiryDate;
+
         if (ModelState.IsValid)
         {
-            //model.ModelsList = RetrieveModelsList();
             Asset entity = model.ToEntity();
             Result result = _assetService.Add(entity);
 
@@ -131,9 +98,39 @@ public class AssetController : Controller
             }
         }
 
-        // Failed validation, return model.
+        // Dropdown lists need to be repopulated again if validation fails
+        model.AssetProductsList = RetrieveAssetProductsList();
+        model.AssetStatusList = RetrieveAssetStatusList();
+        model.WarrantyExpiryDate = wd;
+        // Failed validation, return model
         return View(model);
     }
 
-    
+
+    /// <summary>
+    /// Retrieves a list of available models from the underlying model service.
+    /// </summary>
+    /// <remarks>The returned list will never be null. If the model service fails to retrieve models, an empty
+    /// list is returned instead.</remarks>
+    /// <returns>A list of models if the retrieval operation succeeds; otherwise, an empty list.</returns>
+    private List<AssetProduct>? RetrieveAssetProductsList()
+    {
+        var result = _modelService.GetAll();
+
+        if (!result.Ok)
+        {
+            return new List<AssetProduct>();
+        }
+
+        return result.Data;
+    }
+
+    private List<AssetStatus>? RetrieveAssetStatusList()
+    {
+        var result = _assetStatusService.GetAllAssetStatuses();
+
+        if (!result.Ok) return new List<AssetStatus>();
+
+        return result.Data;
+    }
 }

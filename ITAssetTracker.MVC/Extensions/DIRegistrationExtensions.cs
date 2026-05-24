@@ -1,8 +1,8 @@
-﻿using ITAssetTracker.Application.Interfaces;
+﻿using ITAssetTracker.Application.ServiceInterfaces;
 using ITAssetTracker.Application.Services;
-using ITAssetTracker.Infrastructure.Entities;
-using ITAssetTracker.Infrastructure.Interfaces;
+using ITAssetTracker.Application.RepositoryInterfaces;
 using ITAssetTracker.Infrastructure.Repositories.EntityFramework;
+using System.Net.NetworkInformation;
 
 namespace ITAssetTracker.MVC.Extensions;
 
@@ -30,10 +30,10 @@ public static class DIRegistrationExtensions
         return builder;
     }
 
-    public static WebApplicationBuilder AddModelRepositories(this WebApplicationBuilder builder)
+    public static WebApplicationBuilder AddAssetProductRepositories(this WebApplicationBuilder builder)
     {
-        builder.Services.AddScoped<IModelService, ModelService>();
-        builder.Services.AddScoped<IModelRepository, EFModelRepository>();
+        builder.Services.AddScoped<IAssetProductService, ModelService>();
+        builder.Services.AddScoped<IAssetProductRepository, EFAssetProductRepository>();
 
         return builder;
     }
@@ -42,6 +42,22 @@ public static class DIRegistrationExtensions
     {
         builder.Services.AddScoped<IAssetTypeService, AssetTypeService>();
         builder.Services.AddScoped<IAssetTypeRepository, EFAssetTypeRepository>();
+
+        return builder;
+    }
+
+    public static WebApplicationBuilder AddCategoryRespository(this WebApplicationBuilder builder)
+    {
+        builder.Services.AddScoped<ICategoryService, CategoryService>();
+        builder.Services.AddScoped<ICategoryRepository, EFCategoryRepository>();
+
+        return builder;
+    }
+
+    public static WebApplicationBuilder AddAssetStatusRepository(this WebApplicationBuilder builder)
+    {
+        builder.Services.AddScoped<IAssetStatusService, AssetStatusService>();
+        builder.Services.AddScoped<IAssetStatusRepository, EFAssetStatusRepository>();
 
         return builder;
     }

@@ -17,35 +17,57 @@ namespace ITAssetTracker.Infrastructure.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.7");
 
-            modelBuilder.Entity("ITAssetTracker.Infrastructure.Entities.Asset", b =>
+            modelBuilder.Entity("ITAssetTracker.Domain.Entities.Asset", b =>
                 {
                     b.Property<int>("AssetId")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("AssetProductId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("AssetStatusId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("ModelId")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Location")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
+                    b.Property<decimal>("Price")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("PurchaseDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("SerialNumber")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("Tag")
                         .HasColumnType("INTEGER");
 
+                    b.Property<DateTime>("WarrantyExpiryDate")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("AssetId");
 
-                    b.HasIndex("ModelId");
+                    b.HasIndex("AssetProductId");
+
+                    b.HasIndex("AssetStatusId");
 
                     b.ToTable("Assets");
                 });
 
-            modelBuilder.Entity("ITAssetTracker.Infrastructure.Entities.AssetAssignment", b =>
+            modelBuilder.Entity("ITAssetTracker.Domain.Entities.AssetAssignment", b =>
                 {
                     b.Property<int>("AssetAssignmentId")
                         .ValueGeneratedOnAdd()
@@ -54,13 +76,13 @@ namespace ITAssetTracker.Infrastructure.Migrations
                     b.Property<int>("AssetId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("AssignmentDate")
+                    b.Property<DateTime>("AssignedDate")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("EmployeeId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime?>("ReturnDate")
+                    b.Property<DateTime?>("ReturnedDate")
                         .HasColumnType("TEXT");
 
                     b.HasKey("AssetAssignmentId");
@@ -69,10 +91,51 @@ namespace ITAssetTracker.Infrastructure.Migrations
 
                     b.HasIndex("EmployeeId");
 
-                    b.ToTable("AssetAssignment");
+                    b.ToTable("AssetAssignments");
                 });
 
-            modelBuilder.Entity("ITAssetTracker.Infrastructure.Entities.AssetType", b =>
+            modelBuilder.Entity("ITAssetTracker.Domain.Entities.AssetProduct", b =>
+                {
+                    b.Property<int>("AssetProductId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("AssetTypeId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ManufacturerId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("AssetProductId");
+
+                    b.HasIndex("AssetTypeId");
+
+                    b.HasIndex("ManufacturerId");
+
+                    b.ToTable("AssetProducts");
+                });
+
+            modelBuilder.Entity("ITAssetTracker.Domain.Entities.AssetStatus", b =>
+                {
+                    b.Property<int>("AssetStatusId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("AssetStatusId");
+
+                    b.ToTable("AssetStatuses");
+                });
+
+            modelBuilder.Entity("ITAssetTracker.Domain.Entities.AssetType", b =>
                 {
                     b.Property<int>("AssetTypeId")
                         .ValueGeneratedOnAdd()
@@ -93,7 +156,7 @@ namespace ITAssetTracker.Infrastructure.Migrations
                     b.ToTable("AssetTypes");
                 });
 
-            modelBuilder.Entity("ITAssetTracker.Infrastructure.Entities.Category", b =>
+            modelBuilder.Entity("ITAssetTracker.Domain.Entities.Category", b =>
                 {
                     b.Property<int>("CategoryId")
                         .ValueGeneratedOnAdd()
@@ -109,10 +172,29 @@ namespace ITAssetTracker.Infrastructure.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("ITAssetTracker.Infrastructure.Entities.Employee", b =>
+            modelBuilder.Entity("ITAssetTracker.Domain.Entities.Department", b =>
+                {
+                    b.Property<int>("DepartmentId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("DepartmentId");
+
+                    b.ToTable("Departments");
+                });
+
+            modelBuilder.Entity("ITAssetTracker.Domain.Entities.Employee", b =>
                 {
                     b.Property<int>("EmployeeId")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("DepartmentId")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("DoB")
@@ -154,13 +236,15 @@ namespace ITAssetTracker.Infrastructure.Migrations
 
                     b.HasKey("EmployeeId");
 
+                    b.HasIndex("DepartmentId");
+
                     b.HasIndex("UserId")
                         .IsUnique();
 
                     b.ToTable("Employees");
                 });
 
-            modelBuilder.Entity("ITAssetTracker.Infrastructure.Entities.Manufacturer", b =>
+            modelBuilder.Entity("ITAssetTracker.Domain.Entities.Manufacturer", b =>
                 {
                     b.Property<int>("ManufacturerId")
                         .ValueGeneratedOnAdd()
@@ -176,33 +260,7 @@ namespace ITAssetTracker.Infrastructure.Migrations
                     b.ToTable("Manufacturers");
                 });
 
-            modelBuilder.Entity("ITAssetTracker.Infrastructure.Entities.Model", b =>
-                {
-                    b.Property<int>("ModelId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("AssetTypeId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("ManufacturerId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("ModelId");
-
-                    b.HasIndex("AssetTypeId");
-
-                    b.HasIndex("ManufacturerId");
-
-                    b.ToTable("Models");
-                });
-
-            modelBuilder.Entity("ITAssetTracker.Infrastructure.Entities.Priority", b =>
+            modelBuilder.Entity("ITAssetTracker.Domain.Entities.Priority", b =>
                 {
                     b.Property<int>("PriorityId")
                         .ValueGeneratedOnAdd()
@@ -218,7 +276,7 @@ namespace ITAssetTracker.Infrastructure.Migrations
                     b.ToTable("Priorities");
                 });
 
-            modelBuilder.Entity("ITAssetTracker.Infrastructure.Entities.Resolution", b =>
+            modelBuilder.Entity("ITAssetTracker.Domain.Entities.Resolution", b =>
                 {
                     b.Property<int>("ResolutionId")
                         .ValueGeneratedOnAdd()
@@ -234,7 +292,7 @@ namespace ITAssetTracker.Infrastructure.Migrations
                     b.ToTable("Resolutions");
                 });
 
-            modelBuilder.Entity("ITAssetTracker.Infrastructure.Entities.Role", b =>
+            modelBuilder.Entity("ITAssetTracker.Domain.Entities.Role", b =>
                 {
                     b.Property<int>("RoleId")
                         .ValueGeneratedOnAdd()
@@ -250,32 +308,16 @@ namespace ITAssetTracker.Infrastructure.Migrations
                     b.ToTable("Roles");
                 });
 
-            modelBuilder.Entity("ITAssetTracker.Infrastructure.Entities.Status", b =>
-                {
-                    b.Property<int>("StatusId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("StatusId");
-
-                    b.ToTable("Statuses");
-                });
-
-            modelBuilder.Entity("ITAssetTracker.Infrastructure.Entities.SupportTicket", b =>
+            modelBuilder.Entity("ITAssetTracker.Domain.Entities.SupportTicket", b =>
                 {
                     b.Property<int>("SupportTicketId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("AssetAssignmentId")
+                    b.Property<int>("AssetId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime?>("CloseDate")
+                    b.Property<DateTime?>("ClosedDate")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Comments")
@@ -287,13 +329,16 @@ namespace ITAssetTracker.Infrastructure.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("EmployeeId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("PriorityId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("ResolutionId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("StatusId")
+                    b.Property<int>("TicketStatusId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Title")
@@ -301,25 +346,68 @@ namespace ITAssetTracker.Infrastructure.Migrations
                         .HasMaxLength(300)
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("UserId")
+                    b.Property<int?>("UserId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("SupportTicketId");
 
-                    b.HasIndex("AssetAssignmentId");
+                    b.HasIndex("AssetId");
+
+                    b.HasIndex("EmployeeId");
 
                     b.HasIndex("PriorityId");
 
                     b.HasIndex("ResolutionId");
 
-                    b.HasIndex("StatusId");
+                    b.HasIndex("TicketStatusId");
 
                     b.HasIndex("UserId");
 
                     b.ToTable("SupportTickets");
                 });
 
-            modelBuilder.Entity("ITAssetTracker.Infrastructure.Entities.User", b =>
+            modelBuilder.Entity("ITAssetTracker.Domain.Entities.TicketAssignmentHistory", b =>
+                {
+                    b.Property<int>("TicketAssignmentHistoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("AssignedDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("EmployeeId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("SupportTicketId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime?>("UnassignedDate")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("TicketAssignmentHistoryId");
+
+                    b.HasIndex("SupportTicketId");
+
+                    b.ToTable("TicketAssignmentHistories");
+                });
+
+            modelBuilder.Entity("ITAssetTracker.Domain.Entities.TicketStatus", b =>
+                {
+                    b.Property<int>("TicketStatusId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("TicketStatusId");
+
+                    b.ToTable("TicketStatuses");
+                });
+
+            modelBuilder.Entity("ITAssetTracker.Domain.Entities.User", b =>
                 {
                     b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
@@ -344,26 +432,34 @@ namespace ITAssetTracker.Infrastructure.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("ITAssetTracker.Infrastructure.Entities.Asset", b =>
+            modelBuilder.Entity("ITAssetTracker.Domain.Entities.Asset", b =>
                 {
-                    b.HasOne("ITAssetTracker.Infrastructure.Entities.Model", "Models")
+                    b.HasOne("ITAssetTracker.Domain.Entities.AssetProduct", "AssetProducts")
                         .WithMany("Assets")
-                        .HasForeignKey("ModelId")
+                        .HasForeignKey("AssetProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Models");
+                    b.HasOne("ITAssetTracker.Domain.Entities.AssetStatus", "AssetStatuses")
+                        .WithMany("Assets")
+                        .HasForeignKey("AssetStatusId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AssetProducts");
+
+                    b.Navigation("AssetStatuses");
                 });
 
-            modelBuilder.Entity("ITAssetTracker.Infrastructure.Entities.AssetAssignment", b =>
+            modelBuilder.Entity("ITAssetTracker.Domain.Entities.AssetAssignment", b =>
                 {
-                    b.HasOne("ITAssetTracker.Infrastructure.Entities.Asset", "Asset")
+                    b.HasOne("ITAssetTracker.Domain.Entities.Asset", "Asset")
                         .WithMany("AssetAssignments")
                         .HasForeignKey("AssetId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ITAssetTracker.Infrastructure.Entities.Employee", "Employee")
+                    b.HasOne("ITAssetTracker.Domain.Entities.Employee", "Employee")
                         .WithMany("AssetAssignments")
                         .HasForeignKey("EmployeeId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -374,38 +470,16 @@ namespace ITAssetTracker.Infrastructure.Migrations
                     b.Navigation("Employee");
                 });
 
-            modelBuilder.Entity("ITAssetTracker.Infrastructure.Entities.AssetType", b =>
+            modelBuilder.Entity("ITAssetTracker.Domain.Entities.AssetProduct", b =>
                 {
-                    b.HasOne("ITAssetTracker.Infrastructure.Entities.Category", "Category")
-                        .WithMany("AssetTypes")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Category");
-                });
-
-            modelBuilder.Entity("ITAssetTracker.Infrastructure.Entities.Employee", b =>
-                {
-                    b.HasOne("ITAssetTracker.Infrastructure.Entities.User", "User")
-                        .WithOne("Employee")
-                        .HasForeignKey("ITAssetTracker.Infrastructure.Entities.Employee", "UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("ITAssetTracker.Infrastructure.Entities.Model", b =>
-                {
-                    b.HasOne("ITAssetTracker.Infrastructure.Entities.AssetType", "AssetType")
-                        .WithMany("Models")
+                    b.HasOne("ITAssetTracker.Domain.Entities.AssetType", "AssetType")
+                        .WithMany("AssetProducts")
                         .HasForeignKey("AssetTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ITAssetTracker.Infrastructure.Entities.Manufacturer", "Manufacturer")
-                        .WithMany("Models")
+                    b.HasOne("ITAssetTracker.Domain.Entities.Manufacturer", "Manufacturer")
+                        .WithMany("AssetProducts")
                         .HasForeignKey("ManufacturerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -415,52 +489,97 @@ namespace ITAssetTracker.Infrastructure.Migrations
                     b.Navigation("Manufacturer");
                 });
 
-            modelBuilder.Entity("ITAssetTracker.Infrastructure.Entities.SupportTicket", b =>
+            modelBuilder.Entity("ITAssetTracker.Domain.Entities.AssetType", b =>
                 {
-                    b.HasOne("ITAssetTracker.Infrastructure.Entities.AssetAssignment", "AssetAssignment")
-                        .WithMany("SupporTickets")
-                        .HasForeignKey("AssetAssignmentId")
+                    b.HasOne("ITAssetTracker.Domain.Entities.Category", "Category")
+                        .WithMany("AssetTypes")
+                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ITAssetTracker.Infrastructure.Entities.Priority", "Priority")
+                    b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("ITAssetTracker.Domain.Entities.Employee", b =>
+                {
+                    b.HasOne("ITAssetTracker.Domain.Entities.Department", "Department")
+                        .WithMany("Employees")
+                        .HasForeignKey("DepartmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ITAssetTracker.Domain.Entities.User", "User")
+                        .WithOne("Employee")
+                        .HasForeignKey("ITAssetTracker.Domain.Entities.Employee", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Department");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ITAssetTracker.Domain.Entities.SupportTicket", b =>
+                {
+                    b.HasOne("ITAssetTracker.Domain.Entities.Asset", "Asset")
+                        .WithMany("SupportTickets")
+                        .HasForeignKey("AssetId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ITAssetTracker.Domain.Entities.Employee", "Employee")
+                        .WithMany()
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ITAssetTracker.Domain.Entities.Priority", "Priority")
                         .WithMany("SupporTickets")
                         .HasForeignKey("PriorityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ITAssetTracker.Infrastructure.Entities.Resolution", "Resolution")
+                    b.HasOne("ITAssetTracker.Domain.Entities.Resolution", "Resolution")
                         .WithMany("SupporTickets")
                         .HasForeignKey("ResolutionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ITAssetTracker.Infrastructure.Entities.Status", "Status")
+                    b.HasOne("ITAssetTracker.Domain.Entities.TicketStatus", "TicketStatus")
                         .WithMany("SupporTickets")
-                        .HasForeignKey("StatusId")
+                        .HasForeignKey("TicketStatusId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ITAssetTracker.Infrastructure.Entities.User", "User")
+                    b.HasOne("ITAssetTracker.Domain.Entities.User", null)
                         .WithMany("SupporTickets")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
 
-                    b.Navigation("AssetAssignment");
+                    b.Navigation("Asset");
+
+                    b.Navigation("Employee");
 
                     b.Navigation("Priority");
 
                     b.Navigation("Resolution");
 
-                    b.Navigation("Status");
-
-                    b.Navigation("User");
+                    b.Navigation("TicketStatus");
                 });
 
-            modelBuilder.Entity("ITAssetTracker.Infrastructure.Entities.User", b =>
+            modelBuilder.Entity("ITAssetTracker.Domain.Entities.TicketAssignmentHistory", b =>
                 {
-                    b.HasOne("ITAssetTracker.Infrastructure.Entities.Role", "Role")
+                    b.HasOne("ITAssetTracker.Domain.Entities.SupportTicket", "SupportTicket")
+                        .WithMany("TicketAssignmentHistories")
+                        .HasForeignKey("SupportTicketId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("SupportTicket");
+                });
+
+            modelBuilder.Entity("ITAssetTracker.Domain.Entities.User", b =>
+                {
+                    b.HasOne("ITAssetTracker.Domain.Entities.Role", "Role")
                         .WithMany("Users")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -469,62 +588,74 @@ namespace ITAssetTracker.Infrastructure.Migrations
                     b.Navigation("Role");
                 });
 
-            modelBuilder.Entity("ITAssetTracker.Infrastructure.Entities.Asset", b =>
+            modelBuilder.Entity("ITAssetTracker.Domain.Entities.Asset", b =>
                 {
                     b.Navigation("AssetAssignments");
+
+                    b.Navigation("SupportTickets");
                 });
 
-            modelBuilder.Entity("ITAssetTracker.Infrastructure.Entities.AssetAssignment", b =>
-                {
-                    b.Navigation("SupporTickets");
-                });
-
-            modelBuilder.Entity("ITAssetTracker.Infrastructure.Entities.AssetType", b =>
-                {
-                    b.Navigation("Models");
-                });
-
-            modelBuilder.Entity("ITAssetTracker.Infrastructure.Entities.Category", b =>
-                {
-                    b.Navigation("AssetTypes");
-                });
-
-            modelBuilder.Entity("ITAssetTracker.Infrastructure.Entities.Employee", b =>
-                {
-                    b.Navigation("AssetAssignments");
-                });
-
-            modelBuilder.Entity("ITAssetTracker.Infrastructure.Entities.Manufacturer", b =>
-                {
-                    b.Navigation("Models");
-                });
-
-            modelBuilder.Entity("ITAssetTracker.Infrastructure.Entities.Model", b =>
+            modelBuilder.Entity("ITAssetTracker.Domain.Entities.AssetProduct", b =>
                 {
                     b.Navigation("Assets");
                 });
 
-            modelBuilder.Entity("ITAssetTracker.Infrastructure.Entities.Priority", b =>
+            modelBuilder.Entity("ITAssetTracker.Domain.Entities.AssetStatus", b =>
+                {
+                    b.Navigation("Assets");
+                });
+
+            modelBuilder.Entity("ITAssetTracker.Domain.Entities.AssetType", b =>
+                {
+                    b.Navigation("AssetProducts");
+                });
+
+            modelBuilder.Entity("ITAssetTracker.Domain.Entities.Category", b =>
+                {
+                    b.Navigation("AssetTypes");
+                });
+
+            modelBuilder.Entity("ITAssetTracker.Domain.Entities.Department", b =>
+                {
+                    b.Navigation("Employees");
+                });
+
+            modelBuilder.Entity("ITAssetTracker.Domain.Entities.Employee", b =>
+                {
+                    b.Navigation("AssetAssignments");
+                });
+
+            modelBuilder.Entity("ITAssetTracker.Domain.Entities.Manufacturer", b =>
+                {
+                    b.Navigation("AssetProducts");
+                });
+
+            modelBuilder.Entity("ITAssetTracker.Domain.Entities.Priority", b =>
                 {
                     b.Navigation("SupporTickets");
                 });
 
-            modelBuilder.Entity("ITAssetTracker.Infrastructure.Entities.Resolution", b =>
+            modelBuilder.Entity("ITAssetTracker.Domain.Entities.Resolution", b =>
                 {
                     b.Navigation("SupporTickets");
                 });
 
-            modelBuilder.Entity("ITAssetTracker.Infrastructure.Entities.Role", b =>
+            modelBuilder.Entity("ITAssetTracker.Domain.Entities.Role", b =>
                 {
                     b.Navigation("Users");
                 });
 
-            modelBuilder.Entity("ITAssetTracker.Infrastructure.Entities.Status", b =>
+            modelBuilder.Entity("ITAssetTracker.Domain.Entities.SupportTicket", b =>
+                {
+                    b.Navigation("TicketAssignmentHistories");
+                });
+
+            modelBuilder.Entity("ITAssetTracker.Domain.Entities.TicketStatus", b =>
                 {
                     b.Navigation("SupporTickets");
                 });
 
-            modelBuilder.Entity("ITAssetTracker.Infrastructure.Entities.User", b =>
+            modelBuilder.Entity("ITAssetTracker.Domain.Entities.User", b =>
                 {
                     b.Navigation("Employee")
                         .IsRequired();

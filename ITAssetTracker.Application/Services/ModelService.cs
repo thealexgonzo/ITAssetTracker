@@ -1,27 +1,27 @@
-﻿using ITAssetTracker.Application.Interfaces;
-using ITAssetTracker.Infrastructure.Entities;
-using ITAssetTracker.Infrastructure.Interfaces;
+﻿using ITAssetTracker.Application.ServiceInterfaces;
+using ITAssetTracker.Domain.Entities;
+using ITAssetTracker.Application.RepositoryInterfaces;
 
 namespace ITAssetTracker.Application.Services;
 
-public class ModelService : IModelService
+public class ModelService : IAssetProductService
 {
-	private IModelRepository _modelService;
+	private IAssetProductRepository _modelService;
 
-    public ModelService(IModelRepository modelService)
+    public ModelService(IAssetProductRepository modelService)
     {
 		_modelService = modelService;
     }
 
-    public Result<List<Model>> GetAll()
+    public Result<List<AssetProduct>> GetAll()
     {
 		try
 		{
-			return ResultFactory.Success<List<Model>>(_modelService.GetAll());
+			return ResultFactory.Success<List<AssetProduct>>(_modelService.GetAll());
 		}
 		catch (Exception ex)
 		{
-			return ResultFactory.Fail<List<Model>>(ex.Message);
+			return ResultFactory.Fail<List<AssetProduct>>(ex.Message);
 		}
     }
 }

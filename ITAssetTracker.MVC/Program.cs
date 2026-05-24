@@ -22,8 +22,10 @@ builder.Services.AddDbContext<ITAssetTrackerContext>(options => options.UseSqlit
 
 builder.AddSupportTicketRepositories();
 builder.AddAssetRepositories();
-builder.AddModelRepositories();
+builder.AddAssetProductRepositories();
 builder.AddAssetTypeRepository();
+builder.AddCategoryRespository();
+builder.AddAssetStatusRepository();
 
 var app = builder.Build();
 
