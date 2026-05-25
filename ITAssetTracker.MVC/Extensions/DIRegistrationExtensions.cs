@@ -61,4 +61,12 @@ public static class DIRegistrationExtensions
 
         return builder;
     }
+
+    public static WebApplicationBuilder AddAssetHistoryRepository(this WebApplicationBuilder builder)
+    {
+        builder.Services.AddScoped<IAssetHistoryService, AssetHistoryService>();
+        builder.Services.AddScoped<IAssetHistoryRepository, EFAssetHistoryRepository>();
+
+        return builder;
+    }
 }

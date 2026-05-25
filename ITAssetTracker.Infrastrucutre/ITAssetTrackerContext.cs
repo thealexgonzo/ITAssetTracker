@@ -25,6 +25,7 @@ public class ITAssetTrackerContext: DbContext
     public DbSet<AssetStatus> AssetStatuses { get; set; }
     public DbSet<Department> Departments { get; set; }
     public DbSet<AssetAssignment> AssetAssignments { get; set; }
+    public DbSet<AssetHistory> AssetHistories { get; set; }
 
     /// <summary>
     /// Set up models by adding constraints, foreign keys, etc
@@ -41,19 +42,19 @@ public class ITAssetTrackerContext: DbContext
         modelBuilder.Entity<TicketStatus>(entity =>
         {
             entity.Property(e => e.Name).IsRequired().HasMaxLength(100);
-            entity.HasMany(e => e.SupporTickets).WithOne(e => e.TicketStatus);
+            entity.HasMany(e => e.SupportTickets).WithOne(e => e.TicketStatus);
         });
 
         modelBuilder.Entity<Priority>(entity =>
         {
             entity.Property(e => e.Name).IsRequired().HasMaxLength(100);
-            entity.HasMany(e => e.SupporTickets).WithOne(e => e.Priority);
+            entity.HasMany(e => e.SupportTickets).WithOne(e => e.Priority);
         });
 
         modelBuilder.Entity<Resolution>(entity =>
         {
             entity.Property(e => e.Name).IsRequired().HasMaxLength(100);
-            entity.HasMany(e => e.SupporTickets).WithOne(e => e.Resolution);
+            entity.HasMany(e => e.SupportTickets).WithOne(e => e.Resolution);
         });
 
         modelBuilder.Entity<User>(entity =>
@@ -114,7 +115,6 @@ public class ITAssetTrackerContext: DbContext
             entity.Property(e => e.Email).IsRequired().HasMaxLength(100);
             entity.Property(e => e.Phone).IsRequired().HasMaxLength(50);
             entity.Property(e => e.HireDate).IsRequired();
-
             entity.HasOne(e => e.User).WithOne(e => e.Employee).HasForeignKey<Employee>(e => e.UserId);
             entity.HasMany(e => e.AssetAssignments).WithOne(e => e.Employee);
             entity.HasOne(e => e.Department).WithMany(e => e.Employees).HasForeignKey(e => e.DepartmentId);
@@ -130,16 +130,22 @@ public class ITAssetTrackerContext: DbContext
         {
             entity.Property(e => e.CreationDate).IsRequired();
             entity.Property(e => e.Title).IsRequired().HasMaxLength(300);
-
-            entity.HasOne(e => e.TicketStatus).WithMany(e => e.SupporTickets).HasForeignKey(e => e.TicketStatusId);
-            entity.HasOne(e => e.Priority).WithMany(e => e.SupporTickets).HasForeignKey(e => e.PriorityId);
-            entity.HasOne(e => e.Resolution).WithMany(e => e.SupporTickets).HasForeignKey(e => e.ResolutionId);
+            entity.HasOne(e => e.TicketStatus).WithMany(e => e.SupportTickets).HasForeignKey(e => e.TicketStatusId);
+            entity.HasOne(e => e.Priority).WithMany(e => e.SupportTickets).HasForeignKey(e => e.PriorityId);
+            entity.HasOne(e => e.Resolution).WithMany(e => e.SupportTickets).HasForeignKey(e => e.ResolutionId);
             entity.HasMany(e => e.TicketAssignmentHistories).WithOne(e => e.SupportTicket);
         });
 
         modelBuilder.Entity<TicketAssignmentHistory>(entity =>
         {
             entity.HasOne(e => e.SupportTicket).WithMany(e => e.TicketAssignmentHistories).HasForeignKey(e => e.SupportTicketId);
+        });
+
+        modelBuilder.Entity<AssetHistory>(entity =>
+        {
+            entity.HasOne(e => e.Asset).WithMany(e => e.AssetHistories).HasForeignKey(e => e.AssetId);
+            entity.HasOne(e => e.CreatedByUser).WithMany().HasForeignKey(e => e.CreatedByUserId).OnDelete(DeleteBehavior.Restrict);
+            entity.HasOne(e => e.UpdatedByUser).WithMany().HasForeignKey(e => e.UpdatedByUserId).OnDelete(DeleteBehavior.Restrict);
         });
     }
 }

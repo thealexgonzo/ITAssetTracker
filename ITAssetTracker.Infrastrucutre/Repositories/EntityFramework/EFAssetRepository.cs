@@ -45,4 +45,9 @@ public class EFAssetRepository : IAssetRepository
     {
         return _dbContext.Assets.Max(a => a.Tag) + 1;
     }
+
+    public Asset? GetById(int id)
+    {
+        return _dbContext.Assets.FirstOrDefault(a => a.AssetId == id) ?? null;
+    }
 }

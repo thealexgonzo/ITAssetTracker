@@ -83,6 +83,23 @@ public class AssetService : IAssetService
         }
     }
 
+    public Result<Asset> GetById(int id)
+    {
+        try
+        {
+            var asset = _assetService.GetById(id);
+
+            return asset is null ?
+            ResultFactory.Fail<Asset>($"Asset with tag number: {id} not found") :
+            ResultFactory.Success<Asset>(asset);
+
+        }
+        catch (Exception ex)
+        {
+            return ResultFactory.Fail<Asset>(ex.Message);
+        }
+    }
+
     public Result<int> GenerateTag()
     {
         try

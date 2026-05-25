@@ -17,4 +17,5 @@ public class Asset
     public AssetStatus AssetStatuses { get; set; } = null!; 
     public List<AssetAssignment> AssetAssignments { get; set; } = new();
     public List<SupportTicket> SupportTickets { get; set; } = new();
+    public List<AssetHistory> AssetHistories { get; set; } = new();
 }

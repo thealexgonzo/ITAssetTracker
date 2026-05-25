@@ -26,9 +26,9 @@ public class AssetForm
     [Column(TypeName = "decimal(18,2)")] // Database precision
     public decimal? Price { get; set; }
     [Required(ErrorMessage = "You must enter the asset location.")]
-    public string Location { get; set; }
+    public string? Location { get; set; }
     [Required(ErrorMessage = "You must enter the serial number.")]
-    public string SerialNumber { get; set; }
+    public string? SerialNumber { get; set; }
     [Required(ErrorMessage ="A date value must be provided.")]
     [DataType(DataType.Date)]
     public DateTime? PurchaseDate { get; set; }
@@ -38,6 +38,7 @@ public class AssetForm
 
     public List<AssetProduct> AssetProductsList { get; set; } = new();
     public List<AssetStatus> AssetStatusList { get; set; } = new();
+    public List<AssetHistory> AssetHistoryList { get; set; } = new();
 
     public AssetForm()
     {

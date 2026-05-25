@@ -26,6 +26,7 @@ builder.AddAssetProductRepositories();
 builder.AddAssetTypeRepository();
 builder.AddCategoryRespository();
 builder.AddAssetStatusRepository();
+builder.AddAssetHistoryRepository();
 
 var app = builder.Build();
 

@@ -10,16 +10,19 @@ public class AssetController : Controller
     private IAssetService _assetService;
     private IAssetProductService _modelService;
     private IAssetStatusService _assetStatusService;
+    private IAssetHistoryService _assetHistoryService;
     private readonly ILogger _logger;
 
     public AssetController(IAssetService assetService, 
                            IAssetProductService modelService, 
                            IAssetStatusService assetStatusService,
+                           IAssetHistoryService assetHistoryService,
                            ILogger<AssetController> logger)
     {
         _assetService = assetService;
         _modelService = modelService;
         _assetStatusService = assetStatusService;
+        _assetHistoryService = assetHistoryService;
         _logger = logger;
     }
 
@@ -79,8 +82,6 @@ public class AssetController : Controller
     [ValidateAntiForgeryToken]
     public IActionResult Create(AssetForm model)
     {
-        var wd = model.WarrantyExpiryDate;
-
         if (ModelState.IsValid)
         {
             Asset entity = model.ToEntity();
@@ -101,11 +102,57 @@ public class AssetController : Controller
         // Dropdown lists need to be repopulated again if validation fails
         model.AssetProductsList = RetrieveAssetProductsList();
         model.AssetStatusList = RetrieveAssetStatusList();
-        model.WarrantyExpiryDate = wd;
         // Failed validation, return model
         return View(model);
     }
 
+    [HttpGet]
+    public IActionResult Edit(int id)
+    {
+        Result<Asset> result = _assetService.GetById(id);
+
+        if (result.Ok && result.Data is not null)
+        {
+            AssetForm model = new(result.Data);
+            model.AssetProductsList = RetrieveAssetProductsList();
+            model.AssetStatusList = RetrieveAssetStatusList();
+            model.AssetHistoryList = RetrieveAssetHistoryList(id);
+            return View(model);
+        }
+        else
+        {
+            TempData["Error"] = result.Message;
+            return RedirectToAction("Index");
+        }
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult Edit(int id, AssetForm model)
+    {
+        if (ModelState.IsValid)
+        {
+            Asset entity = model.ToEntity();
+            Result result = _assetService.Edit(entity);
+
+            if (result.Ok)
+            {
+                TempData["Success"] = $"Asset with Tag # {model.Tag} edited successfully.";
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                TempData["Error"] = result.Message;
+                return View(model);
+            }
+        }
+
+        // Dropdown lists need to be repopulated again if validation fails
+        model.AssetProductsList = RetrieveAssetProductsList();
+        model.AssetStatusList = RetrieveAssetStatusList();
+        // Failed validation, return model
+        return View(model);
+    }
 
     /// <summary>
     /// Retrieves a list of available models from the underlying model service.
@@ -124,12 +171,19 @@ public class AssetController : Controller
 
         return result.Data;
     }
-
     private List<AssetStatus>? RetrieveAssetStatusList()
     {
         var result = _assetStatusService.GetAllAssetStatuses();
 
         if (!result.Ok) return new List<AssetStatus>();
+
+        return result.Data;
+    }
+    private List<AssetHistory>? RetrieveAssetHistoryList(int id)
+    {
+        var result = _assetHistoryService.GetAllAssetHistories(id);
+
+        if (!result.Ok) return new List<AssetHistory>();
 
         return result.Data;
     }
