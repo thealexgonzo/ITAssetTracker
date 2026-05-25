@@ -40,4 +40,4 @@ A comprehensive system designed to manage and track IT assets and support ticket
  
 - Clean Architecture
     - Willing to pay cost of harder dubbggin (chain of execution) for improved scalability and maintainability 
-    - Dependency inversion principle
+    - Dependency inversion principle (SOLID principle) - details depend on abstractions, abstraction don't depend on details
