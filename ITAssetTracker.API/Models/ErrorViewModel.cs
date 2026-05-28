@@ -1,4 +1,4 @@
-namespace ITAssetTracker.MVC.Models
+namespace ITAssetTracker.API.Models
 {
     public class ErrorViewModel
     {

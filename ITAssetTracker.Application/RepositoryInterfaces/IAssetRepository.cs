@@ -10,5 +10,4 @@ public interface IAssetRepository
     void Add(Asset asset);
     void Edit(Asset asset);
     void Delete(Asset asset);
-    int GenerateTag();
 }

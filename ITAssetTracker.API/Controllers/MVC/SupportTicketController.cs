@@ -1,8 +1,8 @@
 ﻿using ITAssetTracker.Application.ServiceInterfaces;
 using Microsoft.AspNetCore.Mvc;
-using ITAssetTracker.MVC.Models.SupportTicket;
+using ITAssetTracker.API.Models.SupportTicket;
 
-namespace ITAssetTracker.MVC.Controllers.MVC;
+namespace ITAssetTracker.API.Controllers.MVC;
 
 public class SupportTicketController : Controller
 {

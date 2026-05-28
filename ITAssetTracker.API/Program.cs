@@ -1,5 +1,5 @@
 using ITAssetTracker.Infrastructure;
-using ITAssetTracker.MVC.Extensions;
+using ITAssetTracker.API.Extensions;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

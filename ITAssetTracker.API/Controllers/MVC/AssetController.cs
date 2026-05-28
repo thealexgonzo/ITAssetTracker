@@ -1,9 +1,9 @@
 ﻿using ITAssetTracker.Application.ServiceInterfaces;
 using ITAssetTracker.Domain.Entities;
-using ITAssetTracker.MVC.Models.Asset;
+using ITAssetTracker.API.Models.Asset;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ITAssetTracker.MVC.Controllers.MVC;
+namespace ITAssetTracker.API.Controllers.MVC;
 
 public class AssetController : Controller
 {
@@ -52,7 +52,7 @@ public class AssetController : Controller
         }
         else
         {
-            Result<Asset> result = _assetService.GetByTag(model.SearchTag.Value);
+            Result<Asset> result = _assetService.GetByTag(model.SearchTag);
 
             if (result.Ok)
             {
@@ -107,7 +107,7 @@ public class AssetController : Controller
     }
 
     [HttpGet]
-    public IActionResult Edit(int id)
+    public IActionResult Edit(Guid id)
     {
         Result<Asset> result = _assetService.GetById(id);
 
@@ -179,7 +179,7 @@ public class AssetController : Controller
 
         return result.Data;
     }
-    private List<AssetHistory>? RetrieveAssetHistoryList(int id)
+    private List<AssetHistory>? RetrieveAssetHistoryList(Guid id)
     {
         var result = _assetHistoryService.GetAllAssetHistories(id);
 

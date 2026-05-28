@@ -12,7 +12,7 @@ public class EFAssetHistoryRepository : IAssetHistoryRepository
     {
         _dbContext = dbContext;
     }
-    public List<AssetHistory> GetAllAssetHistory(int id)
+    public List<AssetHistory> GetAllAssetHistory(Guid id)
     {
         //return _dbContext.AssetHistories
         //    .Where(a => a.AssetId == id).OrderByDescending(a => a.UpdatedDate).Include(User);

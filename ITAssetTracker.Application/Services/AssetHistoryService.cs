@@ -11,7 +11,7 @@ public class AssetHistoryService : IAssetHistoryService
     {
         _assetHistoryService = assetHistoryService;
     }
-    public Result<List<AssetHistory>> GetAllAssetHistories(int id)
+    public Result<List<AssetHistory>> GetAllAssetHistories(Guid id)
     {
         try
         {

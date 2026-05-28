@@ -1,4 +1,4 @@
-﻿namespace ITAssetTracker.MVC.Models.SupportTicket;
+﻿namespace ITAssetTracker.API.Models.SupportTicket;
 
 public class SupportTicketList
 {

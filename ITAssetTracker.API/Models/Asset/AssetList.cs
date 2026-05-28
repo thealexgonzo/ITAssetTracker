@@ -1,7 +1,7 @@
-﻿namespace ITAssetTracker.MVC.Models.Asset;
+﻿namespace ITAssetTracker.API.Models.Asset;
 
 public class AssetList
 {
-    public int? SearchTag { get; set; }
+    public string? SearchTag { get; set; }
     public IEnumerable<Domain.Entities.Asset>? Assets { get; set; }
 }

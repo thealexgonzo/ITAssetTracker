@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ITAssetTracker.MVC.Utilities.CustomValidation;
+namespace ITAssetTracker.API.Utilities.CustomValidation;
 
 public class IsNumber: ValidationAttribute
 {

@@ -1,8 +1,8 @@
-using ITAssetTracker.MVC.Models;
+using ITAssetTracker.API.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace ITAssetTracker.MVC.Controllers.MVC
+namespace ITAssetTracker.API.Controllers.MVC
 {
     public class HomeController : Controller
     {

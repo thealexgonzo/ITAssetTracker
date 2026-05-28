@@ -7,8 +7,8 @@ namespace ITAssetTracker.Domain.ValueObjects
 {
     public class DateRange
     {
-        private readonly DateTime start;
-        private readonly DateTime end;
+        public DateTime start;
+        public DateTime end;
 
         public DateRange(DateTime start, DateTime end)
         {

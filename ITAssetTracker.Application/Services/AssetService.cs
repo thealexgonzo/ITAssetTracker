@@ -66,7 +66,7 @@ public class AssetService : IAssetService
         }
     }
 
-    public Result<Asset> GetByTag(int tag)
+    public Result<Asset> GetByTag(string tag)
     {
         try
         {
@@ -83,7 +83,7 @@ public class AssetService : IAssetService
         }
     }
 
-    public Result<Asset> GetById(int id)
+    public Result<Asset> GetById(Guid id)
     {
         try
         {
@@ -97,18 +97,6 @@ public class AssetService : IAssetService
         catch (Exception ex)
         {
             return ResultFactory.Fail<Asset>(ex.Message);
-        }
-    }
-
-    public Result<int> GenerateTag()
-    {
-        try
-        {
-            return ResultFactory.Success<int>(_assetService.GenerateTag());
-        }
-        catch (Exception ex)
-        {
-            return ResultFactory.Fail<int>(ex.Message);
         }
     }
 }

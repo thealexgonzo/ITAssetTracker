@@ -4,7 +4,7 @@ using ITAssetTracker.Application.RepositoryInterfaces;
 using ITAssetTracker.Infrastructure.Repositories.EntityFramework;
 using System.Net.NetworkInformation;
 
-namespace ITAssetTracker.MVC.Extensions;
+namespace ITAssetTracker.API.Extensions;
 
 /// <summary>
 /// Provides extension methods for registering repositories and services with the dependency

@@ -1,17 +1,18 @@
 ﻿using ITAssetTracker.Domain.Entities;
-using ITAssetTracker.MVC.Utilities.CustomValidation;
+using ITAssetTracker.API.Utilities.CustomValidation;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using ITAssetTracker.Domain.ValueObjects;
 
-namespace ITAssetTracker.MVC.Models.Asset;
+namespace ITAssetTracker.API.Models.Asset;
 
 public class AssetForm
 {
-    public int? AssetId { get; set; }
-    [IsNumber(ErrorMessage = "The value must be numeric only.")]
-    [Required(ErrorMessage = "You must enter a product tag.")]
-    [Range(1, int.MaxValue, ErrorMessage = "Values must be greater than 0")]
-    public int? Tag { get; set; }
+    public Guid AssetId { get; set; }
+    //[IsNumber(ErrorMessage = "The value must be numeric only.")]
+    //[Required(ErrorMessage = "You must enter a product tag.")]
+    //[Range(1, int.MaxValue, ErrorMessage = "Values must be greater than 0")]
+    public string? Tag { get; set; }
     [Required(ErrorMessage = "You must enter a product name.")]
     [StringLength(100, ErrorMessage = "Name can't exceed 200 characters.")]
     public string? Name { get; set; } = string.Empty;
@@ -56,25 +57,26 @@ public class AssetForm
         Price = entity.Price;
         Location = entity.Location;
         SerialNumber = entity.SerialNumber;
-        PurchaseDate = entity.PurchaseDate;
-        WarrantyExpiryDate = entity.WarrantyExpiryDate;
+        PurchaseDate = entity.DateRange.start;
+        WarrantyExpiryDate = entity.DateRange.end;
     }
 
     public Domain.Entities.Asset ToEntity()
     {
-        return new Domain.Entities.Asset()
+        DateRange dateRange = new((DateTime)PurchaseDate, (DateTime)WarrantyExpiryDate);
+
+        return new Domain.Entities.Asset(Tag, Name, (int)AssetProductId, (int)AssetStatusId, (decimal)Price, Location, SerialNumber, dateRange, Description)
         {
-            AssetId = AssetId ?? 0,
-            Tag = Tag ?? 0,
-            Name = Name,
-            AssetProductId = AssetProductId ?? 0,
-            AssetStatusId = AssetStatusId ?? 0,
-            Description = Description,
-            Price = Price.HasValue ? (decimal)Price.Value : 0.00M,
-            Location = Location,
-            SerialNumber = SerialNumber,
-            PurchaseDate = PurchaseDate.HasValue ? (DateTime)PurchaseDate : DateTime.Today,
-            WarrantyExpiryDate = WarrantyExpiryDate.HasValue ? (DateTime)WarrantyExpiryDate : DateTime.Today
+            //Tag = this.Tag,
+            //Name = Name,
+            //AssetProductId = AssetProductId ?? 0,
+            //AssetStatusId = AssetStatusId ?? 0,
+            //Description = Description,
+            //Price = Price.HasValue ? (decimal)Price.Value : 0.00M,
+            //Location = Location,
+            //SerialNumber = SerialNumber,
+            //PurchaseDate = PurchaseDate.HasValue ? (DateTime)PurchaseDate : DateTime.Today,
+            //WarrantyExpiryDate = WarrantyExpiryDate.HasValue ? (DateTime)WarrantyExpiryDate : DateTime.Today
         };  
     }
 }

@@ -1,12 +1,18 @@
 <Solution>
+  <Folder Name="/API/">
+    <Project Path="ITAssetTracker.API/ITAssetTracker.API.csproj" />
+  </Folder>
+  <Folder Name="/Core/">
+    <Project Path="ITAssetTracker.Application/ITAssetTracker.Application.csproj" />
+    <Project Path="ITAssetTracker.Domain/ITAssetTracker.Domain.csproj" Id="7d86e5cd-ad0d-4ec7-ae2c-675081700bc5" />
+  </Folder>
+  <Folder Name="/Infrastructure/">
+    <Project Path="ITAssetTracker.Infrastrucutre/ITAssetTracker.Infrastructure.csproj" />
+  </Folder>
   <Folder Name="/Solution Items/">
     <File Path=".editorconfig" />
   </Folder>
   <Folder Name="/Tests/">
     <Project Path="ITAssetTracker.Tests/ITAssetTracker.Tests.csproj" Id="435dab98-893b-499e-877c-46a792045ce6" />
   </Folder>
-  <Project Path="ITAssetTracker.Application/ITAssetTracker.Application.csproj" />
-  <Project Path="ITAssetTracker.Domain/ITAssetTracker.Domain.csproj" Id="7d86e5cd-ad0d-4ec7-ae2c-675081700bc5" />
-  <Project Path="ITAssetTracker.Infrastrucutre/ITAssetTracker.Infrastructure.csproj" />
-  <Project Path="ITAssetTracker.MVC/ITAssetTracker.MVC.csproj" />
 </Solution>
