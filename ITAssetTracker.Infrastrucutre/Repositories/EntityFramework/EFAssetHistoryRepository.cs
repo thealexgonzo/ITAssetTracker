@@ -21,11 +21,11 @@ public class EFAssetHistoryRepository : IAssetHistoryRepository
             .Include(u => u.UpdatedByUser)
             .Where(a => a.AssetId == id).OrderByDescending(u => u.UpdatedDate).ToList();
 
-        var query = from assetHistory  in _dbContext.Set<AssetHistory>()
-                    join user in _dbContext.Set<User>()
-                        on assetHistory.CreatedByUser equals user.UserId
-                    join employee in _dbContext.Set<Employee>()
-                        on user.UserId equals employee.EmployeeId
-                    select new { user, employee };
+        //var query = from assetHistory  in _dbContext.Set<AssetHistory>()
+        //            join user in _dbContext.Set<User>()
+        //                on assetHistory.CreatedByUser equals user.UserId
+        //            join employee in _dbContext.Set<Employee>()
+        //                on user.UserId equals employee.EmployeeId
+        //            select new { assetHistory, user, employee };
     }
 }

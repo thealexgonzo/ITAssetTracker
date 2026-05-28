@@ -36,17 +36,17 @@ public class EFAssetRepository : IAssetRepository
         return _dbContext.Assets.Include(m => m.AssetProducts).ToList();
     }
 
-    public Asset? GetByTag(int tag)
+    public Asset? GetByTag(string tag)
     {
         return _dbContext.Assets.Include(m => m.AssetProducts).FirstOrDefault(a => a.Tag == tag) ?? null;
     }
 
-    public int GenerateTag()
-    {
-        return _dbContext.Assets.Max(a => a.Tag) + 1;
-    }
+    //public int GenerateTag()
+    //{
+    //    return _dbContext.Assets.Max(a => a.Tag) + 1;
+    //}
 
-    public Asset? GetById(int id)
+    public Asset? GetById(Guid id)
     {
         return _dbContext.Assets.FirstOrDefault(a => a.AssetId == id) ?? null;
     }
