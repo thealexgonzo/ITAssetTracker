@@ -37,3 +37,12 @@ A comprehensive system designed to manage and track IT assets and support ticket
 - API for External Systems
     - Create a RESTful API for integration with other systems (e.g., procurement, finance)
     - Implement authentication and authorization for API access
+ 
+- Clean Architecture
+    - Willing to pay cost of harder dubbggin (chain of execution) for improved scalability and maintainability 
+    - Dependency inversion principle (SOLID principle) - details depend on abstractions, abstraction don't depend on details
+ 
+Design choices:
+Guid.CreateVersion7() vs incremental ints (1, 2, 3...) explain why.
+
+Unit Tests - XUnit
