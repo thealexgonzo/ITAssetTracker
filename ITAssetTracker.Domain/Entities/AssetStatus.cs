@@ -2,7 +2,7 @@
 
 public class AssetStatus
 {
-    public int AssetStatusId { get; set; }
+    public Guid AssetStatusId { get; set; }
     public string Name { get; set; } = string.Empty;
     public List<Asset> Assets { get; set; } = new();
 }

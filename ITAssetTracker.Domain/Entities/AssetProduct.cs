@@ -2,7 +2,7 @@
 
 public class AssetProduct
 {
-    public int AssetProductId { get; set; }
+    public Guid AssetProductId { get; set; }
     public string Name { get; set; } = string.Empty;
     public int ManufacturerId { get; set; }
     public int AssetTypeId { get; set; }

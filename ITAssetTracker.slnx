@@ -15,4 +15,7 @@
   <Folder Name="/Tests/">
     <Project Path="ITAssetTracker.Tests/ITAssetTracker.Tests.csproj" Id="435dab98-893b-499e-877c-46a792045ce6" />
   </Folder>
+  <Folder Name="/UI/">
+    <Project Path="ITAssetTracker.UI/ITAssetTracker.UI.csproj" Id="839e9ee1-657e-4e8e-9571-0846a5a7afa4" />
+  </Folder>
 </Solution>

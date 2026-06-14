@@ -2,7 +2,7 @@
 
 public class AssetHistory
 {
-    public int AssetHistoryId { get; set; }
+    public Guid AssetHistoryId { get; set; }
     public Guid AssetId { get; set; }
     public Asset Asset { get; set; } = null!;
     public int CreatedByUserId { get; set; }

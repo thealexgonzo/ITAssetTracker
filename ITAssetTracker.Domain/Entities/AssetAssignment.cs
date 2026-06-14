@@ -2,8 +2,8 @@
 
 public class AssetAssignment
 {
-    public int AssetAssignmentId { get; set; }
-    public int AssetId { get; set; }
+    public Guid AssetAssignmentId { get; set; }
+    public Guid AssetId { get; set; }
     public Asset Asset { get; set; } = null!;
     public int EmployeeId { get; set; }
     public Employee Employee { get; set; } = null!;

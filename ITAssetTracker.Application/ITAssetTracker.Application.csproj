@@ -10,4 +10,16 @@
     <ProjectReference Include="..\ITAssetTracker.Domain\ITAssetTracker.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Assets\Commands\CreateAsset\" />
+    <Folder Include="Features\Assets\Commands\DeleteAsset\" />
+    <Folder Include="Features\Assets\Commands\UpdateAsset\" />
+    <Folder Include="Features\Assets\Queries\GetAssetDetails\" />
+    <Folder Include="Features\Assets\Queries\GetAssetsList\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />
+  </ItemGroup>
+
 </Project>
