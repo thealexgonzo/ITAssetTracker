@@ -45,4 +45,9 @@ A comprehensive system designed to manage and track IT assets and support ticket
 Design choices:
 Guid.CreateVersion7() vs incremental ints (1, 2, 3...) explain why.
 
+Packages:
+MedaitR
+Mapper
+Fluid
+
 Unit Tests - XUnit
