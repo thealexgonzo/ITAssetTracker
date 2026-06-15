@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ITAssetTracker.Application.Contracts.Repositories
 {
-    public interface IAssetStatusRepository: IRepository<AssetStatus>
+    public interface IAssetStatusRepository: IAsyncRepository<AssetStatus>
     {
     }
 }

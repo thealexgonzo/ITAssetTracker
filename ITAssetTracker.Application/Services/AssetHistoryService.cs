@@ -1,4 +1,4 @@
-﻿using ITAssetTracker.Application.RepositoryInterfaces;
+﻿using ITAssetTracker.Application.Contracts.Repositories;
 using ITAssetTracker.Application.ServiceInterfaces;
 using ITAssetTracker.Domain.Entities;
 
@@ -11,11 +11,11 @@ public class AssetHistoryService : IAssetHistoryService
     {
         _assetHistoryService = assetHistoryService;
     }
-    public Result<List<AssetHistory>> GetAllAssetHistories(Guid id)
+    public Result<List<AssetHistory>> GetAllAssetHistories()
     {
         try
         {
-            return ResultFactory.Success<List<AssetHistory>>(_assetHistoryService.GetAllAssetHistory(id));
+            return ResultFactory.Success<List<AssetHistory>>(_assetHistoryService.GetAll());
         }
         catch (Exception ex)
         {

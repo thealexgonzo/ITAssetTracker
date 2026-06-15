@@ -1,8 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using System.Text;
+﻿using ITAssetTracker.Application.Profiles;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace ITAssetTracker.Application
 {
@@ -10,7 +7,14 @@ namespace ITAssetTracker.Application
     {
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
-            
+            services.AddAutoMapper(cfg =>
+            {
+                cfg.AddProfile<MappingProfile>();
+            });
+
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(AppDomain.CurrentDomain.GetAssemblies()));
+
+            return services;
         }
     }
 }

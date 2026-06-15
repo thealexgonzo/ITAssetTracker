@@ -1,6 +1,7 @@
 using ITAssetTracker.Infrastructure;
 using ITAssetTracker.API.Extensions;
 using Microsoft.EntityFrameworkCore;
+using ITAssetTracker.Application;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +10,7 @@ builder.Logging.AddConsole();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddPersistenceServices();
+builder.Services.AddApplicationServices();
 
 // Get the connection string
 string connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");

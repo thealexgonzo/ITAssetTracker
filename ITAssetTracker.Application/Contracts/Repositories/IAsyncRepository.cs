@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ITAssetTracker.Application.Contracts.Repositories
+﻿namespace ITAssetTracker.Application.Contracts.Repositories
 {
-    public interface IRepository<T> where T : class
+    public interface IAsyncRepository<T> where T : class
     {
         Task<T>? GetById(Guid id);
         Task<IEnumerable<T>> GetAll();
