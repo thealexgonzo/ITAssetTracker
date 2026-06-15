@@ -46,8 +46,8 @@ Design choices:
 Guid.CreateVersion7() vs incremental ints (1, 2, 3...) explain why.
 
 Packages:
-MedaitR
-Mapper
-Fluid
+- MedaitR
+- AutoMapper
+- FluentValidation
 
 Unit Tests - XUnit
