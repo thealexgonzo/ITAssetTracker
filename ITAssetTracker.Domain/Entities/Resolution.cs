@@ -1,8 +1,21 @@
-﻿namespace ITAssetTracker.Domain.Entities;
+﻿using ITAssetTracker.Domain.Common;
+using ITAssetTracker.Domain.Exceptions;
 
-public class Resolution
+namespace ITAssetTracker.Domain.Entities;
+
+public class Resolution: AuditableEntity
 {
-    public int ResolutionId { get; set; }
-    public string Name { get; set; } = string.Empty;
+    public string Name { get; private set; } = string.Empty;
     public List<SupportTicket> SupportTickets { get; set; } = new();
+
+    public Resolution(string name)
+    {
+        if (string.IsNullOrWhiteSpace(name))
+        {
+            throw new BusinessRuleExceptions($"{nameof(name)} is required.");
+        }
+
+        Id = Guid.CreateVersion7();
+        Name = name;
+    }
 }

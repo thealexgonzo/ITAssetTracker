@@ -1,10 +1,24 @@
-﻿namespace ITAssetTracker.Domain.Entities;
+﻿using ITAssetTracker.Domain.Common;
+using ITAssetTracker.Domain.Exceptions;
 
-public class AssetType
+namespace ITAssetTracker.Domain.Entities;
+
+public class AssetType: AuditableEntity
 {
-    public Guid AssetTypeId { get; set; }
-    public string Name { get; set; } = string.Empty;
-    public int CategoryId { get; set; }
+    public string Name { get; private set; } = string.Empty;
+    public Guid CategoryId { get; private set; }
     public Category Category { get; set; } = null!;
     public List<AssetProduct> AssetProducts { get; set; } = new();
+
+    public AssetType(string name, Guid categoryId)
+    {
+        if (string.IsNullOrWhiteSpace(name))
+        {
+            throw new BusinessRuleExceptions($"{nameof(name)} is required.");
+        }
+
+        Id = Guid.CreateVersion7();
+        Name = name;
+        CategoryId = categoryId;
+    }
 }

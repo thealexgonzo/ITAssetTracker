@@ -1,8 +1,21 @@
-﻿namespace ITAssetTracker.Domain.Entities;
+﻿using ITAssetTracker.Domain.Common;
+using ITAssetTracker.Domain.Exceptions;
 
-public class Priority
+namespace ITAssetTracker.Domain.Entities;
+
+public class Priority: AuditableEntity
 {
-    public int PriorityId { get; set; }
-    public string Name { get; set; } = string.Empty;
+    public string Name { get; private set; } = string.Empty;
     public List<SupportTicket> SupportTickets { get; set; } = new();
+
+    public Priority(string name)
+    {
+        if (string.IsNullOrWhiteSpace(name))
+        {
+            throw new BusinessRuleExceptions($"{nameof(name)} is required.");
+        }
+
+        Id = Guid.CreateVersion7();
+        Name = name;
+    }
 }

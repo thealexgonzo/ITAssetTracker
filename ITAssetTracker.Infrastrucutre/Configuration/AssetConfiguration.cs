@@ -12,6 +12,18 @@ namespace ITAssetTracker.Persistence.Configuration
             builder.Property(a => a.Name)
                 .IsRequired()
                 .HasMaxLength(50);
+
+            //Sample value object configuration
+            //builder.OwnsOne(
+            //e => e.EmploymentPeriod,
+            //period =>
+            //{
+            //    period.Property(p => p.StartDate)
+            //        .HasColumnName("StartDate");
+
+            //    period.Property(p => p.EndDate)
+            //        .HasColumnName("EndDate");
+            //});
         }
     }
 }

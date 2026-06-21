@@ -1,12 +1,21 @@
-﻿namespace ITAssetTracker.Domain.Entities;
+﻿using ITAssetTracker.Domain.Common;
+using ITAssetTracker.Domain.ValueObjects;
 
-public class AssetAssignment
+namespace ITAssetTracker.Domain.Entities;
+
+public class AssetAssignment: AuditableEntity
 {
-    public Guid AssetAssignmentId { get; set; }
-    public Guid AssetId { get; set; }
+    public Guid AssetId { get; private set; }
     public Asset Asset { get; set; } = null!;
-    public int EmployeeId { get; set; }
+    public Guid EmployeeId { get; private set; }
     public Employee Employee { get; set; } = null!;
-    public DateTime AssignedDate { get; set; }
-    public DateTime? ReturnedDate { get; set; }
+    public DateRange AssignmentPeriod { get; private set; } // TODO: Configure these properties in the Persistence layer.
+
+    public AssetAssignment(Guid assetId, Guid employeeId, DateRange assignmentPeriod)
+    {
+        Id = Guid.CreateVersion7();
+        AssetId = assetId;
+        EmployeeId = employeeId;
+        AssignmentPeriod = assignmentPeriod;
+    }
 }

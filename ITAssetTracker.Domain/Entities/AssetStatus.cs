@@ -1,8 +1,22 @@
-﻿namespace ITAssetTracker.Domain.Entities;
+﻿using ITAssetTracker.Domain.Common;
+using ITAssetTracker.Domain.Exceptions;
 
-public class AssetStatus
+namespace ITAssetTracker.Domain.Entities;
+
+public class AssetStatus: AuditableEntity
 {
-    public Guid AssetStatusId { get; set; }
-    public string Name { get; set; } = string.Empty;
+    public string Name { get; private set; } = string.Empty;
     public List<Asset> Assets { get; set; } = new();
+
+
+    public AssetStatus(string name)
+    {
+        if (string.IsNullOrWhiteSpace(name))
+        {
+            throw new BusinessRuleExceptions($"{nameof(name)} is required.");
+        }
+
+        Id = Guid.CreateVersion7();
+        Name = name;
+    }
 }

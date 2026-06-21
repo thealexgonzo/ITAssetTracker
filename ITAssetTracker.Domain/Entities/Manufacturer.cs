@@ -1,8 +1,21 @@
-﻿namespace ITAssetTracker.Domain.Entities;
+﻿using ITAssetTracker.Domain.Common;
+using ITAssetTracker.Domain.Exceptions;
 
-public class Manufacturer
+namespace ITAssetTracker.Domain.Entities;
+
+public class Manufacturer: AuditableEntity
 {
-    public int ManufacturerId { get; set; }
-    public string Name { get; set; } = string.Empty;
+    public string Name { get; private set; } = string.Empty;
     public List<AssetProduct> AssetProducts { get; set; } = new();
+
+    public Manufacturer(string name)
+    {
+        if (string.IsNullOrWhiteSpace(name))
+        {
+            throw new BusinessRuleExceptions($"{nameof(name)} is required.");
+        }
+
+        Id = Guid.CreateVersion7();
+        Name = name;
+    }
 }

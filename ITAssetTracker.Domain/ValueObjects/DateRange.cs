@@ -1,24 +1,18 @@
 ﻿using ITAssetTracker.Domain.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace ITAssetTracker.Domain.ValueObjects
+namespace ITAssetTracker.Domain.ValueObjects;
+
+public sealed record DateRange
 {
-    public class DateRange
+    public DateOnly start;
+    public DateOnly? end;
+
+    public DateRange(DateOnly start, DateOnly? end = null)
     {
-        public DateTime start;
-        public DateTime end;
+        if (start >= end)
+            throw new BusinessRuleExceptions("This is an invalid date range");
 
-        public DateRange(DateTime start, DateTime end)
-        {
-            if(start > end)
-            {
-                throw new BusinessRuleExceptions("This is an invalid date range");
-            }
-
-            this.start = start;
-            this.end = end;
-        }
+        this.start = start;
+        this.end = end;
     }
 }

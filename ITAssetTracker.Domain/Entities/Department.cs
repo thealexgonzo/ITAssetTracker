@@ -1,8 +1,21 @@
-﻿namespace ITAssetTracker.Domain.Entities;
+﻿using ITAssetTracker.Domain.Common;
+using ITAssetTracker.Domain.Exceptions;
 
-public class Department
+namespace ITAssetTracker.Domain.Entities;
+
+public class Department: AuditableEntity
 {
-    public Guid DepartmentId { get; set; }
-    public string Name { get; set; } = null!;
+    public string Name { get; private set; } = null!;
     public List<Employee> Employees { get; set; } = new();
+
+    public Department(string name)
+    {
+        if (string.IsNullOrWhiteSpace(name))
+        {
+            throw new BusinessRuleExceptions($"{nameof(name)} is required.");
+        }
+
+        Id = Guid.CreateVersion7();
+        Name = name;
+    }
 }
