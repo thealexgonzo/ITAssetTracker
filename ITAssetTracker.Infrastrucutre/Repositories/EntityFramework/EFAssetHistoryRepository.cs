@@ -3,7 +3,7 @@ using ITAssetTracker.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection.Metadata;
 
-namespace ITAssetTracker.Infrastructure.Repositories.EntityFramework;
+namespace ITAssetTracker.Persistence.Repositories.EntityFramework;
 
 public class EFAssetHistoryRepository : IAssetHistoryRepository
 {

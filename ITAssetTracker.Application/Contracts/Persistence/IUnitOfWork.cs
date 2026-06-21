@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ITAssetTracker.Application.Contracts.Persistence
+﻿namespace ITAssetTracker.Application.Contracts.Persistence
 {
     public interface IUnitOfWork
     {

@@ -7,7 +7,7 @@
     <Project Path="ITAssetTracker.Domain/ITAssetTracker.Domain.csproj" Id="7d86e5cd-ad0d-4ec7-ae2c-675081700bc5" />
   </Folder>
   <Folder Name="/Infrastructure/">
-    <Project Path="ITAssetTracker.Infrastrucutre/ITAssetTracker.Infrastructure.csproj" />
+    <Project Path="ITAssetTracker.Infrastrucutre/ITAssetTracker.Persistence.csproj" />
   </Folder>
   <Folder Name="/Solution Items/">
     <File Path=".editorconfig" />
@@ -16,6 +16,6 @@
     <Project Path="ITAssetTracker.Tests/ITAssetTracker.Tests.csproj" Id="435dab98-893b-499e-877c-46a792045ce6" />
   </Folder>
   <Folder Name="/UI/">
-    <Project Path="ITAssetTracker.UI/ITAssetTracker.UI.csproj" Id="839e9ee1-657e-4e8e-9571-0846a5a7afa4" />
+    <Project Path="ITAssetTracker.App/ITAssetTracker.App.csproj" />
   </Folder>
 </Solution>

@@ -1,7 +1,7 @@
 ﻿using ITAssetTracker.Application.RepositoryInterfaces;
 using ITAssetTracker.Domain.Entities;
 
-namespace ITAssetTracker.Infrastructure.Repositories.EntityFramework;
+namespace ITAssetTracker.Persistence.Repositories.EntityFramework;
 
 public class EFAssetProductRepository : IAssetProductRepository
 {
@@ -11,7 +11,7 @@ public class EFAssetProductRepository : IAssetProductRepository
     {
         _dbContext = dbContext;
     }
-    public List<AssetProduct> GetAll()
+    public List<AssetProduct> ListAllAsync()
     {
         return _dbContext.AssetProducts.ToList();
     }

@@ -1,6 +1,6 @@
 ﻿using ITAssetTracker.Application.ServiceInterfaces;
 using ITAssetTracker.Application.Services;
-using ITAssetTracker.Infrastructure.Repositories.EntityFramework;
+using ITAssetTracker.Persistence.Repositories.EntityFramework;
 
 namespace ITAssetTracker.API.Extensions;
 

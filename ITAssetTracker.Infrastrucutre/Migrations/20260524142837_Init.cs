@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace ITAssetTracker.Infrastructure.Migrations
+namespace ITAssetTracker.Persistence.Migrations
 {
     /// <inheritdoc />
     public partial class Init : Migration

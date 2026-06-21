@@ -16,7 +16,7 @@ public class SupportTicketController : Controller
     [HttpGet]
     public IActionResult Index()
     {
-        var tickets = _supportTicketService.GetAll();
+        var tickets = _supportTicketService.ListAllAsync();
         SupportTicketList model = new();
         model.SupportTickets = tickets;
         return View(model);

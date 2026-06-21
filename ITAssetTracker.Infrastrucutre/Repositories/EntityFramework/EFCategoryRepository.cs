@@ -1,7 +1,7 @@
 ﻿using ITAssetTracker.Application.RepositoryInterfaces;
 using ITAssetTracker.Domain.Entities;
 
-namespace ITAssetTracker.Infrastructure.Repositories.EntityFramework;
+namespace ITAssetTracker.Persistence.Repositories.EntityFramework;
 
 public class EFCategoryRepository : ICategoryRepository
 {
@@ -12,7 +12,7 @@ public class EFCategoryRepository : ICategoryRepository
         _dbContext = dbContext;
     }
 
-    public List<Category> GetAll()
+    public List<Category> ListAllAsync()
     {
         return _dbContext.Categories.ToList();
     }

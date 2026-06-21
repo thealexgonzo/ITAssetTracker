@@ -1,7 +1,8 @@
-﻿using ITAssetTracker.Domain.Entities;
+﻿using ITAssetTracker.Domain.Common;
+using ITAssetTracker.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace ITAssetTracker.Infrastructure;
+namespace ITAssetTracker.Persistence;
 
 public class ITAssetTrackerContext: DbContext
 {
@@ -33,6 +34,9 @@ public class ITAssetTrackerContext: DbContext
     /// <param name="modelBuilder"></param>
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        // Searches for all configurations in the assembly and applies them onto the model builder.
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(ITAssetTrackerContext).Assembly);
+
         modelBuilder.Entity<Role>(entity =>
         {
             entity.Property(e => e.Name).IsRequired().HasMaxLength(100);
@@ -147,6 +151,26 @@ public class ITAssetTrackerContext: DbContext
             entity.HasOne(e => e.CreatedByUser).WithMany().HasForeignKey(e => e.CreatedByUserId).OnDelete(DeleteBehavior.Restrict);
             entity.HasOne(e => e.UpdatedByUser).WithMany().HasForeignKey(e => e.UpdatedByUserId).OnDelete(DeleteBehavior.Restrict);
         });
+    }
+
+    // All entities that inherit from AuditableEntity are in here - when it's saved or modified
+    // All entities may need to inherit from AuditableEntity
+    public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
+    {
+        foreach(var entry in ChangeTracker.Entries<AuditableEntity>())
+        {
+            switch (entry.State)
+            {
+                case EntityState.Added:
+                    entry.Entity.CreatedDate = DateTime.Now;
+                    break;
+                case EntityState.Modified:
+                    entry.Entity.LastModifiedDate = DateTime.Now;
+                    break;
+            }
+        }
+
+        return base.SaveChangesAsync(cancellationToken);
     }
 }
 

@@ -1,4 +1,5 @@
-﻿using ITAssetTracker.Domain.Entities;
+﻿using ITAssetTracker.Application.Contracts.Persistence;
+using ITAssetTracker.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;

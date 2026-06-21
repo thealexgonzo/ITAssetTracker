@@ -1,7 +1,7 @@
 ﻿using ITAssetTracker.Domain.Entities;
 using ITAssetTracker.Application.RepositoryInterfaces;
 
-namespace ITAssetTracker.Infrastructure.Repositories.EntityFramework
+namespace ITAssetTracker.Persistence.Repositories.EntityFramework
 {
     public class EFSupportTicketRepository : ISupportTicketRepository
     {
@@ -12,12 +12,12 @@ namespace ITAssetTracker.Infrastructure.Repositories.EntityFramework
             _dbContext = dbContext;    
         }
 
-        public void Add(SupportTicket ticket)
+        public void AddAsync(SupportTicket ticket)
         {
             throw new NotImplementedException();
         }
 
-        public void Delete(SupportTicket ticket)
+        public void DeleteAsync(SupportTicket ticket)
         {
             throw new NotImplementedException();
         }
@@ -27,12 +27,12 @@ namespace ITAssetTracker.Infrastructure.Repositories.EntityFramework
             throw new NotImplementedException();
         }
 
-        public List<SupportTicket> GetAll()
+        public List<SupportTicket> ListAllAsync()
         {
             return _dbContext.SupportTickets.ToList();
         }
 
-        public SupportTicket GetById(int id)
+        public SupportTicket GetByIdAsync(int id)
         {
             throw new NotImplementedException();
         }

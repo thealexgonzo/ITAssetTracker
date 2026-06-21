@@ -1,4 +1,4 @@
-using ITAssetTracker.Infrastructure;
+using ITAssetTracker.Persistence;
 using ITAssetTracker.API.Extensions;
 using Microsoft.EntityFrameworkCore;
 using ITAssetTracker.Application;
@@ -8,14 +8,14 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
 
-// Add services to the container.
+// AddAsync services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddApplicationServices();
 
 // Get the connection string
 string connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
-// Add the connection string this way? In ASP.NET this is how it's done
+// AddAsync the connection string this way? In ASP.NET this is how it's done
 builder.Services.AddDbContext<ITAssetTrackerContext>(options => options.UseSqlite(connectionString));
 
 //builder.Services.AddScoped<ISupportTicketService, SupportTicketService>();

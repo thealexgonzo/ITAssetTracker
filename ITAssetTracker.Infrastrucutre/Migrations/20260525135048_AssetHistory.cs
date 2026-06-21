@@ -1,10 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Migrations;
-using System;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace ITAssetTracker.Infrastructure.Migrations
+namespace ITAssetTracker.Persistence.Migrations
 {
     /// <inheritdoc />
     public partial class AssetHistory : Migration

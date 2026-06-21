@@ -1,7 +1,7 @@
 ﻿using ITAssetTracker.Application.RepositoryInterfaces;
 using ITAssetTracker.Domain.Entities;
 
-namespace ITAssetTracker.Infrastructure.Repositories.EntityFramework;
+namespace ITAssetTracker.Persistence.Repositories.EntityFramework;
 
 public class EFAssetStatusRepository : IAssetStatusRepository
 {

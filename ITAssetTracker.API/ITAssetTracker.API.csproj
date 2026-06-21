@@ -23,7 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ITAssetTracker.Application\ITAssetTracker.Application.csproj" />
-    <ProjectReference Include="..\ITAssetTracker.Infrastrucutre\ITAssetTracker.Infrastructure.csproj" />
+    <ProjectReference Include="..\ITAssetTracker.Infrastrucutre\ITAssetTracker.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

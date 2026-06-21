@@ -7,9 +7,9 @@ namespace ITAssetTracker.Application
     {
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
-            services.AddAutoMapper(cfg =>
+            services.AddAutoMapper(configuration =>
             {
-                cfg.AddProfile<MappingProfile>();
+                configuration.AddProfile<MappingProfile>();
             });
 
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(AppDomain.CurrentDomain.GetAssemblies()));

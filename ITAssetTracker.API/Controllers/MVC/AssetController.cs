@@ -39,7 +39,7 @@ public class AssetController : Controller
     {
         if(model.SearchTag is null)
         {
-            Result<List<Asset>> result = _assetService.GetAll();
+            Result<List<Asset>> result = _assetService.ListAllAsync();
 
             if (result.Ok)
             {
@@ -85,7 +85,7 @@ public class AssetController : Controller
         if (ModelState.IsValid)
         {
             Asset entity = model.ToEntity();
-            Result result = _assetService.Add(entity);
+            Result result = _assetService.AddAsync(entity);
 
             if (result.Ok)
             {
@@ -109,7 +109,7 @@ public class AssetController : Controller
     [HttpGet]
     public IActionResult Edit(Guid id)
     {
-        Result<Asset> result = _assetService.GetById(id);
+        Result<Asset> result = _assetService.GetByIdAsync(id);
 
         if (result.Ok && result.Data is not null)
         {
@@ -162,7 +162,7 @@ public class AssetController : Controller
     /// <returns>A list of models if the retrieval operation succeeds; otherwise, an empty list.</returns>
     private List<AssetProduct>? RetrieveAssetProductsList()
     {
-        var result = _modelService.GetAll();
+        var result = _modelService.ListAllAsync();
 
         if (!result.Ok)
         {

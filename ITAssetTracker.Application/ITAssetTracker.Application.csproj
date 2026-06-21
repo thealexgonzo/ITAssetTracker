@@ -11,22 +11,23 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\AssetHistories\Commands\" />
-    <Folder Include="Features\AssetHistories\Queries\" />
-    <Folder Include="Features\AssetProducts\Commands\" />
-    <Folder Include="Features\AssetProducts\Queries\" />
-    <Folder Include="Features\AssetStatuses\Commands\" />
-    <Folder Include="Features\AssetStatuses\Queries\" />
-    <Folder Include="Features\AssetTypes\Commands\" />
-    <Folder Include="Features\AssetTypes\Queries\" />
-    <Folder Include="Features\Categories\Commands\" />
-    <Folder Include="Features\Categories\Queries\GetCategoryDetails\" />
-    <Folder Include="Features\SupporTickets\Commands\" />
-    <Folder Include="Features\SupporTickets\Queries\" />
+    <Folder Include="Services\AssetHistories\Commands\" />
+    <Folder Include="Services\AssetHistories\Queries\" />
+    <Folder Include="Services\AssetProducts\Commands\" />
+    <Folder Include="Services\AssetProducts\Queries\" />
+    <Folder Include="Services\AssetStatuses\Commands\" />
+    <Folder Include="Services\AssetStatuses\Queries\" />
+    <Folder Include="Services\AssetTypes\Commands\" />
+    <Folder Include="Services\AssetTypes\Queries\" />
+    <Folder Include="Services\Categories\Commands\" />
+    <Folder Include="Services\Categories\Queries\GetCategoryDetails\" />
+    <Folder Include="Services\SupporTickets\Commands\" />
+    <Folder Include="Services\SupporTickets\Queries\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="16.1.1" />
+    <PackageReference Include="FluentValidation" Version="12.1.1" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />
     <PackageReference Include="MediatR" Version="14.1.0" />
   </ItemGroup>

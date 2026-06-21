@@ -1,48 +1,18 @@
-﻿using ITAssetTracker.Domain.Entities;
-using ITAssetTracker.Application.RepositoryInterfaces;
+﻿using ITAssetTracker.Application.Contracts.Repositories;
+using ITAssetTracker.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace ITAssetTracker.Infrastructure.Repositories.EntityFramework;
+namespace ITAssetTracker.Persistence.Repositories.EntityFramework;
 
-public class EFAssetRepository : IAssetRepository
+public class EFAssetRepository : BaseRepository<Asset>, IAssetRepository
 {
-    private ITAssetTrackerContext _dbContext;
 
-    public EFAssetRepository(ITAssetTrackerContext dbContext)
+    public EFAssetRepository(ITAssetTrackerContext dbContext) : base(dbContext)
     {
-        _dbContext = dbContext;
     }
 
-    public void Add(Asset asset)
+    public Task<Asset?> GetByTag(string tag)
     {
-        _dbContext.Assets.Add(asset);
-        _dbContext.SaveChanges();
-    }
-
-    public void Delete(Asset asset)
-    {
-        _dbContext.Assets.Remove(asset);
-        _dbContext.SaveChanges();
-    }
-
-    public void Edit(Asset asset)
-    {
-        _dbContext.Assets.Update(asset);
-        _dbContext.SaveChanges();
-    }
-
-    public List<Asset> GetAll()
-    {
-        return _dbContext.Assets.Include(m => m.AssetProducts).ToList();
-    }
-
-    public Asset? GetByTag(string tag)
-    {
-        return _dbContext.Assets.Include(m => m.AssetProducts).FirstOrDefault(a => a.Tag == tag) ?? null;
-    }
-
-    public Asset? GetById(Guid id)
-    {
-        return _dbContext.Assets.FirstOrDefault(a => a.AssetId == id) ?? null;
+        return dbContext.Assets.Include(ap => ap.AssetProducts).FirstOrDefaultAsync(at => at.Tag == tag);
     }
 }
