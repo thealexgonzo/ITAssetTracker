@@ -19,16 +19,23 @@ namespace ITAssetTracker.Application.Services.Assets.Commands.CreateAsset
         }
         public async Task<Guid> Handle(CreateAssetCommand request, CancellationToken cancellationToken)
         {
+            // Map
             Asset asset = mapper.Map<Asset>(request);
 
+            // Validate
             CreateAssetCommandValidator validator = new CreateAssetCommandValidator();
             ValidationResult validationResult = await validator.ValidateAsync(request);
 
             if (validationResult.Errors.Count > 0)
+            {
                 throw new ValidationException(validationResult);
+            }
 
+            // Act
             asset = await assetRepository.AddAsync(asset);
-            return asset.AssetId;
+            
+            // Return 
+            return asset.Id;
         }
     }
 }

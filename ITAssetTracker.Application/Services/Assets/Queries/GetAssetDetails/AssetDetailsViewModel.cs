@@ -5,7 +5,7 @@ namespace ITAssetTracker.Application.Services.Assets.Queries.GetAssetDetails
 {
     public class AssetDetailsViewModel
     {
-        public Guid AssetId { get;  set; }
+        public Guid Id { get;  set; }
         public string Tag { get; set; } = string.Empty;
         public string Name { get; set; } = string.Empty;
         public int AssetProductId { get; set; }

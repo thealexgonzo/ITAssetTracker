@@ -1,10 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using FluentValidation;
 
-namespace ITAssetTracker.Application.Services.Assets.Commands.DeleteAsset
+namespace ITAssetTracker.Application.Services.Assets.Commands.DeleteAsset;
+
+public class DeleteAssetCommandValidator: AbstractValidator<DeleteAssetCommand>
 {
-    internal class DeleteAssetCommandValidator
+    public DeleteAssetCommandValidator()
     {
+        RuleFor(asset => asset.Id)
+                .NotNull()
+                .NotEmpty().WithMessage("{PropertyName} is required.");        
     }
 }

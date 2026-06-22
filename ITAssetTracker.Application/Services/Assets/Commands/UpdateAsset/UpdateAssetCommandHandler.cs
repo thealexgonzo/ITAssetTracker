@@ -1,29 +1,41 @@
 ﻿using AutoMapper;
+using FluentValidation.Results;
 using ITAssetTracker.Application.Contracts.Persistence;
+using ITAssetTracker.Application.Exceptions;
 using ITAssetTracker.Domain.Entities;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace ITAssetTracker.Application.Services.Assets.Commands.UpdateAsset
+namespace ITAssetTracker.Application.Services.Assets.Commands.UpdateAsset;
+
+public class UpdateAssetCommandHandler : IRequestHandler<UpdateAssetCommand>
 {
-    public class UpdateAssetCommandHandler : IRequestHandler<UpdateAssetCommand>
+    private readonly IAsyncRepository<Asset> assetRepository;
+    private readonly IMapper mapper;
+
+    public UpdateAssetCommandHandler(IAsyncRepository<Asset> assetRepository, IMapper mapper)
     {
-        private readonly IAsyncRepository<Asset> assetRepository;
-        private readonly IMapper mapper;
+        this.assetRepository = assetRepository;
+        this.mapper = mapper;
+    }
 
-        public UpdateAssetCommandHandler(IAsyncRepository<Asset> assetRepository, IMapper mapper)
+    public async Task Handle(UpdateAssetCommand request, CancellationToken cancellationToken)
+    {
+        Asset? assetToUpdate = await assetRepository.GetByIdAsync(request.Id);
+
+        UpdateAssetCommandValidator validator = new UpdateAssetCommandValidator();
+        ValidationResult validationResult = await validator.ValidateAsync(request);
+
+        if (validationResult.Errors.Count > 0)
         {
-            this.assetRepository = assetRepository;
-            this.mapper = mapper;
+            throw new ValidationException(validationResult);
         }
 
-        public async Task Handle(UpdateAssetCommand request, CancellationToken cancellationToken)
+        if (assetToUpdate is null)
         {
-            Asset? assetToUpdate = await assetRepository.GetByIdAsync(request.Id);
-            mapper.Map(request, assetToUpdate, typeof(UpdateAssetCommand), typeof(Asset));
-            await assetRepository.UpdateAsync(assetToUpdate); // TODO: Need to add validation, the asset cannot be null if you want to update it
+            throw new NotFoundException("Asset", request.Id);
         }
+
+        mapper.Map(request, assetToUpdate, typeof(UpdateAssetCommand), typeof(Asset));
+        await assetRepository.UpdateAsync(assetToUpdate); // TODO: Need to add validation, the asset cannot be null if you want to update it
     }
 }

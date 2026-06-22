@@ -1,19 +1,18 @@
 ﻿using FluentValidation.Results;
 
-namespace ITAssetTracker.Application.Exceptions
+namespace ITAssetTracker.Application.Exceptions;
+
+public class ValidationException : Exception
 {
-    public class ValidationException : Exception
+    public List<string> ValidationErrors { get; set; }
+
+    public ValidationException(ValidationResult validationResult)
     {
-        public List<string> ValidationErrors { get; set; }
+        ValidationErrors = new List<string>();
 
-        public ValidationException(ValidationResult validationResult)
+        foreach(var validationError in validationResult.Errors)
         {
-            ValidationErrors = new List<string>();
-
-            foreach(var validationError in validationResult.Errors)
-            {
-                ValidationErrors.Add(validationError.ErrorMessage);
-            }
+            ValidationErrors.Add(validationError.ErrorMessage);
         }
     }
 }
