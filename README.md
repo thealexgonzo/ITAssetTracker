@@ -39,12 +39,15 @@ A comprehensive system designed to manage and track IT assets and support ticket
     - Implement authentication and authorization for API access
  
 - Clean Architecture
-    - Willing to pay cost of harder dubbggin (chain of execution) for improved scalability and maintainability 
+    - Willing to pay cost of harder debugging (chain of execution) for improved scalability and maintainability 
     - Dependency inversion principle (SOLID principle) - details depend on abstractions, abstraction don't depend on details
+    - CQRS (Command Query Responsiblity Segregation)
+    - DDD (Domain Driven Design)
  
 Design choices:
 Guid.CreateVersion7() vs incremental ints (1, 2, 3...) explain why.
-
+Future Implementation:
+- Audit History
 Packages:
 - MedaitR
 - AutoMapper
