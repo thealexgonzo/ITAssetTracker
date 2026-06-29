@@ -11,33 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Services\AssetTypes\Commands\" />
-    <Folder Include="Services\AssetTypes\Queries\" />
-    <Folder Include="Services\Assignments\Commands\" />
-    <Folder Include="Services\Assignments\Queries\" />
-    <Folder Include="Services\Categories\Commands\" />
-    <Folder Include="Services\Categories\Queries\GetCategoryDetails\" />
-    <Folder Include="Services\Departments\Commands\" />
-    <Folder Include="Services\Departments\Queries\" />
-    <Folder Include="Services\Employees\Commands\" />
-    <Folder Include="Services\Employees\Queries\" />
-    <Folder Include="Services\Manufacturers\Commands\" />
-    <Folder Include="Services\Manufacturers\Queries\" />
-    <Folder Include="Services\Priorities\Commands\" />
-    <Folder Include="Services\Priorities\Queries\" />
-    <Folder Include="Services\Resolutions\Commands\" />
-    <Folder Include="Services\Resolutions\Queries\" />
-    <Folder Include="Services\Roles\Commands\" />
-    <Folder Include="Services\Roles\Queries\" />
-    <Folder Include="Services\TicketStatuses\Commands\" />
-    <Folder Include="Services\TicketStatuses\Queries\" />
-    <Folder Include="Services\SupporTickets\Commands\" />
-    <Folder Include="Services\SupporTickets\Queries\" />
-    <Folder Include="Services\Users\Commands\" />
-    <Folder Include="Services\Users\Queries\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="16.1.1" />
     <PackageReference Include="FluentValidation" Version="12.1.1" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />

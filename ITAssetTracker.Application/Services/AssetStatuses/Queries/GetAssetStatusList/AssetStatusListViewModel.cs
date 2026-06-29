@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace ITAssetTracker.Application.Services.AssetStatuses.Queries.GetAssetStatusList;
 
-namespace ITAssetTracker.Application.Services.AssetStatuses.Queries.GetAssetStatusList
+//NOTE: The information that will be returned for each object
+public class AssetStatusListViewModel
 {
-    internal class AssetStatusListViewModel
-    {
-    }
+    public Guid Id { get; set; }
+    public string Name { get; set; } = null!;
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ITAssetTracker.Application.Services.Categories.Queries.GetCategoriesList
 {
-    public class GetCategoryListQuery: IRequest<List<CategoryListDTO>>
+    public class GetCategoryListQuery: IRequest<List<CategoryListViewModel>>
     {
     }
 }

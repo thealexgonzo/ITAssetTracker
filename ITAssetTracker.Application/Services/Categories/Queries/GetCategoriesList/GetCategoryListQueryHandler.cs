@@ -5,7 +5,7 @@ using MediatR;
 
 namespace ITAssetTracker.Application.Services.Categories.Queries.GetCategoriesList
 {
-    public class GetCategoryListQueryHandler : IRequestHandler<GetCategoryListQuery, List<CategoryListDTO>>
+    public class GetCategoryListQueryHandler : IRequestHandler<GetCategoryListQuery, List<CategoryListViewModel>>
     {
         private readonly IAsyncRepository<Category> categoryRepository;
         private readonly IMapper mapper;
@@ -15,10 +15,10 @@ namespace ITAssetTracker.Application.Services.Categories.Queries.GetCategoriesLi
             this.categoryRepository = categoryRepository;
             this.mapper = mapper;
         }
-        public async Task<List<CategoryListDTO>> Handle(GetCategoryListQuery request, CancellationToken cancellationToken)
+        public async Task<List<CategoryListViewModel>> Handle(GetCategoryListQuery request, CancellationToken cancellationToken)
         {
             List<Category> categories = (await categoryRepository.ListAllAsync()).ToList();
-            return mapper.Map<List<CategoryListDTO>>(categories);
+            return mapper.Map<List<CategoryListViewModel>>(categories);
         }
     }
 }

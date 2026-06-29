@@ -22,17 +22,17 @@ public class UpdateAssetCommandHandler : IRequestHandler<UpdateAssetCommand>
     {
         Asset? assetToUpdate = await assetRepository.GetByIdAsync(request.Id);
 
+        if (assetToUpdate is null)
+        {
+            throw new NotFoundException("Asset", request.Id);
+        }
+
         UpdateAssetCommandValidator validator = new UpdateAssetCommandValidator();
         ValidationResult validationResult = await validator.ValidateAsync(request);
 
         if (validationResult.Errors.Count > 0)
         {
             throw new ValidationException(validationResult);
-        }
-
-        if (assetToUpdate is null)
-        {
-            throw new NotFoundException("Asset", request.Id);
         }
 
         mapper.Map(request, assetToUpdate, typeof(UpdateAssetCommand), typeof(Asset));

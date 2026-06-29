@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using MediatR;
 
-namespace ITAssetTracker.Application.Services.AssetStatuses.Queries.GetAssetStatusList
+namespace ITAssetTracker.Application.Services.AssetStatuses.Queries.GetAssetStatusList;
+
+public class GetAssetStatusListQuery : IRequest<List<AssetStatusListViewModel>>
 {
-    internal class GetAssetStatusListQuery
-    {
-    }
 }

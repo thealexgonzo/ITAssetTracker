@@ -4,7 +4,9 @@ using System.Text;
 
 namespace ITAssetTracker.Application.Services.AssetStatuses.Queries.GetAssetStatusDetails
 {
-    internal class AssetStatusDetailsViewModel
+    public class AssetStatusDetailsViewModel
     {
+        public Guid Id { get; set; }
+        public string Name { get; set; } = string.Empty;
     }
 }

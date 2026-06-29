@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ITAssetTracker.Application.Services.Categories.Queries.GetCategoriesList
+namespace ITAssetTracker.Application.Services.AssetTypes.Queries.GetAssetTypeDetails
 {
-    public class CategoryListDTO
+    public class CategoryDTO
     {
         public Guid Id { get; set; }
         public string Name { get; set; } = string.Empty;
