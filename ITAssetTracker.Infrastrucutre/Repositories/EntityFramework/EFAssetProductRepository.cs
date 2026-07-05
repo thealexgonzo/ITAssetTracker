@@ -1,18 +1,12 @@
-﻿using ITAssetTracker.Application.RepositoryInterfaces;
+﻿using ITAssetTracker.Application.Contracts.Repositories;
 using ITAssetTracker.Domain.Entities;
 
 namespace ITAssetTracker.Persistence.Repositories.EntityFramework;
 
-public class EFAssetProductRepository : IAssetProductRepository
+public class EFAssetProductRepository : BaseRepository<AssetProduct>, IAssetProductRepository
 {
-    private ITAssetTrackerContext _dbContext;
+    public EFAssetProductRepository(ITAssetTrackerContext dbContext): base(dbContext)
+    {
 
-    public EFAssetProductRepository(ITAssetTrackerContext dbContext)
-    {
-        _dbContext = dbContext;
-    }
-    public List<AssetProduct> ListAllAsync()
-    {
-        return _dbContext.AssetProducts.ToList();
     }
 }

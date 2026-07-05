@@ -6,7 +6,7 @@ namespace ITAssetTracker.Persistence;
 
 public class ITAssetTrackerContext: DbContext
 {
-    public ITAssetTrackerContext(DbContextOptions options) : base(options)
+    public ITAssetTrackerContext(DbContextOptions<ITAssetTrackerContext> options) : base(options)
     {
     }
 
@@ -22,11 +22,9 @@ public class ITAssetTrackerContext: DbContext
     public DbSet<SupportTicket> SupportTickets { get; set; }
     public DbSet<User> Users { get; set; }
     public DbSet<Role> Roles { get; set; }
-    public DbSet<TicketAssignmentHistory> TicketAssignmentHistories { get; set; }
     public DbSet<AssetStatus> AssetStatuses { get; set; }
     public DbSet<Department> Departments { get; set; }
     public DbSet<AssetAssignment> AssetAssignments { get; set; }
-    public DbSet<AssetHistory> AssetHistories { get; set; }
 
     /// <summary>
     /// Set up models by adding constraints, foreign keys, etc
@@ -37,124 +35,135 @@ public class ITAssetTrackerContext: DbContext
         // Searches for all configurations in the assembly and applies them onto the model builder.
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(ITAssetTrackerContext).Assembly);
 
-        modelBuilder.Entity<Role>(entity =>
-        {
-            entity.Property(e => e.Name).IsRequired().HasMaxLength(100);
-            entity.HasMany(e => e.Users).WithOne(e => e.Role);
-        });
+        modelBuilder.Entity<Role>().HasData
+            (
+                new Role
+                {
 
-        modelBuilder.Entity<TicketStatus>(entity =>
-        {
-            entity.Property(e => e.Name).IsRequired().HasMaxLength(100);
-            entity.HasMany(e => e.SupportTickets).WithOne(e => e.TicketStatus);
-        });
+                }
+            );
 
-        modelBuilder.Entity<Priority>(entity =>
-        {
-            entity.Property(e => e.Name).IsRequired().HasMaxLength(100);
-            entity.HasMany(e => e.SupportTickets).WithOne(e => e.Priority);
-        });
+        modelBuilder.Entity<TicketStatus>().HasData
+            (
+                new TicketStatus
+                {
 
-        modelBuilder.Entity<Resolution>(entity =>
-        {
-            entity.Property(e => e.Name).IsRequired().HasMaxLength(100);
-            entity.HasMany(e => e.SupportTickets).WithOne(e => e.Resolution);
-        });
+                }
+            );
 
-        modelBuilder.Entity<User>(entity =>
-        {
-            entity.Property(e => e.UserName).IsRequired().HasMaxLength(100);
-            entity.Property(e => e.PasswordHash).IsRequired();
-            entity.HasOne(e => e.Role).WithMany(e => e.Users).HasForeignKey(e => e.RoleId);
-            entity.HasOne(e => e.Employee).WithOne(e => e.User);
-        });
+        modelBuilder.Entity<Priority>().HasData
+            (
+                new Priority
+                {
 
-        modelBuilder.Entity<Category>(entity =>
-        {
-            entity.Property(e => e.Name).IsRequired().HasMaxLength(100);
-            entity.HasMany(e => e.AssetTypes).WithOne(e => e.Category);
-        });
+                }
+            );
 
-        modelBuilder.Entity<Manufacturer>(entity =>
-        {
-            entity.Property(e => e.Name).IsRequired().HasMaxLength(100);
-            entity.HasMany(e => e.AssetProducts).WithOne(e => e.Manufacturer);
-        });
+        modelBuilder.Entity<Resolution>().HasData
+            (
+                new Resolution
+                {
 
-        modelBuilder.Entity<AssetType>(entity =>
-        {
-            entity.Property(e => e.Name).IsRequired().HasMaxLength(100);
-            entity.HasMany(e => e.AssetProducts).WithOne(e => e.AssetType);
-            entity.HasOne(e => e.Category).WithMany(e => e.AssetTypes).HasForeignKey(e => e.CategoryId);                
-        });
+                }
+            );
 
-        modelBuilder.Entity<AssetProduct>(entity =>
-        {
-            entity.Property(e => e.Name).IsRequired().HasMaxLength(100);
-            entity.HasOne(e => e.Manufacturer).WithMany(e => e.AssetProducts).HasForeignKey(e => e.ManufacturerId);
-            entity.HasOne(e => e.AssetType).WithMany(e => e.AssetProducts).HasForeignKey(e => e.AssetTypeId);
-        });
+        modelBuilder.Entity<User>().HasData
+            (
+                new User
+                {
 
-        modelBuilder.Entity<Asset>(entity =>
-        {
-            entity.Property(e => e.Tag).IsRequired();
-            entity.Property(e => e.Name).IsRequired().HasMaxLength(100);
-            entity.HasOne(e => e.AssetProducts).WithMany(e => e.Assets).HasForeignKey(e => e.AssetProductId);
-            entity.HasOne(e => e.AssetStatuses).WithMany(e => e.Assets).HasForeignKey(e => e.AssetStatusId);
-        });
+                }
+            );
 
-        modelBuilder.Entity<AssetAssignment>(entity =>
-        {
-            entity.HasOne(e => e.Asset).WithMany(e => e.AssetAssignments).HasForeignKey(e => e.AssetId);
-            entity.HasOne(e => e.Employee).WithMany(e => e.AssetAssignments).HasForeignKey(e => e.EmployeeId);
-            entity.Property(e => e.AssignedDate).IsRequired();
-        });
+        modelBuilder.Entity<Category>().HasData
+            (
+                new Category
+                {
 
-        modelBuilder.Entity<Employee>(entity =>
-        {
-            entity.Property(e => e.JobTitle).IsRequired().HasMaxLength(100);
-            entity.Property(e => e.FirstName).IsRequired().HasMaxLength(100);
-            entity.Property(e => e.LastName).IsRequired().HasMaxLength(100);
-            entity.Property(e => e.DoB).IsRequired();
-            entity.Property(e => e.Email).IsRequired().HasMaxLength(100);
-            entity.Property(e => e.Phone).IsRequired().HasMaxLength(50);
-            entity.Property(e => e.HireDate).IsRequired();
-            entity.HasOne(e => e.User).WithOne(e => e.Employee).HasForeignKey<Employee>(e => e.UserId);
-            entity.HasMany(e => e.AssetAssignments).WithOne(e => e.Employee);
-            entity.HasOne(e => e.Department).WithMany(e => e.Employees).HasForeignKey(e => e.DepartmentId);
-        });
+                }
+            );
 
-        modelBuilder.Entity<Department>(entity =>
-        {
-            entity.Property(e => e.Name).IsRequired().HasMaxLength(100);
-            entity.HasMany(e => e.Employees).WithOne(e => e.Department);
-        });
+        modelBuilder.Entity<Manufacturer>().HasData
+            (
+                new Manufacturer
+                {
+                    
+                }
+            );
 
-        modelBuilder.Entity<SupportTicket>(entity =>
-        {
-            entity.Property(e => e.CreationDate).IsRequired();
-            entity.Property(e => e.Title).IsRequired().HasMaxLength(300);
-            entity.HasOne(e => e.TicketStatus).WithMany(e => e.SupportTickets).HasForeignKey(e => e.TicketStatusId);
-            entity.HasOne(e => e.Priority).WithMany(e => e.SupportTickets).HasForeignKey(e => e.PriorityId);
-            entity.HasOne(e => e.Resolution).WithMany(e => e.SupportTickets).HasForeignKey(e => e.ResolutionId);
-            entity.HasMany(e => e.TicketAssignmentHistories).WithOne(e => e.SupportTicket);
-        });
+        modelBuilder.Entity<AssetType>().HasData
+            (
+                new AssetType
+                {
 
-        modelBuilder.Entity<TicketAssignmentHistory>(entity =>
-        {
-            entity.HasOne(e => e.SupportTicket).WithMany(e => e.TicketAssignmentHistories).HasForeignKey(e => e.SupportTicketId);
-        });
+                }   
+            );
 
-        modelBuilder.Entity<AssetHistory>(entity =>
-        {
-            entity.HasOne(e => e.Asset).WithMany(e => e.AssetHistories).HasForeignKey(e => e.AssetId);
-            entity.HasOne(e => e.CreatedByUser).WithMany().HasForeignKey(e => e.CreatedByUserId).OnDelete(DeleteBehavior.Restrict);
-            entity.HasOne(e => e.UpdatedByUser).WithMany().HasForeignKey(e => e.UpdatedByUserId).OnDelete(DeleteBehavior.Restrict);
-        });
+        modelBuilder.Entity<AssetProduct>().HasData
+            (
+                new AssetProduct
+                {
+
+                }
+            );
+
+        modelBuilder.Entity<Asset>().HasData
+            (
+                new Asset
+                {
+                    
+                },
+                new Asset
+                {
+
+                }
+            );
+
+        modelBuilder.Entity<AssetAssignment>().HasData
+            (
+                new AssetAssignment
+                {
+
+                }
+            );
+
+        modelBuilder.Entity<AssetStatus>().HasData
+            (
+                new AssetStatus
+                {
+
+                }
+            );
+
+        modelBuilder.Entity<Employee>().HasData
+            (
+                new Employee
+                {
+
+                }
+            );
+
+        modelBuilder.Entity<Department>().HasData
+            (
+                new Department
+                {
+
+                }
+            );
+
+        modelBuilder.Entity<SupportTicket>().HasData
+            (
+                new SupportTicket
+                {
+
+
+                }
+            );
     }
 
     // All entities that inherit from AuditableEntity are in here - when it's saved or modified
-    // All entities may need to inherit from AuditableEntity
+    // NOTE: All entities may need to inherit from AuditableEntity
+    // NOTE: Should the user editing and updated also be added here?
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
     {
         foreach(var entry in ChangeTracker.Entries<AuditableEntity>())

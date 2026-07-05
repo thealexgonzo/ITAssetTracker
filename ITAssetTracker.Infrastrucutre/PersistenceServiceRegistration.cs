@@ -6,19 +6,22 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace ITAssetTracker.Persistence
+namespace ITAssetTracker.Persistence;
+
+/// <summary>
+/// This class extends the IServiceCollection
+/// </summary>
+public class PersistenceServiceRegistration
 {
-    public class PersistenceServiceRegistration
+    public static IServiceCollection AddPersistenceServcies(IServiceCollection services, IConfiguration configuation)
     {
-        public static IServiceCollection AddPersistenceServcies(IServiceCollection services, IConfiguration configuation)
-        {
-            services.AddDbContext<ITAssetTrackerContext>(options => options.UseSqlite(configuation.GetConnectionString("ITAssetTrackerConnectionString")));
+        //NOTE: DBContext setup goes here apparently?
+        services.AddDbContext<ITAssetTrackerContext>(options => options.UseSqlite(configuation.GetConnectionString("ITAssetTrackerConnectionString")));
 
-            services.AddScoped(typeof(IAsyncRepository<>), typeof(BaseRepository<>));
-            services.AddScoped<IAssetRepository, EFAssetRepository>();
-            //TODO: Add all other repositories 
+        services.AddScoped(typeof(IAsyncRepository<>), typeof(BaseRepository<>));
+        services.AddScoped<IAssetRepository, EFAssetRepository>();
+        //TODO: Add all other repositories 
 
-            return services;
-        }
+        return services;
     }
 }

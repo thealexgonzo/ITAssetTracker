@@ -1,19 +1,14 @@
-﻿using ITAssetTracker.Application.RepositoryInterfaces;
+﻿using ITAssetTracker.Application.Contracts.Repositories;
+using ITAssetTracker.Application.RepositoryInterfaces;
 using ITAssetTracker.Domain.Entities;
 
 namespace ITAssetTracker.Persistence.Repositories.EntityFramework;
 
-public class EFCategoryRepository : ICategoryRepository
+public class EFCategoryRepository : BaseRepository<Category>, ICategoryRepository
 {
     private ITAssetTrackerContext _dbContext;
 
-    public EFCategoryRepository(ITAssetTrackerContext dbContext)
+    public EFCategoryRepository(ITAssetTrackerContext dbContext): base(dbContext)
     {
-        _dbContext = dbContext;
-    }
-
-    public List<Category> ListAllAsync()
-    {
-        return _dbContext.Categories.ToList();
     }
 }

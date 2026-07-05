@@ -13,17 +13,16 @@ namespace ITAssetTracker.Persistence.Configuration
                 .IsRequired()
                 .HasMaxLength(50);
 
-            //Sample value object configuration
-            //builder.OwnsOne(
-            //e => e.EmploymentPeriod,
-            //period =>
-            //{
-            //    period.Property(p => p.StartDate)
-            //        .HasColumnName("StartDate");
-
-            //    period.Property(p => p.EndDate)
-            //        .HasColumnName("EndDate");
-            //});
+            builder.Property(e => e.Tag)
+                .IsRequired();
+            
+            builder.HasOne(e => e.AssetProducts)
+                .WithMany(e => e.Assets)
+                .HasForeignKey(e => e.AssetProductId);
+            
+            builder.HasOne(e => e.AssetStatuses)
+                .WithMany(e => e.Assets)
+                .HasForeignKey(e => e.AssetStatusId);
         }
     }
 }

@@ -1,23 +1,13 @@
-﻿using ITAssetTracker.Application.RepositoryInterfaces;
+﻿using ITAssetTracker.Application.Contracts.Repositories;
 using ITAssetTracker.Domain.Entities;
 
 namespace ITAssetTracker.Persistence.Repositories.EntityFramework;
 
-public class EFAssetTypeRepository : IAssetTypeRepository
+public class EFAssetTypeRepository : BaseRepository<AssetType>, IAssetTypeRepository
 {
     private ITAssetTrackerContext _dbContext;
 
-    public EFAssetTypeRepository(ITAssetTrackerContext dbContext)
+    public EFAssetTypeRepository(ITAssetTrackerContext dbContext): base(dbContext)
     {
-        _dbContext = dbContext;
-    }
-
-    /// <summary>
-    /// Retrieves all asset types from the data store.
-    /// </summary>
-    /// <returns>A list of all asset types. The list is empty if no asset types are found.</returns>
-    public List<AssetType> ListAllAsync()
-    {
-        return _dbContext.AssetTypes.ToList();
     }
 }

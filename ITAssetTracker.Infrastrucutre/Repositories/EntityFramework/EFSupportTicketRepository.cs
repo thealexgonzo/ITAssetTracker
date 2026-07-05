@@ -1,40 +1,12 @@
-﻿using ITAssetTracker.Domain.Entities;
-using ITAssetTracker.Application.RepositoryInterfaces;
+﻿using ITAssetTracker.Application.Contracts.Repositories;
+using ITAssetTracker.Domain.Entities;
 
 namespace ITAssetTracker.Persistence.Repositories.EntityFramework
 {
-    public class EFSupportTicketRepository : ISupportTicketRepository
+    public class EFSupportTicketRepository : BaseRepository<SupportTicket>, ISupportTicketRepository
     {
-        private ITAssetTrackerContext _dbContext;
-
-        public EFSupportTicketRepository(ITAssetTrackerContext dbContext)
-        {
-            _dbContext = dbContext;    
-        }
-
-        public void AddAsync(SupportTicket ticket)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteAsync(SupportTicket ticket)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Edit(SupportTicket ticket)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<SupportTicket> ListAllAsync()
-        {
-            return _dbContext.SupportTickets.ToList();
-        }
-
-        public SupportTicket GetByIdAsync(int id)
-        {
-            throw new NotImplementedException();
+        public EFSupportTicketRepository(ITAssetTrackerContext dbContext): base(dbContext)
+        {  
         }
     }
 }
