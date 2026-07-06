@@ -4,10 +4,10 @@ namespace ITAssetTracker.Application.Services.AssetProducts.Queries.GetAssetProd
 
 public class AssetProductDetailsViewModel
 {
-    public Guid Id { get; set; }
+    public int Id { get; set; }
     public string Name { get; private set; } = string.Empty;
-    public Guid ManufacturerId { get; private set; }
+    public int ManufacturerId { get; private set; }
     public Manufacturer Manufacturer { get; set; } = null!;
-    public Guid AssetTypeId { get; private set; }
+    public int AssetTypeId { get; private set; }
     public AssetType AssetType { get; set; } = null!;
 }

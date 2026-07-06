@@ -6,7 +6,7 @@ namespace ITAssetTracker.Application.Services.SupporTickets.Queries.GetSupportTi
 {
     public class ResolutionDTO
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
     }
 }

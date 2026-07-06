@@ -7,6 +7,6 @@ namespace ITAssetTracker.Application.Services.AssetTypes.Queries.GetAssetTypeDet
 {
     public class GetAssetTypeDetailsQuery: IRequest<AssetTypeDetailsViewModel>
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
     }
 }

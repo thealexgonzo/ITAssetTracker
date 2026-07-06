@@ -7,6 +7,6 @@ namespace ITAssetTracker.Application.Services.Departments.Commands.DeleteDepartm
 {
     public class DeleteDepartmentCommand: IRequest
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
     }
 }

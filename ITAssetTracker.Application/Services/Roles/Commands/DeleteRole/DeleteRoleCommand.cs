@@ -7,6 +7,6 @@ namespace ITAssetTracker.Application.Services.Roles.Commands.DeleteRole
 {
     public class DeleteRoleCommand: IRequest
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
     }
 }

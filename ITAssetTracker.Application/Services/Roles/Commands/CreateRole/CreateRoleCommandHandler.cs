@@ -11,7 +11,7 @@ using System.Text;
 
 namespace ITAssetTracker.Application.Services.Roles.Commands.CreateRole
 {
-    public class CreateRoleCommandHandler : IRequestHandler<CreateRoleCommand, Guid>
+    public class CreateRoleCommandHandler : IRequestHandler<CreateRoleCommand, int>
     {
         private readonly IRoleRepository roleRepository;
         private readonly IMapper mapper;
@@ -22,7 +22,7 @@ namespace ITAssetTracker.Application.Services.Roles.Commands.CreateRole
             this.mapper = mapper;
         }
 
-        public async Task<Guid> Handle(CreateRoleCommand request, CancellationToken cancellationToken)
+        public async Task<int> Handle(CreateRoleCommand request, CancellationToken cancellationToken)
         {
             // Map
             var role = mapper.Map<Role>(request);

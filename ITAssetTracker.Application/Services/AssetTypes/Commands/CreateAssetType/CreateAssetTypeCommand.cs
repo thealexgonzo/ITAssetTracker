@@ -2,8 +2,8 @@
 
 namespace ITAssetTracker.Application.Services.AssetTypes.Commands.CreateAssetType;
 
-public class CreateAssetTypeCommand: IRequest<Guid>
+public class CreateAssetTypeCommand: IRequest<int>
 {
     public string Name { get; private set; } = string.Empty;
-    public Guid CategoryId { get; private set; }
+    public int CategoryId { get; private set; }
 }

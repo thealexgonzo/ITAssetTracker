@@ -11,7 +11,7 @@ using System.Text;
 
 namespace ITAssetTracker.Application.Services.SupporTickets.Commands.CreateSupportTicket
 {
-    public class CreateSupportTicketCommandHandler : IRequestHandler<CreateSupportTicketCommand, Guid>
+    public class CreateSupportTicketCommandHandler : IRequestHandler<CreateSupportTicketCommand, int>
     {
         private readonly ISupportTicketRepository supportTicketRepository;
         private readonly IMapper mapper;
@@ -22,7 +22,7 @@ namespace ITAssetTracker.Application.Services.SupporTickets.Commands.CreateSuppo
             this.mapper = mapper;
         }
 
-        public async Task<Guid> Handle(CreateSupportTicketCommand request, CancellationToken cancellationToken)
+        public async Task<int> Handle(CreateSupportTicketCommand request, CancellationToken cancellationToken)
         {
             // Map
             var supportTicket = mapper.Map<SupportTicket>(request);

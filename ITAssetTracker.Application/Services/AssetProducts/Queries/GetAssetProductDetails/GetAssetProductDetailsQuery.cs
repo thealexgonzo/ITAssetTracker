@@ -4,5 +4,5 @@ namespace ITAssetTracker.Application.Services.AssetProducts.Queries.GetAssetProd
 
 public class GetAssetProductDetailsQuery: IRequest<AssetProductDetailsViewModel>
 {
-    public Guid Id { get; set; }
+    public int Id { get; set; }
 }

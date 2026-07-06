@@ -1,5 +1,4 @@
 ﻿using ITAssetTracker.Application.Contracts.Repositories;
-using ITAssetTracker.Application.RepositoryInterfaces;
 using ITAssetTracker.Domain.Entities;
 
 namespace ITAssetTracker.Persistence.Repositories.EntityFramework;

@@ -7,12 +7,12 @@ public class User: AuditableEntity
 {
     public string UserName { get; private set; } = string.Empty;
     public string PasswordHash { get; private set; } = string.Empty;
-    public Guid RoleId { get; private set; }
+    public int RoleId { get; private set; }
     public Role Role { get; set; } = null!;
     public List<SupportTicket> SupportTickets { get; set; } = new();
     public Employee Employee { get; set; } = null!;
 
-    public User(string userName, string passwordHash, Guid roleId)
+    public User(string userName, string passwordHash, int roleId)
     {
         if (string.IsNullOrWhiteSpace(userName))
         {
@@ -29,7 +29,7 @@ public class User: AuditableEntity
             throw new BusinessRuleExceptions($"{nameof(roleId)} is required.");
         }
 
-        Id = Guid.CreateVersion7();
+        
         UserName = userName;
         PasswordHash = passwordHash;
         RoleId = roleId;

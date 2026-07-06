@@ -7,6 +7,6 @@ namespace ITAssetTracker.Application.Services.Categories.Commands.DeleteCategory
 {
     public class DeleteCategoryCommand: IRequest
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
     }
 }

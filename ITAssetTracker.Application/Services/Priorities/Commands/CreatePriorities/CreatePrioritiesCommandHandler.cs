@@ -7,7 +7,7 @@ using MediatR;
 
 namespace ITAssetTracker.Application.Services.Priorities.Commands.CreatePriorities;
 
-public class CreatePrioritiesCommandHandler : IRequestHandler<CreatePrioritiesCommand, Guid>
+public class CreatePrioritiesCommandHandler : IRequestHandler<CreatePrioritiesCommand, int>
 {
     private readonly IPriorityRepository priorityRepository;
     private readonly IMapper mapper;
@@ -18,7 +18,7 @@ public class CreatePrioritiesCommandHandler : IRequestHandler<CreatePrioritiesCo
         this.mapper = mapper;
     }
 
-    public async Task<Guid> Handle(CreatePrioritiesCommand request, CancellationToken cancellationToken)
+    public async Task<int> Handle(CreatePrioritiesCommand request, CancellationToken cancellationToken)
     {
         // Map
         Priority priority = mapper.Map<Priority>(request);

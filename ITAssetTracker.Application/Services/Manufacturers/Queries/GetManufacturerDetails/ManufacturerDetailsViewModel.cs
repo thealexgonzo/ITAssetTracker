@@ -6,7 +6,7 @@ namespace ITAssetTracker.Application.Services.Manufacturers.Queries.GetManufactu
 {
     public class ManufacturerDetailsViewModel
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
     }
 }

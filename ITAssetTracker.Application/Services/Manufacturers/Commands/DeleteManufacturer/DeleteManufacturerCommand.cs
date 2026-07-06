@@ -7,6 +7,6 @@ namespace ITAssetTracker.Application.Services.Manufacturers.Commands.DeleteManuf
 {
     public class DeleteManufacturerCommand: IRequest
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
     }
 }

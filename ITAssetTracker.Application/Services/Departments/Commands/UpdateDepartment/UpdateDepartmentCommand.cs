@@ -7,7 +7,7 @@ namespace ITAssetTracker.Application.Services.Departments.Commands.UpdateDepartm
 {
     public class UpdateDepartmentCommand: IRequest
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
     }
 }

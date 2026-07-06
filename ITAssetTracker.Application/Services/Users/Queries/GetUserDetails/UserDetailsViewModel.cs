@@ -7,10 +7,10 @@ namespace ITAssetTracker.Application.Services.Users.Queries.GetUserDetails
 {
     public class UserDetailsViewModel
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string UserName { get; set; } = string.Empty;
         public string PasswordHash { get; set; } = string.Empty;
-        public Guid RoleId { get; set; }
+        public int RoleId { get; set; }
         public Role Role { get; set; } = null!;
     }
 }

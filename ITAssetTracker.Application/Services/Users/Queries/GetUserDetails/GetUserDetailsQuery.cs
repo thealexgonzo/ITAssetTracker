@@ -7,6 +7,6 @@ namespace ITAssetTracker.Application.Services.Users.Queries.GetUserDetails
 {
     public class GetUserDetailsQuery: IRequest<UserDetailsViewModel>
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
     }
 }

@@ -7,7 +7,7 @@ namespace ITAssetTracker.Application.Services.Manufacturers.Commands.UpdateManuf
 {
     public class UpdateManufacturerCommand: IRequest
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
     }
 }

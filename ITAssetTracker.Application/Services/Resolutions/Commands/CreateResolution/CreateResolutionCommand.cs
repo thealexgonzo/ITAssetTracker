@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ITAssetTracker.Application.Services.Resolutions.Commands.CreateResolution
 {
-    public class CreateResolutionCommand: IRequest<Guid>
+    public class CreateResolutionCommand: IRequest<int>
     {
         public string Name { get; set; } = string.Empty;
     }

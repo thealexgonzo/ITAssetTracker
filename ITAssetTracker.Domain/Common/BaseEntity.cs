@@ -6,6 +6,6 @@ namespace ITAssetTracker.Domain.Common
 {
     public abstract class BaseEntity
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
     }
 }

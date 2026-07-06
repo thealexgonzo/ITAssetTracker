@@ -16,17 +16,16 @@ namespace ITAssetTracker.Tests.Domain.Entities
             string? description = "Assigned to finance department.")
         {
             return new Asset(
-                tag: tag,
-                name: name,
+                tag: tag!,
+                name: name!,
                 assetProductId: 1,
                 assetStatusId: 2,
                 price: price,
-                location: location,
-                serialNumber: serialNumber,
-                dateRange: new DateRange(
-                    DateTime.UtcNow,
-                    DateTime.UtcNow.AddDays(365)),
-                description: description
+                location: location!,
+                serialNumber: serialNumber!,
+                purchaseDate: new DateOnly(2023, 1, 10),
+                warrantyExpiryDate: new DateOnly(2026, 1, 10),
+                description: description!
             );
         }
 

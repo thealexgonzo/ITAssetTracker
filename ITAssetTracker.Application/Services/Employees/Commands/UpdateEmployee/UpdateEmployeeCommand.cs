@@ -9,8 +9,8 @@ namespace ITAssetTracker.Application.Services.Employees.Commands.UpdateEmployee
 {
     public class UpdateEmployeeCommand: IRequest
     {
-        public Guid Id { get; set; }
-        public Guid UserId { get; set; }
+        public int Id { get; set; }
+        public int UserId { get; set; }
         public string JobTitle { get; set; } = string.Empty;
         public string FirstName { get; set; } = string.Empty;
         public string? MiddleName { get; set; }
@@ -19,7 +19,7 @@ namespace ITAssetTracker.Application.Services.Employees.Commands.UpdateEmployee
         public Email Email { get; set; } = null!;
         public Phone Phone { get; set; } = null!;
         public DateRange EmploymentPeriod { get; set; } = null!;
-        public Guid DepartmentId { get; set; }
+        public int DepartmentId { get; set; }
         public Department Department { get; set; } = null!;
     }
 }

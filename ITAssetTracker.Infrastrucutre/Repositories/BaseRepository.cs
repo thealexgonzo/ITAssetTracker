@@ -32,7 +32,7 @@ namespace ITAssetTracker.Persistence.Repositories
             await dbContext.SaveChangesAsync();
         }
 
-        public virtual async Task<T?> GetByIdAsync(Guid id)
+        public virtual async Task<T?> GetByIdAsync(int id)
         {
             return await dbContext.Set<T>().FindAsync(id);
         }

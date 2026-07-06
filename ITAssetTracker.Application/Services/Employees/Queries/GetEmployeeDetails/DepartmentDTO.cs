@@ -6,7 +6,7 @@ namespace ITAssetTracker.Application.Services.Employees.Queries.GetEmployeeDetai
 {
     public class DepartmentDTO
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
     }
 }

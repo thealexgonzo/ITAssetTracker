@@ -7,6 +7,6 @@ namespace ITAssetTracker.Application.Services.Employees.Queries.GetEmployeeDetai
 {
     public class GetEmployeeDetailsQuery: IRequest<EmployeeDetailsViewModel>
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
     }
 }

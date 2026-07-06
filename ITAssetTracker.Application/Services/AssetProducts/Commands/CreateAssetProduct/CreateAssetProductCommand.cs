@@ -2,9 +2,9 @@
 
 namespace ITAssetTracker.Application.Services.AssetProducts.Commands.CreateAssetProduct;
 
-public class CreateAssetProductCommand: IRequest<Guid>
+public class CreateAssetProductCommand: IRequest<int>
 {
     public string? Name { get; set; }
-    public Guid? ManufacturerId { get; set; }
-    public Guid? AssetTypeId { get; private set; }
+    public int? ManufacturerId { get; set; }
+    public int? AssetTypeId { get; private set; }
 }

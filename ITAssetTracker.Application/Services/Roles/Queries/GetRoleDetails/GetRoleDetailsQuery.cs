@@ -7,6 +7,6 @@ namespace ITAssetTracker.Application.Services.Roles.Queries.GetRoleDetails
 {
     public class GetRoleDetailsQuery: IRequest<RoleDetailsViewModel>
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
     }
 }

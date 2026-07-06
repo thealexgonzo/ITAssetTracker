@@ -11,7 +11,7 @@ using System.Text;
 
 namespace ITAssetTracker.Application.Services.Departments.Commands.CreateDepartment
 {
-    public class CreateDepartmentCommandHandler : IRequestHandler<CreateDepartmentCommand, Guid>
+    public class CreateDepartmentCommandHandler : IRequestHandler<CreateDepartmentCommand, int>
     {
         private readonly IDepartmentRepository departmentRepository;
         private readonly IMapper mapper;
@@ -22,7 +22,7 @@ namespace ITAssetTracker.Application.Services.Departments.Commands.CreateDepartm
             this.mapper = mapper;
         }
 
-        public async Task<Guid> Handle(CreateDepartmentCommand request, CancellationToken cancellationToken)
+        public async Task<int> Handle(CreateDepartmentCommand request, CancellationToken cancellationToken)
         {
             // Map
             var department = mapper.Map<Department>(request);

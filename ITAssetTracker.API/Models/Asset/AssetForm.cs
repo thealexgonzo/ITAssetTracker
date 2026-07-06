@@ -8,7 +8,7 @@ namespace ITAssetTracker.API.Models.Asset;
 
 public class AssetForm
 {
-    public Guid AssetId { get; set; }
+    public int AssetId { get; set; }
     //[IsNumber(ErrorMessage = "The value must be numeric only.")]
     //[Required(ErrorMessage = "You must enter a product tag.")]
     //[Range(1, int.MaxValue, ErrorMessage = "Values must be greater than 0")]

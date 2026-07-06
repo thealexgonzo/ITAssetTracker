@@ -6,7 +6,7 @@ namespace ITAssetTracker.Application.Services.TicketStatuses.Queries.GetTicketSt
 {
     public class TicketStatusDetailsViewModel
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
     }
 }

@@ -4,5 +4,5 @@ namespace ITAssetTracker.Application.Services.Priorities.Commands.DeletePrioriti
 
 public class DeletePrioritiesCommand: IRequest
 {
-    public Guid Id { get; set; }
+    public int Id { get; set; }
 }

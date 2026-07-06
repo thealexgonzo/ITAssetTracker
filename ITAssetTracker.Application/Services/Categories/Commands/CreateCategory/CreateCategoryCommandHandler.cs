@@ -11,7 +11,7 @@ using System.Text;
 
 namespace ITAssetTracker.Application.Services.Categories.Commands.CreateCategory
 {
-    public class CreateCategoryCommandHandler : IRequestHandler<CreateCategoryCommand, Guid>
+    public class CreateCategoryCommandHandler : IRequestHandler<CreateCategoryCommand, int>
     {
         private readonly ICategoryRepository categoryRepository;
         private readonly IMapper mapper;
@@ -22,7 +22,7 @@ namespace ITAssetTracker.Application.Services.Categories.Commands.CreateCategory
             this.mapper = mapper;
         }
 
-        public async Task<Guid> Handle(CreateCategoryCommand request, CancellationToken cancellationToken)
+        public async Task<int> Handle(CreateCategoryCommand request, CancellationToken cancellationToken)
         {
             // Map
             var category = mapper.Map<Category>(request);

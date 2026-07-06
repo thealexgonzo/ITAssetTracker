@@ -7,6 +7,6 @@ namespace ITAssetTracker.Application.Services.AssetTypes.Commands.DeleteAssetTyp
 {
     public class DeleteAssetTypeCommand: IRequest
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
     }
 }

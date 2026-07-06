@@ -4,5 +4,5 @@ namespace ITAssetTracker.Application.Services.AssetProducts.Commands.DeleteAsset
 
 public class DeleteAssetProductCommand: IRequest
 {
-    public Guid Id { get; set; }
+    public int Id { get; set; }
 }

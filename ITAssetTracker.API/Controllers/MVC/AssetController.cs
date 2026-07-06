@@ -1,6 +1,5 @@
-﻿using ITAssetTracker.Application.ServiceInterfaces;
+﻿using ITAssetTracker.API.Models.Asset;
 using ITAssetTracker.Domain.Entities;
-using ITAssetTracker.API.Models.Asset;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ITAssetTracker.API.Controllers.MVC;
@@ -107,7 +106,7 @@ public class AssetController : Controller
     }
 
     [HttpGet]
-    public IActionResult Edit(Guid id)
+    public IActionResult Edit(int id)
     {
         Result<Asset> result = _assetService.GetByIdAsync(id);
 
@@ -179,7 +178,7 @@ public class AssetController : Controller
 
         return result.Data;
     }
-    private List<AssetHistory>? RetrieveAssetHistoryList(Guid id)
+    private List<AssetHistory>? RetrieveAssetHistoryList(int id)
     {
         var result = _assetHistoryService.GetAllAssetHistories(id);
 

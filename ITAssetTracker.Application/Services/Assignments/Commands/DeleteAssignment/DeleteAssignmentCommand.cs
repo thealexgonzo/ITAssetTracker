@@ -7,6 +7,6 @@ namespace ITAssetTracker.Application.Services.Assignments.Commands.DeleteAssignm
 {
     public class DeleteAssignmentCommand: IRequest
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
     }
 }

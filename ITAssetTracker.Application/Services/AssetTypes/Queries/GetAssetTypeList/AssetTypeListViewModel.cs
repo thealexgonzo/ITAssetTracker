@@ -6,7 +6,7 @@ namespace ITAssetTracker.Application.Services.AssetTypes.Queries.GetAssetTypeLis
 {
     public class AssetTypeListViewModel
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; } = null!;
     }
 }

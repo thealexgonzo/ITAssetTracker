@@ -7,6 +7,6 @@ namespace ITAssetTracker.Application.Services.Manufacturers.Queries.GetManufactu
 {
     public class GetManufacturerDetailsQuery: IRequest<ManufacturerDetailsViewModel>
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
     }
 }

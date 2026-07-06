@@ -7,6 +7,6 @@ namespace ITAssetTracker.Application.Services.Departments.Queries.GetDepartmentD
 {
     public class GetDepartmentDetailsQuery: IRequest<DepartmentDetailsViewModel>
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
     }
 }

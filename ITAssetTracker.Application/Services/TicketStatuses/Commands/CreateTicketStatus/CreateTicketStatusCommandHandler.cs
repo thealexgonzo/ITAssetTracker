@@ -2,16 +2,12 @@
 using FluentValidation.Results;
 using ITAssetTracker.Application.Contracts.Repositories;
 using ITAssetTracker.Application.Exceptions;
-using ITAssetTracker.Application.Services.Assets.Commands.CreateAsset;
 using ITAssetTracker.Domain.Entities;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ITAssetTracker.Application.Services.TicketStatuses.Commands.CreateTicketStatus
 {
-    public class CreateTicketStatusCommandHandler : IRequestHandler<CreateTicketStatusCommand, Guid>
+    public class CreateTicketStatusCommandHandler : IRequestHandler<CreateTicketStatusCommand, int>
     {
         private readonly ITicketStatusRepository ticketStatusRepository;
         private readonly IMapper mapper;
@@ -22,7 +18,7 @@ namespace ITAssetTracker.Application.Services.TicketStatuses.Commands.CreateTick
             this.mapper = mapper;
         }
 
-        public async Task<Guid> Handle(CreateTicketStatusCommand request, CancellationToken cancellationToken)
+        public async Task<int> Handle(CreateTicketStatusCommand request, CancellationToken cancellationToken)
         {
             // Map
             var ticketStatus = mapper.Map<TicketStatus>(request);
@@ -42,6 +38,5 @@ namespace ITAssetTracker.Application.Services.TicketStatuses.Commands.CreateTick
             // Return 
             return ticketStatus.Id;
         }
-    }
     }
 }

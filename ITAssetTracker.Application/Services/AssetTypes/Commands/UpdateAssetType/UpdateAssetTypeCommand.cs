@@ -7,7 +7,7 @@ namespace ITAssetTracker.Application.Services.AssetTypes.Commands.UpdateAssetTyp
 {
     public class UpdateAssetTypeCommand: IRequest
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; } = null!;
     }
 }

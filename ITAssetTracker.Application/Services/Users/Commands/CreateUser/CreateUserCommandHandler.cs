@@ -11,7 +11,7 @@ using System.Text;
 
 namespace ITAssetTracker.Application.Services.Users.Commands.CreateUser
 {
-    public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Guid>
+    public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, int>
     {
         private readonly IUserRepository userRepository;
         private readonly IMapper mapper;
@@ -22,7 +22,7 @@ namespace ITAssetTracker.Application.Services.Users.Commands.CreateUser
             this.mapper = mapper;
         }
 
-        public async Task<Guid> Handle(CreateUserCommand request, CancellationToken cancellationToken)
+        public async Task<int> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
             // Map
             var user = mapper.Map<User>(request);

@@ -1,28 +1,27 @@
 ﻿using ITAssetTracker.Domain.Exceptions;
 using ITAssetTracker.Domain.ValueObjects;
 
-namespace ITAssetTracker.Tests.Domain.ValueObjects
+namespace ITAssetTracker.Tests.Domain.ValueObjects;
+
+public class DateRangeTests
 {
-    public class DateRangeTests
+    [Fact]
+    public void Constructor_StartIsAfterEnd_ThrowsBusinessRuleException()
     {
-        [Fact]
-        public void Constructor_StartIsAfterEnd_ThrowsBusinessRuleException()
+        Assert.Throws<BusinessRuleExceptions>(() =>
         {
-            Assert.Throws<BusinessRuleExceptions>(() =>
-            {
-                new DateRange(DateTime.UtcNow, DateTime.UtcNow.AddDays(-1));
-            });
-        }
+            new DateRange(DateOnly.Parse(DateTime.UtcNow.ToShortDateString()), DateOnly.Parse(DateTime.UtcNow.AddDays(-1).ToShortDateString()));
+        });
+    }
 
-        [Fact]
-        public void ValidTimeInterval()
+    [Fact]
+    public void ValidTimeInterval()
+    {
+        var exception = Record.Exception(() =>
         {
-            var exception = Record.Exception(() =>
-            {
-                new DateRange(DateTime.UtcNow, DateTime.UtcNow.AddHours(1));
-            });
+            new DateRange(DateOnly.Parse(DateTime.UtcNow.ToShortDateString()), DateOnly.Parse(DateTime.UtcNow.AddHours(1).ToShortDateString()));
+        });
 
-            Assert.Null(exception);
-        }
+        Assert.Null(exception);
     }
 }

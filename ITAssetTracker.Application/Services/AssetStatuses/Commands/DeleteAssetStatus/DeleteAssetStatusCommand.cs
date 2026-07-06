@@ -7,5 +7,5 @@ namespace ITAssetTracker.Application.Services.AssetStatuses.Commands.DeleteAsset
 
 public class DeleteAssetStatusCommand: IRequest
 {
-    public Guid Id { get; set; }
+    public int Id { get; set; }
 }

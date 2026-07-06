@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ITAssetTracker.Application.Services.Categories.Commands.CreateCategory
 {
-    public class CreateCategoryCommand: IRequest<Guid>
+    public class CreateCategoryCommand: IRequest<int>
     {
         public string Name { get; set; } = string.Empty;
     }

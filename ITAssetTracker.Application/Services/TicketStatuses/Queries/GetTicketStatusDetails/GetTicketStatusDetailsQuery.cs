@@ -7,6 +7,6 @@ namespace ITAssetTracker.Application.Services.TicketStatuses.Queries.GetTicketSt
 {
     public class GetTicketStatusDetailsQuery: IRequest<TicketStatusDetailsViewModel>
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
     }
 }

@@ -7,6 +7,6 @@ namespace ITAssetTracker.Application.Services.Employees.Commands.DeleteEmployee
 {
     public class DeleteEmployeeCommand: IRequest
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
     }
 }

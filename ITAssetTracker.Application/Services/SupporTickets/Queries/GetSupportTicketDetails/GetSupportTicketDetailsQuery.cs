@@ -7,6 +7,6 @@ namespace ITAssetTracker.Application.Services.SupporTickets.Queries.GetSupportTi
 {
     public class GetSupportTicketDetailsQuery: IRequest<SupportTicketDetailsViewModel>
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
     }
 }

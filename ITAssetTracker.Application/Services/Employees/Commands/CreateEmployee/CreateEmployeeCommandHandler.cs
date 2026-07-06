@@ -7,7 +7,7 @@ using MediatR;
 
 namespace ITAssetTracker.Application.Services.Employees.Commands.CreateEmployee;
 
-public class CreateEmployeeCommandHandler : IRequestHandler<CreateEmployeeCommand, Guid>
+public class CreateEmployeeCommandHandler : IRequestHandler<CreateEmployeeCommand, int>
 {
     private readonly IEmployeeRepository employeeRepository;
     private readonly IMapper mapper;
@@ -18,7 +18,7 @@ public class CreateEmployeeCommandHandler : IRequestHandler<CreateEmployeeComman
         this.mapper = mapper;
     }
 
-    public async Task<Guid> Handle(CreateEmployeeCommand request, CancellationToken cancellationToken)
+    public async Task<int> Handle(CreateEmployeeCommand request, CancellationToken cancellationToken)
     {
         // Map
         Employee employee = mapper.Map<Employee>(request);

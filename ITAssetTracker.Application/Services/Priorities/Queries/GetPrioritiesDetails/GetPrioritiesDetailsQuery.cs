@@ -7,6 +7,6 @@ namespace ITAssetTracker.Application.Services.Priorities.Queries.GetPrioritiesDe
 {
     public class GetPrioritiesDetailsQuery: IRequest<PrioritiesDetailsViewModel>
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
     }
 }

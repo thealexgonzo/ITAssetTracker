@@ -7,6 +7,6 @@ namespace ITAssetTracker.Application.Services.Users.Commands.DeleteUser
 {
     public class DeleteUserCommand: IRequest
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
     }
 }

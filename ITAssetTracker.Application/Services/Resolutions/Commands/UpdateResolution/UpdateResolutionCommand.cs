@@ -7,7 +7,7 @@ namespace ITAssetTracker.Application.Services.Resolutions.Commands.UpdateResolut
 {
     public class UpdateResolutionCommand: IRequest
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
     }
 }

@@ -7,6 +7,6 @@ namespace ITAssetTracker.Application.Services.Categories.Queries.GetCategoryDeta
 {
     public class GetCategoryDetailsQuery: IRequest<CategoryDetailsViewModel>
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
     }
 }

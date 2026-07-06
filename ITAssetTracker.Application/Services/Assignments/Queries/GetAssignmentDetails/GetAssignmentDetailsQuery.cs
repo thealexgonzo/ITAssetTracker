@@ -4,5 +4,5 @@ namespace ITAssetTracker.Application.Services.Assignments.Queries.GetAssignmentD
 
 public class GetAssignmentDetailsQuery: IRequest<AssignmentDetailsViewModel>
 {
-    public Guid Id { get; set; }
+    public int Id { get; set; }
 }

@@ -7,6 +7,7 @@
     <Project Path="ITAssetTracker.Domain/ITAssetTracker.Domain.csproj" Id="7d86e5cd-ad0d-4ec7-ae2c-675081700bc5" />
   </Folder>
   <Folder Name="/Infrastructure/">
+    <Project Path="ITAssetTracker.Infrastructure/ITAssetTracker.Infrastructure.csproj" Id="1bd13561-98e2-4c69-82bf-3a386a709d8b" />
     <Project Path="ITAssetTracker.Infrastrucutre/ITAssetTracker.Persistence.csproj" />
   </Folder>
   <Folder Name="/Solution Items/">

@@ -7,9 +7,9 @@ public class Asset: AuditableEntity
 {
     public string Tag { get; private set; }
     public string Name { get; private set; }
-    public Guid AssetProductId { get; private set; }
+    public int AssetProductId { get; private set; }
     public AssetProduct AssetProducts  { get; set; } = null!;
-    public Guid AssetStatusId { get; private set; }
+    public int AssetStatusId { get; private set; }
     public AssetStatus AssetStatuses { get; set; } = null!; 
     public decimal Price { get; private set; }
     public string Location { get; private set; }
@@ -21,7 +21,7 @@ public class Asset: AuditableEntity
     public List<AssetAssignment> AssetAssignments { get; set; } = new();
     public List<SupportTicket> SupportTickets { get; set; } = new();
 
-    public Asset(string tag, string name, Guid assetProductId, Guid assetStatusId,
+    public Asset(string tag, string name, int assetProductId, int assetStatusId,
         decimal price, string location, string serialNumber, DateOnly purchaseDate, DateOnly warrantyExpiryDate, string description = "")
     {
         if (string.IsNullOrWhiteSpace(tag))
@@ -49,7 +49,7 @@ public class Asset: AuditableEntity
             throw new BusinessRuleExceptions($"The {nameof(serialNumber)} is required");
         }        
 
-        Id = Guid.CreateVersion7();
+        
         Tag = tag;
         Name = name;
         AssetProductId = assetProductId;

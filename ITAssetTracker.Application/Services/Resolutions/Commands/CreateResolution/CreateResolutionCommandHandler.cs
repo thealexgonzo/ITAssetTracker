@@ -7,7 +7,7 @@ using MediatR;
 
 namespace ITAssetTracker.Application.Services.Resolutions.Commands.CreateResolution
 {
-    public class CreateResolutionCommandHandler : IRequestHandler<CreateResolutionCommand, Guid>
+    public class CreateResolutionCommandHandler : IRequestHandler<CreateResolutionCommand, int>
     {
         private readonly IResolutionRepository resolutionRepository;
         private readonly IMapper mapper;
@@ -18,7 +18,7 @@ namespace ITAssetTracker.Application.Services.Resolutions.Commands.CreateResolut
             this.mapper = mapper;
         }
 
-        public async Task<Guid> Handle(CreateResolutionCommand request, CancellationToken cancellationToken)
+        public async Task<int> Handle(CreateResolutionCommand request, CancellationToken cancellationToken)
         {
             // Map
             var resolution = mapper.Map<Domain.Entities.Resolution>(request);

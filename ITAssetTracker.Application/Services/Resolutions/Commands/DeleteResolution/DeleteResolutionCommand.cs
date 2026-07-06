@@ -7,6 +7,6 @@ namespace ITAssetTracker.Application.Services.Resolutions.Commands.DeleteResolut
 {
     public class DeleteResolutionCommand: IRequest
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
     }
 }

@@ -7,9 +7,9 @@ namespace ITAssetTracker.Application.Services.Users.Queries.GetUsersList
 {
     public class UserListViewModel
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string UserName { get; set; } = string.Empty;
         public string PasswordHash { get; set; } = string.Empty;
-        public Guid RoleId { get; set; }
+        public int RoleId { get; set; }
     }
 }

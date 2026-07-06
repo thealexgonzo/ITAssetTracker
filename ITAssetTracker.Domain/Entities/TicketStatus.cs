@@ -15,7 +15,7 @@ public class TicketStatus: AuditableEntity
             throw new BusinessRuleExceptions($"{nameof(name)} is required.");
         }
 
-        Id = Guid.CreateVersion7();
+        
         Name = name;
     }
 }

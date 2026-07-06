@@ -4,6 +4,6 @@ namespace ITAssetTracker.Application.Services.Priorities.Commands.UpdatePrioriti
 
 public class UpdatePrioritiesCommand: IRequest
 {
-    public Guid Id { get; set; }
+    public int Id { get; set; }
     public string Name { get; set; } = string.Empty;
 }

@@ -4,8 +4,8 @@ namespace ITAssetTracker.Application.Services.AssetProducts.Commands.UpdateAsset
 
 public class UpdateAssetProductCommand: IRequest
 {
-    public Guid Id { get; set; }
+    public int Id { get; set; }
     public string? Name { get; set; }
-    public Guid? ManufacturerId { get; set; }
-    public Guid? AssetTypeId { get; private set; }
+    public int? ManufacturerId { get; set; }
+    public int? AssetTypeId { get; private set; }
 }

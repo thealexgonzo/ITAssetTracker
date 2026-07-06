@@ -7,6 +7,6 @@ namespace ITAssetTracker.Application.Services.TicketStatuses.Commands.DeleteTick
 {
     public class DeleteTicketStatusCommand: IRequest
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
     }
 }

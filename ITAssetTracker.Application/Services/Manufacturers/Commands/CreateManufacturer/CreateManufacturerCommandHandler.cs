@@ -7,7 +7,7 @@ using MediatR;
 
 namespace ITAssetTracker.Application.Services.Manufacturers.Commands.CreateManufacturer;
 
-public class CreateManufacturerCommandHandler : IRequestHandler<CreateManufacturerCommand, Guid>
+public class CreateManufacturerCommandHandler : IRequestHandler<CreateManufacturerCommand, int>
 {
     private readonly IManufacturerRepository manufacturerRepository;
     private readonly IMapper mapper;
@@ -17,7 +17,7 @@ public class CreateManufacturerCommandHandler : IRequestHandler<CreateManufactur
         this.manufacturerRepository = manufacturerRepository;
         this.mapper = mapper;
     }
-    public async Task<Guid> Handle(CreateManufacturerCommand request, CancellationToken cancellationToken)
+    public async Task<int> Handle(CreateManufacturerCommand request, CancellationToken cancellationToken)
     {
         // Map
         var manufacturer = mapper.Map<Manufacturer>(request);

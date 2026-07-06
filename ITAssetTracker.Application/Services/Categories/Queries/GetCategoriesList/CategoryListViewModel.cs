@@ -6,7 +6,7 @@ namespace ITAssetTracker.Application.Services.Categories.Queries.GetCategoriesLi
 {
     public class CategoryListViewModel
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
     }
 }

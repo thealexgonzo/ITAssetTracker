@@ -6,7 +6,7 @@ using System.Text;
 
 namespace ITAssetTracker.Application.Services.Departments.Commands.CreateDepartment
 {
-    public class CreateDepartmentCommand: IRequest<Guid>
+    public class CreateDepartmentCommand: IRequest<int>
     {
         public string Name { get; set; } = null!;
     }

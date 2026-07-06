@@ -7,9 +7,9 @@ namespace ITAssetTracker.Application.Services.AssetTypes.Queries.GetAssetTypeDet
 {
     public class AssetTypeDetailsViewModel
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; private set; } = string.Empty;
-        public Guid CategoryId { get; private set; }
+        public int CategoryId { get; private set; }
         public Category Categories { get; set; } = null!;
     }
 }

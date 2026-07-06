@@ -8,12 +8,12 @@ namespace ITAssetTracker.Application.Services.SupporTickets.Commands.UpdateSuppo
 {
     public class UpdateSupportTicketCommand: IRequest
     {
-        public Guid Id { get; set; }
-        public Guid AssetId { get; set; }
-        public Guid EmployeeId { get; set; }
-        public Guid TicketStatusId { get; set; }
-        public Guid PriorityId { get; set; }
-        public Guid ResolutionId { get; set; }
+        public int Id { get; set; }
+        public int AssetId { get; set; }
+        public int EmployeeId { get; set; }
+        public int TicketStatusId { get; set; }
+        public int PriorityId { get; set; }
+        public int ResolutionId { get; set; }
         public string Title { get; set; } = string.Empty;
         public string? Description { get; set; }
         public string? Comments { get; set; }

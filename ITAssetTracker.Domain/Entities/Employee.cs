@@ -6,7 +6,7 @@ namespace ITAssetTracker.Domain.Entities;
 
 public class Employee: AuditableEntity
 {
-    public Guid UserId { get; private set; }
+    public int UserId { get; private set; }
     public User User { get; set; } = null!;
     public string JobTitle { get; private set; } = string.Empty;
     public string FirstName { get; private set; } = string.Empty;
@@ -16,11 +16,11 @@ public class Employee: AuditableEntity
     public Email Email { get; private set; }
     public Phone Phone { get; private set; }
     public DateRange EmploymentPeriod { get; private set; }
-    public Guid DepartmentId { get; private set; }
+    public int DepartmentId { get; private set; }
     public Department Department { get; set; } = null!;
     public List<AssetAssignment> AssetAssignments { get; set; } = new();
 
-    public Employee(Guid userId, string jobTitle, string firstName, string lastName, DateOnly dob, Email email, Phone phone, DateRange employmentPeriod, Guid departmentId, string? middleName = null)
+    public Employee(int userId, string jobTitle, string firstName, string lastName, DateOnly dob, Email email, Phone phone, DateRange employmentPeriod, int departmentId, string? middleName = null)
     {
         if((object)userId is null)
         {
@@ -38,7 +38,7 @@ public class Employee: AuditableEntity
         }
 
 
-        Id = Guid.CreateVersion7();
+        
         UserId = userId;
         JobTitle = jobTitle;
         FirstName = firstName;

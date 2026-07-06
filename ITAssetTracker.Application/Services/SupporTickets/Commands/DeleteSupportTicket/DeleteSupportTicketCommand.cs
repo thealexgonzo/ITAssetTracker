@@ -7,6 +7,6 @@ namespace ITAssetTracker.Application.Services.SupporTickets.Commands.DeleteSuppo
 {
     public class DeleteSupportTicketCommand: IRequest
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
     }
 }

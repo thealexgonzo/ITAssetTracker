@@ -7,6 +7,6 @@ namespace ITAssetTracker.Application.Services.Resolutions.Queries.GetResolutionD
 {
     public class GetResolutionDetailsQuery: IRequest<ResolutionDetailsViewModel>
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
     }
 }

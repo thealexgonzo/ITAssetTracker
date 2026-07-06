@@ -6,7 +6,7 @@ namespace ITAssetTracker.Application.Services.AssetStatuses.Queries.GetAssetStat
 {
     public class AssetStatusDetailsViewModel
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
     }
 }

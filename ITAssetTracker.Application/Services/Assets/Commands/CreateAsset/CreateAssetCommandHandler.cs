@@ -7,7 +7,7 @@ using MediatR;
 
 namespace ITAssetTracker.Application.Services.Assets.Commands.CreateAsset
 {
-    public class CreateAssetCommandHandler : IRequestHandler<CreateAssetCommand, Guid>
+    public class CreateAssetCommandHandler : IRequestHandler<CreateAssetCommand, int>
     {
         private readonly IMapper mapper;
         private readonly IAssetRepository assetRepository;
@@ -17,7 +17,7 @@ namespace ITAssetTracker.Application.Services.Assets.Commands.CreateAsset
             this.mapper = mapper;
             this.assetRepository = assetRepository;
         }
-        public async Task<Guid> Handle(CreateAssetCommand request, CancellationToken cancellationToken)
+        public async Task<int> Handle(CreateAssetCommand request, CancellationToken cancellationToken)
         {
             // Map
             Asset asset = mapper.Map<Asset>(request);

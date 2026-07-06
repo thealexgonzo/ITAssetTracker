@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ITAssetTracker.Application.Services.AssetStatuses.Commands.CreateAssetStatus;
 
-public class CreateAssetStatusCommand: IRequest<Guid>
+public class CreateAssetStatusCommand: IRequest<int>
 {
     public string Name { get; private set; } = string.Empty;
 }
