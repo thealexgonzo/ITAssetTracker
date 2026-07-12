@@ -1,4 +1,4 @@
-﻿@using ITAssetTracker.API
+﻿@* @using ITAssetTracker.API
 @using ITAssetTracker.API.Models
 @using ITAssetTracker.API.Models.Asset
 @model AssetList
@@ -15,7 +15,7 @@
 
 <h1 class="mb-3">Asset Search</h1>
 <p class="mb-3">Search for an asset by tag number or leave blank to return all assets.</p>
-@* <p class="mb-3">You may also <a asp-controller="Assets" asp-action="Create">create an asset</a>.</p> *@
+
 <form asp-controller="Asset" asp-action="Index" method="post" class="mb-3">
     @Html.AntiForgeryToken()
     <div class="mb-3 col-md-3">
@@ -23,7 +23,7 @@
         <input type="text" class="form-control" asp-for="SearchTag">
         </div>
         <button type="submit" class="btn btn-primary">Search</button>
-        @* <button class="btn btn-primary" asp-controller="Asset" asp-action="Create">Create New</button> *@
+
         <a asp-controller="Asset" asp-action="Create" class="btn btn-outline-primary">Create New</a>
 
         <!-- Button trigger modal -->
@@ -84,3 +84,4 @@
             </tbody>
         </table>
     }
+ *@

@@ -64,4 +64,50 @@ public class SupportTicket: AuditableEntity
         Description = description;
         Comments = comments;
     }
+
+    /// <summary>
+    /// EF Constructor
+    /// </summary>
+    private SupportTicket(int assetId, int employeeId, int ticketStatusId, int priorityId, int resolutionId, string title, string? description = null, string? comments = null)
+    {
+        if ((object)assetId is null)
+        {
+            throw new BusinessRuleExceptions($"{nameof(assetId)} is required.");
+        }
+
+        if ((object)employeeId is null)
+        {
+            throw new BusinessRuleExceptions($"{nameof(employeeId)} is required.");
+        }
+
+        if ((object)ticketStatusId is null)
+        {
+            throw new BusinessRuleExceptions($"{nameof(ticketStatusId)} is required.");
+        }
+
+        if ((object)priorityId is null)
+        {
+            throw new BusinessRuleExceptions($"{nameof(priorityId)} is required.");
+        }
+
+        if ((object)resolutionId is null)
+        {
+            throw new BusinessRuleExceptions($"{nameof(resolutionId)} is required.");
+        }
+
+        if (string.IsNullOrWhiteSpace(title))
+        {
+            throw new BusinessRuleExceptions($"{nameof(title)} is required.");
+        }
+
+        
+        AssetId = assetId;
+        EmployeeId = employeeId;
+        TicketStatusId = ticketStatusId;
+        PriorityId = priorityId;
+        ResolutionId = resolutionId;
+        Title = title;
+        Description = description;
+        Comments = comments;
+    }
 }

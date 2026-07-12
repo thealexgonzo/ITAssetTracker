@@ -1,8 +1,10 @@
 ﻿using ITAssetTracker.Domain.Exceptions;
+using Microsoft.EntityFrameworkCore;
 using System.Text.RegularExpressions;
 
 namespace ITAssetTracker.Domain.ValueObjects;
 
+[Owned]
 public sealed record Phone
 {
     public string Value { get; }

@@ -11,9 +11,9 @@ namespace ITAssetTracker.Persistence;
 /// <summary>
 /// This class extends the IServiceCollection
 /// </summary>
-public class PersistenceServiceRegistration
+public static class PersistenceServiceRegistration
 {
-    public static IServiceCollection AddPersistenceServcies(IServiceCollection services, IConfiguration configuation)
+    public static IServiceCollection AddPersistenceServices(this IServiceCollection services, IConfiguration configuation)
     {
         //NOTE: DBContext setup goes here apparently?
         services.AddDbContext<ITAssetTrackerContext>(options => options.UseSqlite(configuation.GetConnectionString("ITAssetTrackerConnectionString")));

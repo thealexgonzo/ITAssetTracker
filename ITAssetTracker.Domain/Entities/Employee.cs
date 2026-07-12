@@ -50,4 +50,17 @@ public class Employee: AuditableEntity
         EmploymentPeriod = employmentPeriod;
         DepartmentId = departmentId;
     }
+
+    /// <summary>
+    /// EF Constructor
+    /// </summary>
+    private Employee(int userId, string jobTitle, string firstName, string lastName, int departmentId, string? middleName = null)
+    {
+        UserId = userId;
+        JobTitle = jobTitle;
+        FirstName = firstName;
+        MiddleName = middleName;
+        LastName = lastName;
+        DepartmentId = departmentId;
+    }
 }

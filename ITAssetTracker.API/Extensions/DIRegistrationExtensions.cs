@@ -1,6 +1,4 @@
-﻿using ITAssetTracker.Application.ServiceInterfaces;
-using ITAssetTracker.Application.Services;
-using ITAssetTracker.Persistence.Repositories.EntityFramework;
+﻿using ITAssetTracker.Persistence.Repositories.EntityFramework;
 
 namespace ITAssetTracker.API.Extensions;
 
@@ -13,58 +11,58 @@ namespace ITAssetTracker.API.Extensions;
 /// necessary services are available for dependency injection.</remarks>
 public static class DIRegistrationExtensions
 {
-    public static WebApplicationBuilder AddSupportTicketRepositories(this WebApplicationBuilder builder)
-    {
-        builder.Services.AddScoped<ISupportTicketService, SupportTicketService>();
-        builder.Services.AddScoped<ISupportTicketRepository, EFSupportTicketRepository>();
-        return builder;
-    }
+    //public static WebApplicationBuilder AddSupportTicketRepositories(this WebApplicationBuilder builder)
+    //{
+    //    builder.Services.AddScoped<ISupportTicketService, SupportTicketService>();
+    //    builder.Services.AddScoped<ISupportTicketRepository, EFSupportTicketRepository>();
+    //    return builder;
+    //}
 
-    public static WebApplicationBuilder AddAssetRepositories(this WebApplicationBuilder builder)
-    {
-        builder.Services.AddScoped<IAssetService, AssetService>();
-        builder.Services.AddScoped<IAssetRepository, EFAssetRepository>();
+    //public static WebApplicationBuilder AddAssetRepositories(this WebApplicationBuilder builder)
+    //{
+    //    builder.Services.AddScoped<IAssetService, AssetService>();
+    //    builder.Services.AddScoped<IAssetRepository, EFAssetRepository>();
 
-        return builder;
-    }
+    //    return builder;
+    //}
 
-    public static WebApplicationBuilder AddAssetProductRepositories(this WebApplicationBuilder builder)
-    {
-        builder.Services.AddScoped<IAssetProductService, ModelService>();
-        builder.Services.AddScoped<IAssetProductRepository, EFAssetProductRepository>();
+    //public static WebApplicationBuilder AddAssetProductRepositories(this WebApplicationBuilder builder)
+    //{
+    //    builder.Services.AddScoped<IAssetProductService, ModelService>();
+    //    builder.Services.AddScoped<IAssetProductRepository, EFAssetProductRepository>();
 
-        return builder;
-    }
+    //    return builder;
+    //}
 
-    public static WebApplicationBuilder AddAssetTypeRepository(this WebApplicationBuilder builder)
-    {
-        builder.Services.AddScoped<IAssetTypeService, AssetTypeService>();
-        builder.Services.AddScoped<IAssetTypeRepository, EFAssetTypeRepository>();
+    //public static WebApplicationBuilder AddAssetTypeRepository(this WebApplicationBuilder builder)
+    //{
+    //    builder.Services.AddScoped<IAssetTypeService, AssetTypeService>();
+    //    builder.Services.AddScoped<IAssetTypeRepository, EFAssetTypeRepository>();
 
-        return builder;
-    }
+    //    return builder;
+    //}
 
-    public static WebApplicationBuilder AddCategoryRespository(this WebApplicationBuilder builder)
-    {
-        builder.Services.AddScoped<ICategoryService, CategoryService>();
-        builder.Services.AddScoped<ICategoryRepository, EFCategoryRepository>();
+    //public static WebApplicationBuilder AddCategoryRespository(this WebApplicationBuilder builder)
+    //{
+    //    builder.Services.AddScoped<ICategoryService, CategoryService>();
+    //    builder.Services.AddScoped<ICategoryRepository, EFCategoryRepository>();
 
-        return builder;
-    }
+    //    return builder;
+    //}
 
-    public static WebApplicationBuilder AddAssetStatusRepository(this WebApplicationBuilder builder)
-    {
-        builder.Services.AddScoped<IAssetStatusService, AssetStatusService>();
-        builder.Services.AddScoped<IAssetStatusRepository, EFAssetStatusRepository>();
+    //public static WebApplicationBuilder AddAssetStatusRepository(this WebApplicationBuilder builder)
+    //{
+    //    builder.Services.AddScoped<IAssetStatusService, AssetStatusService>();
+    //    builder.Services.AddScoped<IAssetStatusRepository, EFAssetStatusRepository>();
 
-        return builder;
-    }
+    //    return builder;
+    //}
 
-    public static WebApplicationBuilder AddAssetHistoryRepository(this WebApplicationBuilder builder)
-    {
-        builder.Services.AddScoped<IAssetHistoryService, AssetHistoryService>();
-        builder.Services.AddScoped<IAssetHistoryRepository, EFAssetHistoryRepository>();
+    //public static WebApplicationBuilder AddAssetHistoryRepository(this WebApplicationBuilder builder)
+    //{
+    //    builder.Services.AddScoped<IAssetHistoryService, AssetHistoryService>();
+    //    builder.Services.AddScoped<IAssetHistoryRepository, EFAssetHistoryRepository>();
 
-        return builder;
-    }
+    //    return builder;
+    //}
 }

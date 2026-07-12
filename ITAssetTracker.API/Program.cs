@@ -5,52 +5,54 @@ using ITAssetTracker.Application;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Logging.ClearProviders();
-builder.Logging.AddConsole();
+var app = builder.ConfigureServices().ConfigurePipeline();
 
-// AddAsync services to the container.
-builder.Services.AddControllersWithViews();
-builder.Services.AddApplicationServices();
+//builder.Logging.ClearProviders();
+//builder.Logging.AddConsole();
 
-// Get the connection string
-string connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+//// AddAsync services to the container.
+//builder.Services.AddControllersWithViews();
+//builder.Services.AddApplicationServices();
 
-// AddAsync the connection string this way? In ASP.NET this is how it's done
-builder.Services.AddDbContext<ITAssetTrackerContext>(options => options.UseSqlite(connectionString));
+//// Get the connection string
+//string connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
-//builder.Services.AddScoped<ISupportTicketService, SupportTicketService>();
-//builder.Services.AddScoped<ISupportTicketRepository, EFSupportTicketRepository>();
-//builder.Services.AddScoped(provider => new SupportTicketService(new EFSupportTicketRepository()));
+//// AddAsync the connection string this way? In ASP.NET this is how it's done
+//builder.Services.AddDbContext<ITAssetTrackerContext>(options => options.UseSqlite(connectionString));
 
-builder.AddSupportTicketRepositories();
-builder.AddAssetRepositories();
-builder.AddAssetProductRepositories();
-builder.AddAssetTypeRepository();
-builder.AddCategoryRespository();
-builder.AddAssetStatusRepository();
-builder.AddAssetHistoryRepository();
+////builder.Services.AddScoped<ISupportTicketService, SupportTicketService>();
+////builder.Services.AddScoped<ISupportTicketRepository, EFSupportTicketRepository>();
+////builder.Services.AddScoped(provider => new SupportTicketService(new EFSupportTicketRepository()));
 
-var app = builder.Build();
+//builder.AddSupportTicketRepositories();
+//builder.AddAssetRepositories();
+//builder.AddAssetProductRepositories();
+//builder.AddAssetTypeRepository();
+//builder.AddCategoryRespository();
+//builder.AddAssetStatusRepository();
+//builder.AddAssetHistoryRepository();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
-}
+//var app = builder.Build();
 
-app.UseHttpsRedirection();
-app.UseRouting();
+//// Configure the HTTP request pipeline.
+//if (!app.Environment.IsDevelopment())
+//{
+//    app.UseExceptionHandler("/Home/Error");
+//    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+//    app.UseHsts();
+//}
 
-app.UseAuthorization();
+//app.UseHttpsRedirection();
+//app.UseRouting();
 
-app.MapStaticAssets();
+//app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
-    .WithStaticAssets();
+//app.MapStaticAssets();
+
+//app.MapControllerRoute(
+//    name: "default",
+//    pattern: "{controller=Home}/{action=Index}/{id?}")
+//    .WithStaticAssets();
 
 
 app.Run();
