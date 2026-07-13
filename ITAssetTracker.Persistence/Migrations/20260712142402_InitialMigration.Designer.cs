@@ -3,6 +3,7 @@ using System;
 using ITAssetTracker.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ITAssetTracker.Persistence.Migrations
 {
     [DbContext(typeof(ITAssetTrackerContext))]
-    partial class ITAssetTrackerContextModelSnapshot : ModelSnapshot
+    [Migration("20260712142402_InitialMigration")]
+    partial class InitialMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.9");
@@ -86,7 +89,7 @@ namespace ITAssetTracker.Persistence.Migrations
                             AssetProductId = 1,
                             AssetStatusId = 2,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 163, DateTimeKind.Utc).AddTicks(4263),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Primary developer laptop",
                             Location = "London Office",
                             Name = "Dell Latitude Laptop",
@@ -102,7 +105,7 @@ namespace ITAssetTracker.Persistence.Migrations
                             AssetProductId = 2,
                             AssetStatusId = 2,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 163, DateTimeKind.Utc).AddTicks(5522),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Finance department laptop",
                             Location = "Finance Office",
                             Name = "ThinkPad X1",
@@ -118,7 +121,7 @@ namespace ITAssetTracker.Persistence.Migrations
                             AssetProductId = 3,
                             AssetStatusId = 1,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 163, DateTimeKind.Utc).AddTicks(5524),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Spare executive laptop",
                             Location = "IT Storage",
                             Name = "MacBook Pro",
@@ -134,7 +137,7 @@ namespace ITAssetTracker.Persistence.Migrations
                             AssetProductId = 5,
                             AssetStatusId = 2,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 163, DateTimeKind.Utc).AddTicks(5524),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "27 inch monitor",
                             Location = "London Office",
                             Name = "Dell Monitor",
@@ -150,7 +153,7 @@ namespace ITAssetTracker.Persistence.Migrations
                             AssetProductId = 9,
                             AssetStatusId = 3,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 163, DateTimeKind.Utc).AddTicks(5525),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Core network switch",
                             Location = "Server Room",
                             Name = "Cisco Switch",
@@ -200,7 +203,7 @@ namespace ITAssetTracker.Persistence.Migrations
                             Id = 1,
                             AssetId = 1,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 154, DateTimeKind.Utc).AddTicks(6796),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EmployeeId = 4
                         },
                         new
@@ -208,7 +211,7 @@ namespace ITAssetTracker.Persistence.Migrations
                             Id = 2,
                             AssetId = 2,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 154, DateTimeKind.Utc).AddTicks(7645),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EmployeeId = 3
                         },
                         new
@@ -216,7 +219,7 @@ namespace ITAssetTracker.Persistence.Migrations
                             Id = 3,
                             AssetId = 4,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 154, DateTimeKind.Utc).AddTicks(7645),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EmployeeId = 4
                         },
                         new
@@ -224,7 +227,7 @@ namespace ITAssetTracker.Persistence.Migrations
                             Id = 4,
                             AssetId = 1,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 154, DateTimeKind.Utc).AddTicks(7646),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EmployeeId = 2
                         });
                 });
@@ -272,7 +275,7 @@ namespace ITAssetTracker.Persistence.Migrations
                             Id = 1,
                             AssetTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 164, DateTimeKind.Utc).AddTicks(4804),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ManufacturerId = 1,
                             Name = "Latitude 5420"
                         },
@@ -281,7 +284,7 @@ namespace ITAssetTracker.Persistence.Migrations
                             Id = 2,
                             AssetTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 164, DateTimeKind.Utc).AddTicks(5644),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ManufacturerId = 2,
                             Name = "ThinkPad X1 Carbon"
                         },
@@ -290,7 +293,7 @@ namespace ITAssetTracker.Persistence.Migrations
                             Id = 3,
                             AssetTypeId = 1,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 164, DateTimeKind.Utc).AddTicks(5645),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ManufacturerId = 3,
                             Name = "MacBook Pro 16"
                         },
@@ -299,7 +302,7 @@ namespace ITAssetTracker.Persistence.Migrations
                             Id = 4,
                             AssetTypeId = 2,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 164, DateTimeKind.Utc).AddTicks(5645),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ManufacturerId = 4,
                             Name = "EliteDesk 800"
                         },
@@ -308,7 +311,7 @@ namespace ITAssetTracker.Persistence.Migrations
                             Id = 5,
                             AssetTypeId = 3,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 164, DateTimeKind.Utc).AddTicks(5646),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ManufacturerId = 1,
                             Name = "UltraSharp 27 Monitor"
                         },
@@ -317,7 +320,7 @@ namespace ITAssetTracker.Persistence.Migrations
                             Id = 6,
                             AssetTypeId = 4,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 164, DateTimeKind.Utc).AddTicks(5646),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ManufacturerId = 1,
                             Name = "PowerEdge R740"
                         },
@@ -326,7 +329,7 @@ namespace ITAssetTracker.Persistence.Migrations
                             Id = 7,
                             AssetTypeId = 5,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 164, DateTimeKind.Utc).AddTicks(5647),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ManufacturerId = 5,
                             Name = "Windows 11 Pro"
                         },
@@ -335,7 +338,7 @@ namespace ITAssetTracker.Persistence.Migrations
                             Id = 8,
                             AssetTypeId = 6,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 164, DateTimeKind.Utc).AddTicks(5647),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ManufacturerId = 5,
                             Name = "Microsoft 365 Business"
                         },
@@ -344,7 +347,7 @@ namespace ITAssetTracker.Persistence.Migrations
                             Id = 9,
                             AssetTypeId = 8,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 164, DateTimeKind.Utc).AddTicks(5648),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ManufacturerId = 6,
                             Name = "Cisco Catalyst 9300"
                         },
@@ -353,7 +356,7 @@ namespace ITAssetTracker.Persistence.Migrations
                             Id = 10,
                             AssetTypeId = 10,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 164, DateTimeKind.Utc).AddTicks(5648),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ManufacturerId = 7,
                             Name = "Galaxy Tab S8"
                         });
@@ -391,35 +394,35 @@ namespace ITAssetTracker.Persistence.Migrations
                         {
                             Id = 1,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 165, DateTimeKind.Utc).AddTicks(9628),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Available"
                         },
                         new
                         {
                             Id = 2,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 166, DateTimeKind.Utc).AddTicks(163),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Assigned"
                         },
                         new
                         {
                             Id = 3,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 166, DateTimeKind.Utc).AddTicks(164),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "In Repair"
                         },
                         new
                         {
                             Id = 4,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 166, DateTimeKind.Utc).AddTicks(164),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Retired"
                         },
                         new
                         {
                             Id = 5,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 166, DateTimeKind.Utc).AddTicks(165),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Disposed"
                         });
                 });
@@ -462,7 +465,7 @@ namespace ITAssetTracker.Persistence.Migrations
                             Id = 1,
                             CategoryId = 1,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 166, DateTimeKind.Utc).AddTicks(7710),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Laptop"
                         },
                         new
@@ -470,7 +473,7 @@ namespace ITAssetTracker.Persistence.Migrations
                             Id = 2,
                             CategoryId = 1,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 166, DateTimeKind.Utc).AddTicks(8483),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Desktop"
                         },
                         new
@@ -478,7 +481,7 @@ namespace ITAssetTracker.Persistence.Migrations
                             Id = 3,
                             CategoryId = 1,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 166, DateTimeKind.Utc).AddTicks(8484),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Monitor"
                         },
                         new
@@ -486,7 +489,7 @@ namespace ITAssetTracker.Persistence.Migrations
                             Id = 4,
                             CategoryId = 1,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 166, DateTimeKind.Utc).AddTicks(8484),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Server"
                         },
                         new
@@ -494,7 +497,7 @@ namespace ITAssetTracker.Persistence.Migrations
                             Id = 5,
                             CategoryId = 2,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 166, DateTimeKind.Utc).AddTicks(8485),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Operating System"
                         },
                         new
@@ -502,7 +505,7 @@ namespace ITAssetTracker.Persistence.Migrations
                             Id = 6,
                             CategoryId = 2,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 166, DateTimeKind.Utc).AddTicks(8485),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Productivity Software"
                         },
                         new
@@ -510,7 +513,7 @@ namespace ITAssetTracker.Persistence.Migrations
                             Id = 7,
                             CategoryId = 3,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 166, DateTimeKind.Utc).AddTicks(8485),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Router"
                         },
                         new
@@ -518,7 +521,7 @@ namespace ITAssetTracker.Persistence.Migrations
                             Id = 8,
                             CategoryId = 3,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 166, DateTimeKind.Utc).AddTicks(8486),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Switch"
                         },
                         new
@@ -526,7 +529,7 @@ namespace ITAssetTracker.Persistence.Migrations
                             Id = 9,
                             CategoryId = 4,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 166, DateTimeKind.Utc).AddTicks(8486),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Smartphone"
                         },
                         new
@@ -534,7 +537,7 @@ namespace ITAssetTracker.Persistence.Migrations
                             Id = 10,
                             CategoryId = 4,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 166, DateTimeKind.Utc).AddTicks(8487),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Tablet"
                         });
                 });
@@ -571,28 +574,28 @@ namespace ITAssetTracker.Persistence.Migrations
                         {
                             Id = 1,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 167, DateTimeKind.Utc).AddTicks(2720),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Hardware"
                         },
                         new
                         {
                             Id = 2,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 167, DateTimeKind.Utc).AddTicks(2721),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Software"
                         },
                         new
                         {
                             Id = 3,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 167, DateTimeKind.Utc).AddTicks(2722),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Networking"
                         },
                         new
                         {
                             Id = 4,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 167, DateTimeKind.Utc).AddTicks(2722),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Mobile Devices"
                         });
                 });
@@ -629,28 +632,28 @@ namespace ITAssetTracker.Persistence.Migrations
                         {
                             Id = 1,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 167, DateTimeKind.Utc).AddTicks(8253),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "IT"
                         },
                         new
                         {
                             Id = 2,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 167, DateTimeKind.Utc).AddTicks(8254),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Finance"
                         },
                         new
                         {
                             Id = 3,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 167, DateTimeKind.Utc).AddTicks(8277),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Operations"
                         },
                         new
                         {
                             Id = 4,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 167, DateTimeKind.Utc).AddTicks(8278),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Human Resources"
                         });
                 });
@@ -714,7 +717,7 @@ namespace ITAssetTracker.Persistence.Migrations
                         {
                             Id = 1,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 170, DateTimeKind.Utc).AddTicks(7307),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentId = 1,
                             DoB = new DateOnly(1988, 5, 12),
                             FirstName = "Alex",
@@ -727,7 +730,7 @@ namespace ITAssetTracker.Persistence.Migrations
                         {
                             Id = 2,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 170, DateTimeKind.Utc).AddTicks(8517),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentId = 1,
                             DoB = new DateOnly(1992, 8, 20),
                             FirstName = "Michael",
@@ -740,7 +743,7 @@ namespace ITAssetTracker.Persistence.Migrations
                         {
                             Id = 3,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 170, DateTimeKind.Utc).AddTicks(8519),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentId = 2,
                             DoB = new DateOnly(1985, 3, 14),
                             FirstName = "Emily",
@@ -753,7 +756,7 @@ namespace ITAssetTracker.Persistence.Migrations
                         {
                             Id = 4,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 170, DateTimeKind.Utc).AddTicks(8519),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentId = 1,
                             DoB = new DateOnly(1991, 11, 3),
                             FirstName = "John",
@@ -766,7 +769,7 @@ namespace ITAssetTracker.Persistence.Migrations
                         {
                             Id = 5,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 170, DateTimeKind.Utc).AddTicks(8520),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentId = 4,
                             DoB = new DateOnly(1994, 1, 25),
                             FirstName = "Sarah",
@@ -809,49 +812,49 @@ namespace ITAssetTracker.Persistence.Migrations
                         {
                             Id = 1,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 173, DateTimeKind.Utc).AddTicks(1791),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Dell"
                         },
                         new
                         {
                             Id = 2,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 173, DateTimeKind.Utc).AddTicks(1793),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Lenovo"
                         },
                         new
                         {
                             Id = 3,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 173, DateTimeKind.Utc).AddTicks(1793),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Apple"
                         },
                         new
                         {
                             Id = 4,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 173, DateTimeKind.Utc).AddTicks(1794),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "HP"
                         },
                         new
                         {
                             Id = 5,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 173, DateTimeKind.Utc).AddTicks(1794),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Microsoft"
                         },
                         new
                         {
                             Id = 6,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 173, DateTimeKind.Utc).AddTicks(1795),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cisco"
                         },
                         new
                         {
                             Id = 7,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 173, DateTimeKind.Utc).AddTicks(1795),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Samsung"
                         });
                 });
@@ -888,28 +891,28 @@ namespace ITAssetTracker.Persistence.Migrations
                         {
                             Id = 1,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 173, DateTimeKind.Utc).AddTicks(7297),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Low"
                         },
                         new
                         {
                             Id = 2,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 173, DateTimeKind.Utc).AddTicks(7298),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Medium"
                         },
                         new
                         {
                             Id = 3,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 173, DateTimeKind.Utc).AddTicks(7299),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "High"
                         },
                         new
                         {
                             Id = 4,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 173, DateTimeKind.Utc).AddTicks(7299),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Critical"
                         });
                 });
@@ -946,56 +949,56 @@ namespace ITAssetTracker.Persistence.Migrations
                         {
                             Id = 1,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 174, DateTimeKind.Utc).AddTicks(3326),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Unresolved"
                         },
                         new
                         {
                             Id = 2,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 174, DateTimeKind.Utc).AddTicks(3327),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Resolved"
                         },
                         new
                         {
                             Id = 3,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 174, DateTimeKind.Utc).AddTicks(3328),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Repaired"
                         },
                         new
                         {
                             Id = 4,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 174, DateTimeKind.Utc).AddTicks(3329),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Replaced"
                         },
                         new
                         {
                             Id = 5,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 174, DateTimeKind.Utc).AddTicks(3352),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Configuration Changed"
                         },
                         new
                         {
                             Id = 6,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 174, DateTimeKind.Utc).AddTicks(3352),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Software Updated"
                         },
                         new
                         {
                             Id = 7,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 174, DateTimeKind.Utc).AddTicks(3353),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "User Error"
                         },
                         new
                         {
                             Id = 8,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 174, DateTimeKind.Utc).AddTicks(3354),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "No Fault Found"
                         });
                 });
@@ -1032,28 +1035,28 @@ namespace ITAssetTracker.Persistence.Migrations
                         {
                             Id = 1,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 174, DateTimeKind.Utc).AddTicks(9316),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Admin"
                         },
                         new
                         {
                             Id = 2,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 174, DateTimeKind.Utc).AddTicks(9317),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "IT Support"
                         },
                         new
                         {
                             Id = 3,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 174, DateTimeKind.Utc).AddTicks(9318),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Manager"
                         },
                         new
                         {
                             Id = 4,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 174, DateTimeKind.Utc).AddTicks(9318),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Employee"
                         });
                 });
@@ -1128,7 +1131,7 @@ namespace ITAssetTracker.Persistence.Migrations
                             AssetId = 1,
                             Comments = "Thermal diagnostics underway",
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 176, DateTimeKind.Utc).AddTicks(3725),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EmployeeId = 2,
                             PriorityId = 3,
                             ResolutionId = 1,
@@ -1141,7 +1144,7 @@ namespace ITAssetTracker.Persistence.Migrations
                             AssetId = 4,
                             Comments = "Refresh rate adjusted and issue resolved",
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 176, DateTimeKind.Utc).AddTicks(4638),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Screen flickers intermittently",
                             EmployeeId = 2,
                             PriorityId = 2,
@@ -1155,7 +1158,7 @@ namespace ITAssetTracker.Persistence.Migrations
                             AssetId = 5,
                             Comments = "Awaiting maintenance window",
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 176, DateTimeKind.Utc).AddTicks(5238),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Switch intermittently disconnecting",
                             EmployeeId = 1,
                             PriorityId = 4,
@@ -1169,7 +1172,7 @@ namespace ITAssetTracker.Persistence.Migrations
                             AssetId = 2,
                             Comments = "Keyboard hardware repaired",
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 176, DateTimeKind.Utc).AddTicks(5239),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Several keys stopped functioning",
                             EmployeeId = 2,
                             PriorityId = 2,
@@ -1183,7 +1186,7 @@ namespace ITAssetTracker.Persistence.Migrations
                             AssetId = 3,
                             Comments = "Pending approval",
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 176, DateTimeKind.Utc).AddTicks(5240),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "User requires Visual Studio installation",
                             EmployeeId = 1,
                             PriorityId = 1,
@@ -1225,28 +1228,28 @@ namespace ITAssetTracker.Persistence.Migrations
                         {
                             Id = 1,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 177, DateTimeKind.Utc).AddTicks(4104),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Open"
                         },
                         new
                         {
                             Id = 2,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 177, DateTimeKind.Utc).AddTicks(4106),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "In Progress"
                         },
                         new
                         {
                             Id = 3,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 177, DateTimeKind.Utc).AddTicks(4106),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Resolved"
                         },
                         new
                         {
                             Id = 4,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 177, DateTimeKind.Utc).AddTicks(4107),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Closed"
                         });
                 });
@@ -1292,7 +1295,7 @@ namespace ITAssetTracker.Persistence.Migrations
                         {
                             Id = 1,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 178, DateTimeKind.Utc).AddTicks(583),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             PasswordHash = "hash_admin",
                             RoleId = 1,
                             UserName = "admin"
@@ -1301,7 +1304,7 @@ namespace ITAssetTracker.Persistence.Migrations
                         {
                             Id = 2,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 178, DateTimeKind.Utc).AddTicks(1380),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             PasswordHash = "hash_support",
                             RoleId = 2,
                             UserName = "itsupport1"
@@ -1310,7 +1313,7 @@ namespace ITAssetTracker.Persistence.Migrations
                         {
                             Id = 3,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 178, DateTimeKind.Utc).AddTicks(1380),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             PasswordHash = "hash_manager",
                             RoleId = 3,
                             UserName = "manager1"
@@ -1319,7 +1322,7 @@ namespace ITAssetTracker.Persistence.Migrations
                         {
                             Id = 4,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 178, DateTimeKind.Utc).AddTicks(1381),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             PasswordHash = "hash_jsmith",
                             RoleId = 4,
                             UserName = "jsmith"
@@ -1328,7 +1331,7 @@ namespace ITAssetTracker.Persistence.Migrations
                         {
                             Id = 5,
                             CreatedBy = "Seed",
-                            CreatedDate = new DateTime(2026, 7, 12, 13, 7, 28, 178, DateTimeKind.Utc).AddTicks(1381),
+                            CreatedDate = new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             PasswordHash = "hash_sjohnson",
                             RoleId = 4,
                             UserName = "sjohnson"

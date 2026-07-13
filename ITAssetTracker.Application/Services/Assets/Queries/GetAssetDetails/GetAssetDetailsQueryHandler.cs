@@ -35,11 +35,13 @@ public class GetAssetDetailsQueryHandler : IRequestHandler<GetAssetDetailsQuery,
 
         AssetDetailsViewModel assetDetailViewModel =  mapper.Map<AssetDetailsViewModel>(asset);
 
-        AssetProduct? assetProduct = await assetProductRepository.GetByIdAsync(asset.AssetProductId)!;
-        AssetStatus? assetStatus = await assetStatusRepository.GetByIdAsync(asset.AssetStatusId)!;
+        //NOTE: Do I need these at all?
+        // When returning an Asset, I don't think I need to return additional objects...
+        //AssetProduct? assetProduct = await assetProductRepository.GetByIdAsync(asset.AssetProductId)!;
+        //AssetStatus? assetStatus = await assetStatusRepository.GetByIdAsync(asset.AssetStatusId)!;
 
-        assetDetailViewModel.AssetProducts = mapper.Map<AssetProduct>(assetProduct);
-        assetDetailViewModel.AssetStatuses = mapper.Map<AssetStatus>(assetStatus);
+        //assetDetailViewModel.AssetProducts = mapper.Map<AssetProduct>(assetProduct);
+        //assetDetailViewModel.AssetStatuses = mapper.Map<AssetStatus>(assetStatus);
 
         return assetDetailViewModel;
     }

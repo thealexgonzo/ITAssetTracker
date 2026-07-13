@@ -8,42 +8,46 @@ using System.Text;
 
 namespace ITAssetTracker.Persistence.Configuration
 {
-    public class RoleConfiguration : IEntityTypeConfiguration<Role>
+    public class TicketStatusConfiguration : IEntityTypeConfiguration<TicketStatus>
     {
-        public void Configure(EntityTypeBuilder<Role> builder)
+        public void Configure(EntityTypeBuilder<TicketStatus> builder)
         {
             builder.Property(e => e.Name).IsRequired().HasMaxLength(100);
-            builder.HasMany(e => e.Users).WithOne(e => e.Role);
+            builder.HasMany(e => e.SupportTickets).WithOne(e => e.TicketStatus);
 
-            builder.HasData(
+            DateTime seedCreatedDate = new DateTime(2026, 12, 7, 0, 0, 0);
+
+            builder.HasData
+            (
                 new
                 {
                     Id = 1,
-                    Name = "Admin",
-                    CreatedDate = DateTime.UtcNow,
+                    Name = "Open",
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
                 },
                 new
                 {
                     Id = 2,
-                    Name = "IT Support",
-                    CreatedDate = DateTime.UtcNow,
+                    Name = "In Progress",
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
                 },
                 new
                 {
                     Id = 3,
-                    Name = "Manager",
-                    CreatedDate = DateTime.UtcNow,
+                    Name = "Resolved",
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
                 },
                 new
                 {
                     Id = 4,
-                    Name = "Employee",
-                    CreatedDate = DateTime.UtcNow,
+                    Name = "Closed",
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
-                });
+                }
+            );
         }
     }
 }

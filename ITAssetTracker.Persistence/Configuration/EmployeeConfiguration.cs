@@ -20,6 +20,8 @@ public class EmployeeConfiguration : IEntityTypeConfiguration<Employee>
         builder.HasOne(e => e.Department).WithMany(e => e.Employees).HasForeignKey(e => e.DepartmentId);
 
         // Seed the owner
+        DateTime seedCreatedDate = new DateTime(2026, 12, 7, 0, 0, 0);
+
         builder.HasData(
             new
             {
@@ -31,7 +33,7 @@ public class EmployeeConfiguration : IEntityTypeConfiguration<Employee>
                 LastName = "Beker",
                 DoB = new DateOnly(1988, 5, 12),
                 DepartmentId = 1,
-                CreatedDate = DateTime.UtcNow,
+                CreatedDate = seedCreatedDate,
                 CreatedBy = "Seed"
             },
             new
@@ -44,7 +46,7 @@ public class EmployeeConfiguration : IEntityTypeConfiguration<Employee>
                 LastName = "Beker",
                 DoB = new DateOnly(1992, 8, 20),
                 DepartmentId = 1,
-                CreatedDate = DateTime.UtcNow,
+                CreatedDate = seedCreatedDate,
                 CreatedBy = "Seed"
             },
             new
@@ -57,7 +59,7 @@ public class EmployeeConfiguration : IEntityTypeConfiguration<Employee>
                 LastName = "Brown", 
                 DoB = new DateOnly(1985, 3, 14),
                 DepartmentId = 2,
-                CreatedDate = DateTime.UtcNow,
+                CreatedDate = seedCreatedDate,
                 CreatedBy = "Seed"
             },
             new
@@ -70,7 +72,7 @@ public class EmployeeConfiguration : IEntityTypeConfiguration<Employee>
                 LastName = "Smith", 
                 DoB = new DateOnly(1991, 11, 3),
                 DepartmentId = 1,
-                CreatedDate = DateTime.UtcNow,
+                CreatedDate = seedCreatedDate,
                 CreatedBy = "Seed"
             },
             new
@@ -83,7 +85,7 @@ public class EmployeeConfiguration : IEntityTypeConfiguration<Employee>
                 LastName = "Johnson", 
                 DoB = new DateOnly(1994, 1, 25),
                 DepartmentId = 4,
-                CreatedDate = DateTime.UtcNow,
+                CreatedDate = seedCreatedDate,
                 CreatedBy = "Seed"
             });
 

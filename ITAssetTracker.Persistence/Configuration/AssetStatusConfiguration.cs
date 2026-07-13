@@ -19,41 +19,43 @@ namespace ITAssetTracker.Persistence.Configuration
             builder.HasMany(e => e.Assets)
                 .WithOne(e => e.AssetStatuses);
 
+            DateTime seedCreatedDate = new DateTime(2026, 12, 7, 0, 0, 0);
+
             builder.HasData
             (
                 new
                 {
                     Id = 1,
                     Name = "Available",
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
                 },
                 new
                 {
                     Id = 2,
                     Name = "Assigned",
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
                 },
                 new
                 {
                     Id = 3,
                     Name = "In Repair",
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
                 },
                 new
                 {
                     Id = 4,
                     Name = "Retired",
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
                 },
                 new
                 {
                     Id = 5,
                     Name = "Disposed",
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
                 }
             );

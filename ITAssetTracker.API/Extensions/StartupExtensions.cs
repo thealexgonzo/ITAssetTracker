@@ -1,6 +1,8 @@
 ﻿using ITAssetTracker.Application;
+using ITAssetTracker.Application.Profiles;
 using ITAssetTracker.Infrastructure;
 using ITAssetTracker.Persistence;
+using Microsoft.EntityFrameworkCore;
 
 namespace ITAssetTracker.API.Extensions;
 
@@ -12,9 +14,11 @@ public static class StartupExtensions
         builder.Services.AddApplicationServices();
         builder.Services.AddInfrastructureServices(builder.Configuration);
         builder.Services.AddPersistenceServices(builder.Configuration);
-
         builder.Services.AddControllers();
+        
         // NOTE: This is to be used by client side technologies?
+        // This opens up the API so it can be used by client side technologies
+        // The addresses need to be added to the appsettins.json file
         builder.Services.AddCors(
             options => options.AddPolicy(
                 "open",
@@ -27,6 +31,8 @@ public static class StartupExtensions
                 .AllowAnyHeader()
                 .AllowCredentials()));
 
+        builder.Services.AddSwaggerGen();
+
         return builder.Build();
     }
 
@@ -34,9 +40,43 @@ public static class StartupExtensions
     public static WebApplication ConfigurePipeline(this WebApplication app)
     {
         app.UseCors("open");
+
+        if (app.Environment.IsDevelopment())
+        {
+            app.UseSwagger();
+            app.UseSwaggerUI();
+        }
+
         app.UseHttpsRedirection();
         app.MapControllers();
 
         return app;
+    }
+
+    //NOTE: Might want to remove this to test persistence
+    /// <summary>
+    /// This method is going to get the db context and delete the databse and apply the migrations again.
+    /// Every time we run the application we're resetting the database
+    /// Good for testing and development purposes
+    /// </summary>
+    /// <param name="app"></param>
+    /// <returns></returns>
+    public static async Task ResetDatabaseAsync(this WebApplication app)
+    {
+        using var scope = app.Services.CreateScope();
+        try
+        {
+            var context = scope.ServiceProvider.GetService<ITAssetTrackerContext>();
+            if(context is not null)
+            {
+                await context.Database.EnsureDeletedAsync();
+                await context.Database.MigrateAsync();
+            }
+        }
+        catch (Exception ex)
+        {
+            // Add logging here later on
+            throw;
+        }
     }
 }

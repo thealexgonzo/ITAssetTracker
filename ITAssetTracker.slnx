@@ -8,7 +8,7 @@
   </Folder>
   <Folder Name="/Infrastructure/">
     <Project Path="ITAssetTracker.Infrastructure/ITAssetTracker.Infrastructure.csproj" Id="1bd13561-98e2-4c69-82bf-3a386a709d8b" />
-    <Project Path="ITAssetTracker.Infrastrucutre/ITAssetTracker.Persistence.csproj" />
+    <Project Path="ITAssetTracker.Persistence/ITAssetTracker.Persistence.csproj" />
   </Folder>
   <Folder Name="/Solution Items/">
     <File Path=".editorconfig" />

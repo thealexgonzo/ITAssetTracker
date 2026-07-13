@@ -13,7 +13,7 @@ namespace ITAssetTracker.Application.Services.Assets.Commands.CreateAsset
         public decimal? Price { get; set; }
         public string? Location { get; set; }
         public string? SerialNumber { get; set; }
-        public DateTime? PurchaseDate { get; set; }
-        public DateTime? WarrantyExpiryDate { get; set; }
+        public DateOnly? PurchaseDate { get; set; }
+        public DateOnly? WarrantyExpiryDate { get; set; }
     }
 }

@@ -27,6 +27,8 @@ namespace ITAssetTracker.Persistence.Configuration
                 .WithMany(e => e.Assets)
                 .HasForeignKey(e => e.AssetStatusId);
 
+            DateTime seedCreatedDate = new DateTime(2026, 12, 7, 0, 0, 0);
+
             builder.HasData
                     (
                     new
@@ -42,7 +44,7 @@ namespace ITAssetTracker.Persistence.Configuration
                         PurchaseDate = new DateOnly(2023, 1, 10), 
                         WarrantyExpiryDate = new DateOnly(2026, 1, 10), 
                         Description = "Primary developer laptop",
-                        CreatedDate = DateTime.UtcNow,
+                        CreatedDate = seedCreatedDate,
                         CreatedBy = "Seed",
                     },
                     new
@@ -58,7 +60,7 @@ namespace ITAssetTracker.Persistence.Configuration
                         PurchaseDate = new DateOnly(2023, 3, 12), 
                         WarrantyExpiryDate = new DateOnly(2026, 3, 12), 
                         Description = "Finance department laptop",
-                        CreatedDate = DateTime.UtcNow,
+                        CreatedDate = seedCreatedDate,
                         CreatedBy = "Seed"
                     },
                     new
@@ -74,7 +76,7 @@ namespace ITAssetTracker.Persistence.Configuration
                         PurchaseDate = new DateOnly(2024, 1, 20), 
                         WarrantyExpiryDate = new DateOnly(2027, 1, 20), 
                         Description = "Spare executive laptop",
-                        CreatedDate = DateTime.UtcNow,
+                        CreatedDate = seedCreatedDate,
                         CreatedBy = "Seed"
                     },
                     new
@@ -90,7 +92,7 @@ namespace ITAssetTracker.Persistence.Configuration
                         PurchaseDate = new DateOnly(2023, 2, 1), 
                         WarrantyExpiryDate = new DateOnly(2026, 2, 1), 
                         Description = "27 inch monitor",
-                        CreatedDate = DateTime.UtcNow,
+                        CreatedDate = seedCreatedDate,
                         CreatedBy = "Seed"
                     },
                     new
@@ -106,7 +108,7 @@ namespace ITAssetTracker.Persistence.Configuration
                         PurchaseDate = new DateOnly(2022, 5, 1), 
                         WarrantyExpiryDate = new DateOnly(2027, 5, 1), 
                         Description = "Core network switch",
-                        CreatedDate = DateTime.UtcNow,
+                        CreatedDate = seedCreatedDate,
                         CreatedBy = "Seed"
                     });
         }

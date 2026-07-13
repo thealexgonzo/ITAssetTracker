@@ -405,11 +405,11 @@ namespace ITAssetTracker.Persistence.Migrations
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "LastModifiedBy", "LastModifiedDate", "Name" },
                 values: new object[,]
                 {
-                    { 1, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 165, DateTimeKind.Utc).AddTicks(9628), null, null, "Available" },
-                    { 2, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 166, DateTimeKind.Utc).AddTicks(163), null, null, "Assigned" },
-                    { 3, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 166, DateTimeKind.Utc).AddTicks(164), null, null, "In Repair" },
-                    { 4, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 166, DateTimeKind.Utc).AddTicks(164), null, null, "Retired" },
-                    { 5, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 166, DateTimeKind.Utc).AddTicks(165), null, null, "Disposed" }
+                    { 1, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Available" },
+                    { 2, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Assigned" },
+                    { 3, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "In Repair" },
+                    { 4, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Retired" },
+                    { 5, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Disposed" }
                 });
 
             migrationBuilder.InsertData(
@@ -417,10 +417,10 @@ namespace ITAssetTracker.Persistence.Migrations
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "LastModifiedBy", "LastModifiedDate", "Name" },
                 values: new object[,]
                 {
-                    { 1, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 167, DateTimeKind.Utc).AddTicks(2720), null, null, "Hardware" },
-                    { 2, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 167, DateTimeKind.Utc).AddTicks(2721), null, null, "Software" },
-                    { 3, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 167, DateTimeKind.Utc).AddTicks(2722), null, null, "Networking" },
-                    { 4, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 167, DateTimeKind.Utc).AddTicks(2722), null, null, "Mobile Devices" }
+                    { 1, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Hardware" },
+                    { 2, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Software" },
+                    { 3, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Networking" },
+                    { 4, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Mobile Devices" }
                 });
 
             migrationBuilder.InsertData(
@@ -428,10 +428,10 @@ namespace ITAssetTracker.Persistence.Migrations
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "LastModifiedBy", "LastModifiedDate", "Name" },
                 values: new object[,]
                 {
-                    { 1, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 167, DateTimeKind.Utc).AddTicks(8253), null, null, "IT" },
-                    { 2, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 167, DateTimeKind.Utc).AddTicks(8254), null, null, "Finance" },
-                    { 3, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 167, DateTimeKind.Utc).AddTicks(8277), null, null, "Operations" },
-                    { 4, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 167, DateTimeKind.Utc).AddTicks(8278), null, null, "Human Resources" }
+                    { 1, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "IT" },
+                    { 2, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Finance" },
+                    { 3, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Operations" },
+                    { 4, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Human Resources" }
                 });
 
             migrationBuilder.InsertData(
@@ -439,13 +439,13 @@ namespace ITAssetTracker.Persistence.Migrations
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "LastModifiedBy", "LastModifiedDate", "Name" },
                 values: new object[,]
                 {
-                    { 1, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 173, DateTimeKind.Utc).AddTicks(1791), null, null, "Dell" },
-                    { 2, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 173, DateTimeKind.Utc).AddTicks(1793), null, null, "Lenovo" },
-                    { 3, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 173, DateTimeKind.Utc).AddTicks(1793), null, null, "Apple" },
-                    { 4, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 173, DateTimeKind.Utc).AddTicks(1794), null, null, "HP" },
-                    { 5, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 173, DateTimeKind.Utc).AddTicks(1794), null, null, "Microsoft" },
-                    { 6, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 173, DateTimeKind.Utc).AddTicks(1795), null, null, "Cisco" },
-                    { 7, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 173, DateTimeKind.Utc).AddTicks(1795), null, null, "Samsung" }
+                    { 1, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Dell" },
+                    { 2, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Lenovo" },
+                    { 3, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Apple" },
+                    { 4, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "HP" },
+                    { 5, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Microsoft" },
+                    { 6, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Cisco" },
+                    { 7, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Samsung" }
                 });
 
             migrationBuilder.InsertData(
@@ -453,10 +453,10 @@ namespace ITAssetTracker.Persistence.Migrations
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "LastModifiedBy", "LastModifiedDate", "Name" },
                 values: new object[,]
                 {
-                    { 1, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 173, DateTimeKind.Utc).AddTicks(7297), null, null, "Low" },
-                    { 2, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 173, DateTimeKind.Utc).AddTicks(7298), null, null, "Medium" },
-                    { 3, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 173, DateTimeKind.Utc).AddTicks(7299), null, null, "High" },
-                    { 4, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 173, DateTimeKind.Utc).AddTicks(7299), null, null, "Critical" }
+                    { 1, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Low" },
+                    { 2, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Medium" },
+                    { 3, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "High" },
+                    { 4, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Critical" }
                 });
 
             migrationBuilder.InsertData(
@@ -464,14 +464,14 @@ namespace ITAssetTracker.Persistence.Migrations
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "LastModifiedBy", "LastModifiedDate", "Name" },
                 values: new object[,]
                 {
-                    { 1, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 174, DateTimeKind.Utc).AddTicks(3326), null, null, "Unresolved" },
-                    { 2, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 174, DateTimeKind.Utc).AddTicks(3327), null, null, "Resolved" },
-                    { 3, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 174, DateTimeKind.Utc).AddTicks(3328), null, null, "Repaired" },
-                    { 4, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 174, DateTimeKind.Utc).AddTicks(3329), null, null, "Replaced" },
-                    { 5, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 174, DateTimeKind.Utc).AddTicks(3352), null, null, "Configuration Changed" },
-                    { 6, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 174, DateTimeKind.Utc).AddTicks(3352), null, null, "Software Updated" },
-                    { 7, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 174, DateTimeKind.Utc).AddTicks(3353), null, null, "User Error" },
-                    { 8, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 174, DateTimeKind.Utc).AddTicks(3354), null, null, "No Fault Found" }
+                    { 1, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Unresolved" },
+                    { 2, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Resolved" },
+                    { 3, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Repaired" },
+                    { 4, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Replaced" },
+                    { 5, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Configuration Changed" },
+                    { 6, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Software Updated" },
+                    { 7, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "User Error" },
+                    { 8, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "No Fault Found" }
                 });
 
             migrationBuilder.InsertData(
@@ -479,10 +479,10 @@ namespace ITAssetTracker.Persistence.Migrations
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "LastModifiedBy", "LastModifiedDate", "Name" },
                 values: new object[,]
                 {
-                    { 1, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 174, DateTimeKind.Utc).AddTicks(9316), null, null, "Admin" },
-                    { 2, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 174, DateTimeKind.Utc).AddTicks(9317), null, null, "IT Support" },
-                    { 3, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 174, DateTimeKind.Utc).AddTicks(9318), null, null, "Manager" },
-                    { 4, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 174, DateTimeKind.Utc).AddTicks(9318), null, null, "Employee" }
+                    { 1, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Admin" },
+                    { 2, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "IT Support" },
+                    { 3, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Manager" },
+                    { 4, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Employee" }
                 });
 
             migrationBuilder.InsertData(
@@ -490,10 +490,10 @@ namespace ITAssetTracker.Persistence.Migrations
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "LastModifiedBy", "LastModifiedDate", "Name" },
                 values: new object[,]
                 {
-                    { 1, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 177, DateTimeKind.Utc).AddTicks(4104), null, null, "Open" },
-                    { 2, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 177, DateTimeKind.Utc).AddTicks(4106), null, null, "In Progress" },
-                    { 3, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 177, DateTimeKind.Utc).AddTicks(4106), null, null, "Resolved" },
-                    { 4, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 177, DateTimeKind.Utc).AddTicks(4107), null, null, "Closed" }
+                    { 1, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Open" },
+                    { 2, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "In Progress" },
+                    { 3, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Resolved" },
+                    { 4, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Closed" }
                 });
 
             migrationBuilder.InsertData(
@@ -501,16 +501,16 @@ namespace ITAssetTracker.Persistence.Migrations
                 columns: new[] { "Id", "CategoryId", "CreatedBy", "CreatedDate", "LastModifiedBy", "LastModifiedDate", "Name" },
                 values: new object[,]
                 {
-                    { 1, 1, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 166, DateTimeKind.Utc).AddTicks(7710), null, null, "Laptop" },
-                    { 2, 1, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 166, DateTimeKind.Utc).AddTicks(8483), null, null, "Desktop" },
-                    { 3, 1, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 166, DateTimeKind.Utc).AddTicks(8484), null, null, "Monitor" },
-                    { 4, 1, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 166, DateTimeKind.Utc).AddTicks(8484), null, null, "Server" },
-                    { 5, 2, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 166, DateTimeKind.Utc).AddTicks(8485), null, null, "Operating System" },
-                    { 6, 2, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 166, DateTimeKind.Utc).AddTicks(8485), null, null, "Productivity Software" },
-                    { 7, 3, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 166, DateTimeKind.Utc).AddTicks(8485), null, null, "Router" },
-                    { 8, 3, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 166, DateTimeKind.Utc).AddTicks(8486), null, null, "Switch" },
-                    { 9, 4, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 166, DateTimeKind.Utc).AddTicks(8486), null, null, "Smartphone" },
-                    { 10, 4, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 166, DateTimeKind.Utc).AddTicks(8487), null, null, "Tablet" }
+                    { 1, 1, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Laptop" },
+                    { 2, 1, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Desktop" },
+                    { 3, 1, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Monitor" },
+                    { 4, 1, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Server" },
+                    { 5, 2, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Operating System" },
+                    { 6, 2, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Productivity Software" },
+                    { 7, 3, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Router" },
+                    { 8, 3, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Switch" },
+                    { 9, 4, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Smartphone" },
+                    { 10, 4, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "Tablet" }
                 });
 
             migrationBuilder.InsertData(
@@ -518,11 +518,11 @@ namespace ITAssetTracker.Persistence.Migrations
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "LastModifiedBy", "LastModifiedDate", "PasswordHash", "RoleId", "UserName" },
                 values: new object[,]
                 {
-                    { 1, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 178, DateTimeKind.Utc).AddTicks(583), null, null, "hash_admin", 1, "admin" },
-                    { 2, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 178, DateTimeKind.Utc).AddTicks(1380), null, null, "hash_support", 2, "itsupport1" },
-                    { 3, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 178, DateTimeKind.Utc).AddTicks(1380), null, null, "hash_manager", 3, "manager1" },
-                    { 4, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 178, DateTimeKind.Utc).AddTicks(1381), null, null, "hash_jsmith", 4, "jsmith" },
-                    { 5, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 178, DateTimeKind.Utc).AddTicks(1381), null, null, "hash_sjohnson", 4, "sjohnson" }
+                    { 1, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "hash_admin", 1, "admin" },
+                    { 2, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "hash_support", 2, "itsupport1" },
+                    { 3, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "hash_manager", 3, "manager1" },
+                    { 4, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "hash_jsmith", 4, "jsmith" },
+                    { 5, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "hash_sjohnson", 4, "sjohnson" }
                 });
 
             migrationBuilder.InsertData(
@@ -530,16 +530,16 @@ namespace ITAssetTracker.Persistence.Migrations
                 columns: new[] { "Id", "AssetTypeId", "CreatedBy", "CreatedDate", "LastModifiedBy", "LastModifiedDate", "ManufacturerId", "Name" },
                 values: new object[,]
                 {
-                    { 1, 1, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 164, DateTimeKind.Utc).AddTicks(4804), null, null, 1, "Latitude 5420" },
-                    { 2, 1, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 164, DateTimeKind.Utc).AddTicks(5644), null, null, 2, "ThinkPad X1 Carbon" },
-                    { 3, 1, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 164, DateTimeKind.Utc).AddTicks(5645), null, null, 3, "MacBook Pro 16" },
-                    { 4, 2, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 164, DateTimeKind.Utc).AddTicks(5645), null, null, 4, "EliteDesk 800" },
-                    { 5, 3, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 164, DateTimeKind.Utc).AddTicks(5646), null, null, 1, "UltraSharp 27 Monitor" },
-                    { 6, 4, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 164, DateTimeKind.Utc).AddTicks(5646), null, null, 1, "PowerEdge R740" },
-                    { 7, 5, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 164, DateTimeKind.Utc).AddTicks(5647), null, null, 5, "Windows 11 Pro" },
-                    { 8, 6, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 164, DateTimeKind.Utc).AddTicks(5647), null, null, 5, "Microsoft 365 Business" },
-                    { 9, 8, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 164, DateTimeKind.Utc).AddTicks(5648), null, null, 6, "Cisco Catalyst 9300" },
-                    { 10, 10, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 164, DateTimeKind.Utc).AddTicks(5648), null, null, 7, "Galaxy Tab S8" }
+                    { 1, 1, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1, "Latitude 5420" },
+                    { 2, 1, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 2, "ThinkPad X1 Carbon" },
+                    { 3, 1, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 3, "MacBook Pro 16" },
+                    { 4, 2, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 4, "EliteDesk 800" },
+                    { 5, 3, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1, "UltraSharp 27 Monitor" },
+                    { 6, 4, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 1, "PowerEdge R740" },
+                    { 7, 5, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 5, "Windows 11 Pro" },
+                    { 8, 6, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 5, "Microsoft 365 Business" },
+                    { 9, 8, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 6, "Cisco Catalyst 9300" },
+                    { 10, 10, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, 7, "Galaxy Tab S8" }
                 });
 
             migrationBuilder.InsertData(
@@ -547,11 +547,11 @@ namespace ITAssetTracker.Persistence.Migrations
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "DepartmentId", "DoB", "FirstName", "JobTitle", "LastModifiedBy", "LastModifiedDate", "LastName", "MiddleName", "UserId", "TerminationDate", "HireDate", "Email", "Phone" },
                 values: new object[,]
                 {
-                    { 1, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 170, DateTimeKind.Utc).AddTicks(7307), 1, new DateOnly(1988, 5, 12), "Alex", "System Administrator", null, null, "Beker", "", 1, null, new DateOnly(2018, 1, 10), "alex.admin@company.com", "07111111111" },
-                    { 2, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 170, DateTimeKind.Utc).AddTicks(8517), 1, new DateOnly(1992, 8, 20), "Michael", "IT Support Technician", null, null, "Beker", "Davis", 2, null, new DateOnly(2021, 6, 1), "michael.davis@company.com", "07222222222" },
-                    { 3, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 170, DateTimeKind.Utc).AddTicks(8519), 2, new DateOnly(1985, 3, 14), "Emily", "Finance Manager", null, null, "Brown", "", 3, null, new DateOnly(2017, 2, 15), "emily.brown@company.com", "07333333333" },
-                    { 4, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 170, DateTimeKind.Utc).AddTicks(8519), 1, new DateOnly(1991, 11, 3), "John", "Software Engineer", null, null, "Smith", "", 4, null, new DateOnly(2020, 9, 1), "john.smith@company.com", "07444444444" },
-                    { 5, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 170, DateTimeKind.Utc).AddTicks(8520), 4, new DateOnly(1994, 1, 25), "Sarah", "HR Coordinator", null, null, "Johnson", "", 5, null, new DateOnly(2022, 3, 10), "sarah.johnson@company.com", "07555555555" }
+                    { 1, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, new DateOnly(1988, 5, 12), "Alex", "System Administrator", null, null, "Beker", "", 1, null, new DateOnly(2018, 1, 10), "alex.admin@company.com", "07111111111" },
+                    { 2, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, new DateOnly(1992, 8, 20), "Michael", "IT Support Technician", null, null, "Beker", "Davis", 2, null, new DateOnly(2021, 6, 1), "michael.davis@company.com", "07222222222" },
+                    { 3, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, new DateOnly(1985, 3, 14), "Emily", "Finance Manager", null, null, "Brown", "", 3, null, new DateOnly(2017, 2, 15), "emily.brown@company.com", "07333333333" },
+                    { 4, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, new DateOnly(1991, 11, 3), "John", "Software Engineer", null, null, "Smith", "", 4, null, new DateOnly(2020, 9, 1), "john.smith@company.com", "07444444444" },
+                    { 5, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, new DateOnly(1994, 1, 25), "Sarah", "HR Coordinator", null, null, "Johnson", "", 5, null, new DateOnly(2022, 3, 10), "sarah.johnson@company.com", "07555555555" }
                 });
 
             migrationBuilder.InsertData(
@@ -559,11 +559,11 @@ namespace ITAssetTracker.Persistence.Migrations
                 columns: new[] { "Id", "AssetProductId", "AssetStatusId", "CreatedBy", "CreatedDate", "Description", "LastModifiedBy", "LastModifiedDate", "Location", "Name", "Price", "PurchaseDate", "SerialNumber", "Tag", "WarrantyExpiryDate" },
                 values: new object[,]
                 {
-                    { 1, 1, 2, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 163, DateTimeKind.Utc).AddTicks(4263), "Primary developer laptop", null, null, "London Office", "Dell Latitude Laptop", 1200m, new DateOnly(2023, 1, 10), "DL5420-ABC123", "10001", new DateOnly(2026, 1, 10) },
-                    { 2, 2, 2, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 163, DateTimeKind.Utc).AddTicks(5522), "Finance department laptop", null, null, "Finance Office", "ThinkPad X1", 1400m, new DateOnly(2023, 3, 12), "TPX1-DEF456", "10002", new DateOnly(2026, 3, 12) },
-                    { 3, 3, 1, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 163, DateTimeKind.Utc).AddTicks(5524), "Spare executive laptop", null, null, "IT Storage", "MacBook Pro", 2400m, new DateOnly(2024, 1, 20), "MBP-GHI789", "10003", new DateOnly(2027, 1, 20) },
-                    { 4, 5, 2, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 163, DateTimeKind.Utc).AddTicks(5524), "27 inch monitor", null, null, "London Office", "Dell Monitor", 350m, new DateOnly(2023, 2, 1), "MON-XYZ111", "10004", new DateOnly(2026, 2, 1) },
-                    { 5, 9, 3, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 163, DateTimeKind.Utc).AddTicks(5525), "Core network switch", null, null, "Server Room", "Cisco Switch", 5000m, new DateOnly(2022, 5, 1), "CSC-9300-222", "10005", new DateOnly(2027, 5, 1) }
+                    { 1, 1, 2, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), "Primary developer laptop", null, null, "London Office", "Dell Latitude Laptop", 1200m, new DateOnly(2023, 1, 10), "DL5420-ABC123", "10001", new DateOnly(2026, 1, 10) },
+                    { 2, 2, 2, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), "Finance department laptop", null, null, "Finance Office", "ThinkPad X1", 1400m, new DateOnly(2023, 3, 12), "TPX1-DEF456", "10002", new DateOnly(2026, 3, 12) },
+                    { 3, 3, 1, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), "Spare executive laptop", null, null, "IT Storage", "MacBook Pro", 2400m, new DateOnly(2024, 1, 20), "MBP-GHI789", "10003", new DateOnly(2027, 1, 20) },
+                    { 4, 5, 2, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), "27 inch monitor", null, null, "London Office", "Dell Monitor", 350m, new DateOnly(2023, 2, 1), "MON-XYZ111", "10004", new DateOnly(2026, 2, 1) },
+                    { 5, 9, 3, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), "Core network switch", null, null, "Server Room", "Cisco Switch", 5000m, new DateOnly(2022, 5, 1), "CSC-9300-222", "10005", new DateOnly(2027, 5, 1) }
                 });
 
             migrationBuilder.InsertData(
@@ -571,10 +571,10 @@ namespace ITAssetTracker.Persistence.Migrations
                 columns: new[] { "Id", "AssetId", "CreatedBy", "CreatedDate", "EmployeeId", "LastModifiedBy", "LastModifiedDate", "ReturnedDate", "AssignedDate" },
                 values: new object[,]
                 {
-                    { 1, 1, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 154, DateTimeKind.Utc).AddTicks(6796), 4, null, null, null, new DateOnly(2024, 1, 5) },
-                    { 2, 2, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 154, DateTimeKind.Utc).AddTicks(7645), 3, null, null, null, new DateOnly(2024, 2, 10) },
-                    { 3, 4, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 154, DateTimeKind.Utc).AddTicks(7645), 4, null, null, null, new DateOnly(2024, 1, 5) },
-                    { 4, 1, "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 154, DateTimeKind.Utc).AddTicks(7646), 2, null, null, new DateOnly(2024, 1, 4), new DateOnly(2023, 1, 1) }
+                    { 1, 1, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, null, null, null, new DateOnly(2024, 1, 5) },
+                    { 2, 2, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, null, null, null, new DateOnly(2024, 2, 10) },
+                    { 3, 4, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, null, null, null, new DateOnly(2024, 1, 5) },
+                    { 4, 1, "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, null, null, new DateOnly(2024, 1, 4), new DateOnly(2023, 1, 1) }
                 });
 
             migrationBuilder.InsertData(
@@ -582,11 +582,11 @@ namespace ITAssetTracker.Persistence.Migrations
                 columns: new[] { "Id", "AssetId", "Comments", "CreatedBy", "CreatedDate", "Description", "EmployeeId", "LastModifiedBy", "LastModifiedDate", "PriorityId", "ResolutionId", "TicketStatusId", "Title", "UserId", "ClosedDate", "CreationDate" },
                 values: new object[,]
                 {
-                    { 1, 1, "Thermal diagnostics underway", "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 176, DateTimeKind.Utc).AddTicks(3725), null, 2, null, null, 3, 1, 2, "Laptop overheating", null, null, new DateOnly(2024, 6, 1) },
-                    { 2, 4, "Refresh rate adjusted and issue resolved", "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 176, DateTimeKind.Utc).AddTicks(4638), "Screen flickers intermittently", 2, null, null, 2, 5, 4, "Monitor flickering", null, new DateOnly(2024, 5, 12), new DateOnly(2024, 5, 10) },
-                    { 3, 5, "Awaiting maintenance window", "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 176, DateTimeKind.Utc).AddTicks(5238), "Switch intermittently disconnecting", 1, null, null, 4, 1, 2, "Network outage", null, null, new DateOnly(2024, 6, 15) },
-                    { 4, 2, "Keyboard hardware repaired", "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 176, DateTimeKind.Utc).AddTicks(5239), "Several keys stopped functioning", 2, null, null, 2, 3, 4, "Keyboard not responding", null, new DateOnly(2024, 4, 6), new DateOnly(2024, 4, 5) },
-                    { 5, 3, "Pending approval", "Seed", new DateTime(2026, 7, 12, 13, 7, 28, 176, DateTimeKind.Utc).AddTicks(5240), "User requires Visual Studio installation", 1, null, null, 1, 1, 1, "Software installation request", null, null, new DateOnly(2024, 6, 20) }
+                    { 1, 1, "Thermal diagnostics underway", "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 2, null, null, 3, 1, 2, "Laptop overheating", null, null, new DateOnly(2024, 6, 1) },
+                    { 2, 4, "Refresh rate adjusted and issue resolved", "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), "Screen flickers intermittently", 2, null, null, 2, 5, 4, "Monitor flickering", null, new DateOnly(2024, 5, 12), new DateOnly(2024, 5, 10) },
+                    { 3, 5, "Awaiting maintenance window", "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), "Switch intermittently disconnecting", 1, null, null, 4, 1, 2, "Network outage", null, null, new DateOnly(2024, 6, 15) },
+                    { 4, 2, "Keyboard hardware repaired", "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), "Several keys stopped functioning", 2, null, null, 2, 3, 4, "Keyboard not responding", null, new DateOnly(2024, 4, 6), new DateOnly(2024, 4, 5) },
+                    { 5, 3, "Pending approval", "Seed", new DateTime(2026, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), "User requires Visual Studio installation", 1, null, null, 1, 1, 1, "Software installation request", null, null, new DateOnly(2024, 6, 20) }
                 });
 
             migrationBuilder.CreateIndex(

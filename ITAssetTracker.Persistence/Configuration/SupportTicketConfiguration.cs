@@ -1,11 +1,6 @@
 ﻿using ITAssetTracker.Domain.Entities;
-using ITAssetTracker.Domain.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Reflection.Emit;
-using System.Text;
 
 namespace ITAssetTracker.Persistence.Configuration;
 
@@ -24,23 +19,7 @@ public class SupportTicketConfiguration : IEntityTypeConfiguration<SupportTicket
         builder.HasOne(e => e.Priority).WithMany(e => e.SupportTickets).HasForeignKey(e => e.PriorityId);
         builder.HasOne(e => e.Resolution).WithMany(e => e.SupportTickets).HasForeignKey(e => e.ResolutionId);
 
-    //public int AssetId { get; private set; }
-    //public Asset Asset { get; set; } = null!;
-    //public int EmployeeId { get; private set; }
-    //public Employee Employee { get; set; } = null!;
-    //public int TicketStatusId { get; private set; }
-    //public TicketStatus TicketStatus { get; set; } = null!;
-    //public int PriorityId { get; private set; }
-    //public Priority Priority { get; set; } = null!;
-    //public int ResolutionId { get; private set; }
-    //public Resolution Resolution { get; set; } = null!;
-    //public string Title { get; private set; } = string.Empty;
-    //public string? Description { get; private set; }
-    //public string? Comments { get; private set; }
-    //public DateRange ActivePeriod { get; private set; }
-
-    //public SupportTicket(int assetId, int employeeId, int ticketStatusId, int priorityId, int resolutionId, string title, DateRange activePeriod, string? description = null, string? comments = null)
-
+        DateTime seedCreatedDate = new DateTime(2026, 12, 7, 0, 0, 0);
 
         builder.HasData
             (
@@ -55,7 +34,7 @@ public class SupportTicketConfiguration : IEntityTypeConfiguration<SupportTicket
                     Title = "Laptop overheating",
                     Descriptoin = "Device gets extremely hot during use", 
                     Comments = "Thermal diagnostics underway",
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
                 },
                 new
@@ -69,7 +48,7 @@ public class SupportTicketConfiguration : IEntityTypeConfiguration<SupportTicket
                     Title = "Monitor flickering",
                     Description = "Screen flickers intermittently", 
                     Comments = "Refresh rate adjusted and issue resolved",
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
                 },
                 new
@@ -83,7 +62,7 @@ public class SupportTicketConfiguration : IEntityTypeConfiguration<SupportTicket
                     Title = "Network outage", 
                     Description = "Switch intermittently disconnecting", 
                     Comments = "Awaiting maintenance window",
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
                 },
                 new
@@ -97,7 +76,7 @@ public class SupportTicketConfiguration : IEntityTypeConfiguration<SupportTicket
                     Title = "Keyboard not responding",
                     Description = "Several keys stopped functioning", 
                     Comments = "Keyboard hardware repaired",
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
                 },
                 new
@@ -111,7 +90,7 @@ public class SupportTicketConfiguration : IEntityTypeConfiguration<SupportTicket
                     Title = "Software installation request",
                     Description = "User requires Visual Studio installation", 
                     Comments = "Pending approval",
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
                 }
             );

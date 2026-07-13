@@ -17,6 +17,7 @@ namespace ITAssetTracker.Persistence.Configuration
             builder.HasOne(e => e.Role).WithMany(e => e.Users).HasForeignKey(e => e.RoleId);
             builder.HasOne(e => e.Employee).WithOne(e => e.User);
 
+            DateTime seedCreatedDate = new DateTime(2026, 12, 7, 0, 0, 0);
 
             builder.HasData
             (
@@ -26,7 +27,7 @@ namespace ITAssetTracker.Persistence.Configuration
                     UserName = "admin", 
                     PasswordHash = "hash_admin", 
                     RoleId = 1,
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
                 },
                 new
@@ -35,7 +36,7 @@ namespace ITAssetTracker.Persistence.Configuration
                     UserName = "itsupport1", 
                     PasswordHash = "hash_support",
                     RoleId = 2,
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
                 },
                 new
@@ -44,7 +45,7 @@ namespace ITAssetTracker.Persistence.Configuration
                     UserName = "manager1", 
                     PasswordHash = "hash_manager", 
                     RoleId = 3,
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
                 },
                 new
@@ -53,7 +54,7 @@ namespace ITAssetTracker.Persistence.Configuration
                     UserName = "jsmith",
                     PasswordHash = "hash_jsmith", 
                     RoleId = 4,
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
                 },
                 new
@@ -62,7 +63,7 @@ namespace ITAssetTracker.Persistence.Configuration
                     UserName = "sjohnson", 
                     PasswordHash = "hash_sjohnson", 
                     RoleId = 4,
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
                 }
             );

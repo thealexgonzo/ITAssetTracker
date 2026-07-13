@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <Folder Include="Controllers\API\" />
+    <Folder Include="Temp\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,12 +19,12 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.9" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.2.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="10.2.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="10.2.3" />
     <ProjectReference Include="..\ITAssetTracker.Application\ITAssetTracker.Application.csproj" />
     <ProjectReference Include="..\ITAssetTracker.Infrastructure\ITAssetTracker.Infrastructure.csproj" />
-    <ProjectReference Include="..\ITAssetTracker.Infrastrucutre\ITAssetTracker.Persistence.csproj" />
+    <ProjectReference Include="..\ITAssetTracker.Persistence\ITAssetTracker.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

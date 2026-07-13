@@ -16,6 +16,7 @@ public static class PersistenceServiceRegistration
     public static IServiceCollection AddPersistenceServices(this IServiceCollection services, IConfiguration configuation)
     {
         //NOTE: DBContext setup goes here apparently?
+
         services.AddDbContext<ITAssetTrackerContext>(options => options.UseSqlite(configuation.GetConnectionString("ITAssetTrackerConnectionString")));
         //NOTE: So rather than writing exentions we can just scope the servcies here, and then the UI and API will implement this class
         services.AddScoped(typeof(IAsyncRepository<>), typeof(BaseRepository<>));

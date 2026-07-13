@@ -7,6 +7,7 @@ using ITAssetTracker.Application.Services.Assets.Commands.CreateAsset;
 using ITAssetTracker.Application.Services.Assets.Commands.DeleteAsset;
 using ITAssetTracker.Application.Services.Assets.Commands.UpdateAsset;
 using ITAssetTracker.Application.Services.Assets.Queries.GetAssetDetails;
+using ITAssetTracker.Application.Services.Assets.Queries.GetAssetsExport;
 using ITAssetTracker.Application.Services.Assets.Queries.GetAssetsList;
 using ITAssetTracker.Application.Services.AssetStatuses.Commands.CreateAssetStatus;
 using ITAssetTracker.Application.Services.AssetStatuses.Commands.DeleteAssetStatus;
@@ -94,6 +95,7 @@ public class MappingProfile: Profile
         CreateMap<AssetStatus, AssetStatusDTO>().ReverseMap();
         CreateMap<AssetProduct, AssetProductDTO>().ReverseMap();
         CreateMap<Category, CategoryListViewModel>().ReverseMap();
+        CreateMap<Asset, AssetExportDTO>().ReverseMap();
 
         // ==============================================================
          

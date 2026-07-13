@@ -15,8 +15,8 @@ namespace ITAssetTracker.Application.Services.Assets.Commands.UpdateAsset
         public string? Location { get; set; }
         public string? SerialNumber { get; set; }
         [DataType(DataType.Date)]
-        public DateTime? PurchaseDate { get; set; }
+        public DateOnly? PurchaseDate { get; set; }
         [DataType(DataType.Date)]
-        public DateTime? WarrantyExpiryDate { get; set; }
+        public DateOnly? WarrantyExpiryDate { get; set; }
     }
 }

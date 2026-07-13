@@ -1,0 +1,36 @@
+﻿@ITAssetTracker.API_HostAddress = https://localhost:7149
+
+GET {{ITAssetTracker.API_HostAddress}}/api/asset/all
+
+###
+
+POST {{ITAssetTracker.API_HostAddress}}/api/asset
+Content-Type: application/json
+
+{
+    "tag": "1234",
+    "name": "Test",
+    "assetProductId": 1,
+    "description": "Test Asset",
+    "assetStatusId": 1,
+    "price": 200,
+    "location": "Test Location",
+    "serialNumber": "T12345",
+    "purchaseDate": "2026-07-13",
+    "warrantyExpiryDate": "2026-07-14"
+}
+###
+
+@id=1
+GET {{ITAssetTracker.API_HostAddress}}/api/asset/{{id}}
+
+###
+
+@id=2
+DELETE {{ITAssetTracker.API_HostAddress}}/api/asset/{{id}}
+
+###
+
+PUT {{ITAssetTracker.API_HostAddress}}/api/asset/{{id}}
+
+###

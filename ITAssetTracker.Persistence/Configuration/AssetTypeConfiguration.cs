@@ -23,7 +23,7 @@ public class AssetTypeConfiguration : IEntityTypeConfiguration<AssetType>
             .WithMany(e => e.AssetTypes)
             .HasForeignKey(e => e.CategoryId);
 
-
+        DateTime seedCreatedDate = new DateTime(2026, 12, 7, 0, 0, 0);
 
 
         builder.HasData
@@ -33,7 +33,7 @@ public class AssetTypeConfiguration : IEntityTypeConfiguration<AssetType>
                     Id = 1,
                     Name = "Laptop",
                     CategoryId = 1,
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
                 },
                 new
@@ -41,7 +41,7 @@ public class AssetTypeConfiguration : IEntityTypeConfiguration<AssetType>
                     Id = 2,
                     Name = "Desktop",
                     CategoryId = 1,
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
                 },
                 new
@@ -49,7 +49,7 @@ public class AssetTypeConfiguration : IEntityTypeConfiguration<AssetType>
                     Id = 3,
                     Name = "Monitor",
                     CategoryId = 1,
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
                 },
                 new
@@ -57,7 +57,7 @@ public class AssetTypeConfiguration : IEntityTypeConfiguration<AssetType>
                     Id = 4,
                     Name = "Server",
                     CategoryId = 1,
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
                 },
                 new
@@ -65,7 +65,7 @@ public class AssetTypeConfiguration : IEntityTypeConfiguration<AssetType>
                     Id = 5,
                     Name = "Operating System",
                     CategoryId = 2,
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
                 },
                 new
@@ -73,7 +73,7 @@ public class AssetTypeConfiguration : IEntityTypeConfiguration<AssetType>
                     Id = 6,
                     Name = "Productivity Software",
                     CategoryId = 2,
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
                 },
                 new
@@ -81,7 +81,7 @@ public class AssetTypeConfiguration : IEntityTypeConfiguration<AssetType>
                     Id = 7,
                     Name = "Router",
                     CategoryId = 3,
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
                 },
                 new
@@ -89,7 +89,7 @@ public class AssetTypeConfiguration : IEntityTypeConfiguration<AssetType>
                     Id = 8,
                     Name = "Switch",
                     CategoryId = 3,
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
                 },
                 new
@@ -97,7 +97,7 @@ public class AssetTypeConfiguration : IEntityTypeConfiguration<AssetType>
                     Id = 9,
                     Name = "Smartphone",
                     CategoryId = 4,
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
 
                 },
@@ -106,7 +106,7 @@ public class AssetTypeConfiguration : IEntityTypeConfiguration<AssetType>
                     Id = 10,
                     Name = "Tablet",
                     CategoryId = 4,
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
                 }
             );

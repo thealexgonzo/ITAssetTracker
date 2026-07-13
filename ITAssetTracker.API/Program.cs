@@ -1,11 +1,10 @@
-using ITAssetTracker.Persistence;
 using ITAssetTracker.API.Extensions;
-using Microsoft.EntityFrameworkCore;
-using ITAssetTracker.Application;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var app = builder.ConfigureServices().ConfigurePipeline();
+
+await app.ResetDatabaseAsync();
 
 //builder.Logging.ClearProviders();
 //builder.Logging.AddConsole();
@@ -14,7 +13,7 @@ var app = builder.ConfigureServices().ConfigurePipeline();
 //builder.Services.AddControllersWithViews();
 //builder.Services.AddApplicationServices();
 
-//// Get the connection string
+// Get the connection string
 //string connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
 //// AddAsync the connection string this way? In ASP.NET this is how it's done

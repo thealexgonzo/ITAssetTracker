@@ -20,6 +20,8 @@ public class AssetProductConfiguration : IEntityTypeConfiguration<AssetProduct>
             .WithMany(e => e.AssetProducts)
             .HasForeignKey(e => e.AssetTypeId);
 
+        DateTime seedCreatedDate = new DateTime(2026, 12, 7, 0, 0, 0);
+
         builder.HasData
             (
                 new
@@ -28,7 +30,7 @@ public class AssetProductConfiguration : IEntityTypeConfiguration<AssetProduct>
                     Name = "Latitude 5420", 
                     ManufacturerId = 1, 
                     AssetTypeId = 1,
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
                 },
                 new
@@ -37,7 +39,7 @@ public class AssetProductConfiguration : IEntityTypeConfiguration<AssetProduct>
                     Name = "ThinkPad X1 Carbon",
                     ManufacturerId = 2, 
                     AssetTypeId = 1,
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
                 },
                 new
@@ -46,7 +48,7 @@ public class AssetProductConfiguration : IEntityTypeConfiguration<AssetProduct>
                     Name = "MacBook Pro 16",
                     ManufacturerId = 3,
                     AssetTypeId = 1,
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
                 },
                 new
@@ -55,7 +57,7 @@ public class AssetProductConfiguration : IEntityTypeConfiguration<AssetProduct>
                     Name = "EliteDesk 800",
                     ManufacturerId = 4,
                     AssetTypeId = 2,
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
 
                 },
@@ -65,7 +67,7 @@ public class AssetProductConfiguration : IEntityTypeConfiguration<AssetProduct>
                     Name = "UltraSharp 27 Monitor",
                     ManufacturerId = 1,
                     AssetTypeId = 3,
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
 
                 },
@@ -75,7 +77,7 @@ public class AssetProductConfiguration : IEntityTypeConfiguration<AssetProduct>
                     Name = "PowerEdge R740",
                     ManufacturerId = 1,
                     AssetTypeId = 4,
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
 
                 },
@@ -85,7 +87,7 @@ public class AssetProductConfiguration : IEntityTypeConfiguration<AssetProduct>
                     Name = "Windows 11 Pro",
                     ManufacturerId = 5, 
                     AssetTypeId = 5,
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
 
                 },
@@ -95,7 +97,7 @@ public class AssetProductConfiguration : IEntityTypeConfiguration<AssetProduct>
                     Name = "Microsoft 365 Business",
                     ManufacturerId = 5,
                     AssetTypeId = 6,
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
 
                 },
@@ -105,7 +107,7 @@ public class AssetProductConfiguration : IEntityTypeConfiguration<AssetProduct>
                     Name = "Cisco Catalyst 9300",
                     ManufacturerId = 6,
                     AssetTypeId = 8,
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
 
                 },
@@ -115,7 +117,7 @@ public class AssetProductConfiguration : IEntityTypeConfiguration<AssetProduct>
                     Name = "Galaxy Tab S8",
                     ManufacturerId = 7,
                     AssetTypeId = 10,
-                    CreatedDate = DateTime.UtcNow,
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
                 });
     }

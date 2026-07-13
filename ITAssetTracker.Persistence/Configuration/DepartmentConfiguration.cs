@@ -5,45 +5,47 @@ using System.Reflection.Emit;
 
 namespace ITAssetTracker.Persistence.Configuration;
 
-public class CategoryConfiguration : IEntityTypeConfiguration<Category>
+public class DepartmentConfiguration : IEntityTypeConfiguration<Department>
 {
-    public void Configure(EntityTypeBuilder<Category> builder)
+    public void Configure(EntityTypeBuilder<Department> builder)
     {
         builder.Property(e => e.Name)
             .IsRequired()
             .HasMaxLength(100);
         
-        builder.HasMany(e => e.AssetTypes)
-            .WithOne(e => e.Category);
+        builder.HasMany(e => e.Employees)
+            .WithOne(e => e.Department);
+
+        DateTime seedCreatedDate = new DateTime(2026, 12, 7, 0, 0, 0);
 
         builder.HasData
             (
                 new
                 {
                     Id = 1,
-                    Name = "Hardware",
-                    CreatedDate = DateTime.UtcNow,
+                    Name = "IT",
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
                 },
                 new
                 {
                     Id = 2,
-                    Name = "Software",
-                    CreatedDate = DateTime.UtcNow,
+                    Name = "Finance",
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
                 },
                 new
                 {
                     Id = 3,
-                    Name = "Networking",
-                    CreatedDate = DateTime.UtcNow,
+                    Name = "Operations",
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
                 },
                 new
                 {
                     Id = 4,
-                    Name = "Mobile Devices",
-                    CreatedDate = DateTime.UtcNow,
+                    Name = "Human Resources",
+                    CreatedDate = seedCreatedDate,
                     CreatedBy = "Seed"
                 }
             );
