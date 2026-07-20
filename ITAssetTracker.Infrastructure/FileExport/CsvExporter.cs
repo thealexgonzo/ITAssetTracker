@@ -1,6 +1,7 @@
 ﻿using CsvHelper;
 using ITAssetTracker.Application.Contracts.Infrastructure;
 using ITAssetTracker.Application.Services.Assets.Queries.GetAssetsExport;
+using ITAssetTracker.Application.Services.Assignments.Queries.GetAssetAssignmentsExport;
 using System.Globalization;
 
 namespace ITAssetTracker.Infrastructure.FileExport;
@@ -14,6 +15,18 @@ public class CsvExporter : ICsvExporter
         {
             using var csvWriter = new CsvWriter(streamWriter, CultureInfo.CurrentCulture);
             csvWriter.WriteRecords(assetExportDtso);
+        }
+
+        return memoryStream.ToArray();
+    }
+
+    public byte[] ExportAssetAssignmentsToCsv(List<AssetAssignmentsExportDTO> assetAssignmentsExportDtso)
+    {
+        using var memoryStream = new MemoryStream();
+        using (var streamWriter = new StreamWriter(memoryStream))
+        {
+            using var csvWriter = new CsvWriter(streamWriter, CultureInfo.CurrentCulture);
+            csvWriter.WriteRecords(assetAssignmentsExportDtso);
         }
 
         return memoryStream.ToArray();

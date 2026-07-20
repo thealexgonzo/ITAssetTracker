@@ -33,11 +33,11 @@ namespace ITAssetTracker.Application.Services.Assignments.Queries.GetAssignmentD
 
             AssignmentDetailsViewModel assetAssignmentDetailViewModel = mapper.Map<AssignmentDetailsViewModel>(assignment);
 
-            Asset? asset = await assetRepository.GetByIdAsync(assignment.AssetId)!;
-            Employee? employee = await employeeRepository.GetByIdAsync(assignment.EmployeeId)!;
+            //Asset? asset = await assetRepository.GetByIdAsync(assignment.AssetId)!;
+            //Employee? employee = await employeeRepository.GetByIdAsync(assignment.EmployeeId)!;
 
-            assetAssignmentDetailViewModel.Asset = mapper.Map<Asset>(asset);
-            assetAssignmentDetailViewModel.Employee = mapper.Map<Employee>(employee);
+            //assetAssignmentDetailViewModel.Asset = mapper.Map<Asset>(asset);
+            //assetAssignmentDetailViewModel.Employee = mapper.Map<Employee>(employee);
 
             return assetAssignmentDetailViewModel;
         }

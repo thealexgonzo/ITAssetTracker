@@ -68,7 +68,7 @@ public class AssetController : Controller
     [HttpGet("export", Name = "ExportAssets")]
     public async Task<ActionResult> ExportAssets()
     {
-        var fileDto = await mediator.Send(new GetAssetsExportQuery());
+        AssetExportFileViewModel fileDto = await mediator.Send(new GetAssetsExportQuery());
 
         return File(fileDto.Data, fileDto.ContentType, fileDto.AssetExportFileName);
     }

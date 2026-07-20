@@ -1,6 +1,6 @@
 <Solution>
   <Folder Name="/API/">
-    <Project Path="ITAssetTracker.API/ITAssetTracker.API.csproj" />
+    <Project Path="ITAssetTracker.WebAPI/ITAssetTracker.WebAPI.csproj" Id="85695217-4f00-48f7-b251-47784b3fd971" />
   </Folder>
   <Folder Name="/Core/">
     <Project Path="ITAssetTracker.Application/ITAssetTracker.Application.csproj" />

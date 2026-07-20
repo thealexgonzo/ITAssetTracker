@@ -1,12 +1,10 @@
 ﻿using ITAssetTracker.Application.Services.Assets.Queries.GetAssetsExport;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using ITAssetTracker.Application.Services.Assignments.Queries.GetAssetAssignmentsExport;
 
-namespace ITAssetTracker.Application.Contracts.Infrastructure
+namespace ITAssetTracker.Application.Contracts.Infrastructure;
+
+public interface ICsvExporter
 {
-    public interface ICsvExporter
-    {
-        byte[] ExportAssetsToCsv(List<AssetExportDTO> assetExportDtso);
-    }
+    byte[] ExportAssetsToCsv(List<AssetExportDTO> assetExportDtso);
+    byte[] ExportAssetAssignmentsToCsv(List<AssetAssignmentsExportDTO> assetAssignmentsExportDtso);
 }

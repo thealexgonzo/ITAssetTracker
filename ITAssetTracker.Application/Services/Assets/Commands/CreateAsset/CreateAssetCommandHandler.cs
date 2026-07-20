@@ -5,37 +5,36 @@ using ITAssetTracker.Application.Exceptions;
 using ITAssetTracker.Domain.Entities;
 using MediatR;
 
-namespace ITAssetTracker.Application.Services.Assets.Commands.CreateAsset
+namespace ITAssetTracker.Application.Services.Assets.Commands.CreateAsset;
+
+public class CreateAssetCommandHandler : IRequestHandler<CreateAssetCommand, int>
 {
-    public class CreateAssetCommandHandler : IRequestHandler<CreateAssetCommand, int>
+    private readonly IMapper mapper;
+    private readonly IAssetRepository assetRepository;
+
+    public CreateAssetCommandHandler(IMapper mapper, IAssetRepository assetRepository)
     {
-        private readonly IMapper mapper;
-        private readonly IAssetRepository assetRepository;
+        this.mapper = mapper;
+        this.assetRepository = assetRepository;
+    }
+    public async Task<int> Handle(CreateAssetCommand request, CancellationToken cancellationToken)
+    {
+        // Map
+        Asset asset = mapper.Map<Asset>(request);
 
-        public CreateAssetCommandHandler(IMapper mapper, IAssetRepository assetRepository)
+        // Validate
+        CreateAssetCommandValidator validator = new CreateAssetCommandValidator();
+        ValidationResult validationResult = await validator.ValidateAsync(request);
+
+        if (validationResult.Errors.Count > 0)
         {
-            this.mapper = mapper;
-            this.assetRepository = assetRepository;
+            throw new ValidationException(validationResult);
         }
-        public async Task<int> Handle(CreateAssetCommand request, CancellationToken cancellationToken)
-        {
-            // Map
-            Asset asset = mapper.Map<Asset>(request);
 
-            // Validate
-            CreateAssetCommandValidator validator = new CreateAssetCommandValidator();
-            ValidationResult validationResult = await validator.ValidateAsync(request);
-
-            if (validationResult.Errors.Count > 0)
-            {
-                throw new ValidationException(validationResult);
-            }
-
-            // Act
-            asset = await assetRepository.AddAsync(asset);
-            
-            // Return 
-            return asset.Id;
-        }
+        // Act
+        asset = await assetRepository.AddAsync(asset);
+        
+        // Return 
+        return asset.Id;
     }
 }
